@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse.ant.import?>
+<project>
+	<import file="build.xml" />
+	<!-- ================================= 
+	          target: genSrc              
+	     ================================= -->
+	<target name="genSrc" depends="" description="PMP Schema">
+		<mkdir dir="src/gen/java" />
+		<xjc destDir="src/gen/java" extension="true">
+			<schema dir="src/main/resources">
+				<!-- Quellverzeichnis der XSD-Files -->
+				<include name="*.xsd" />
+			</schema>
+		</xjc>
+	</target>
+</project>

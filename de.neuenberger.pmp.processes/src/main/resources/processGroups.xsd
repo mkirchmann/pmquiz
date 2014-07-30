@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) von Janine Porrmann (PRODYNA GmbH) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="PMP_Processes" type="cplxProcessGroups">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="cplxProcessGroups">
+		<xs:sequence>
+			<xs:element name="KnowledgeArea" type="cplxKnowledgeArea" maxOccurs="unbounded"/>
+			<xs:element name="ProcessGroup" type="cplxProcessGroup" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="cplxProcessGroup">
+		<xs:complexContent>
+			<xs:extension base="cplxNamed">
+				<xs:sequence>
+					<xs:element name="Process" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="cplxProcess">
+									<xs:attribute name="knowledgeAreaId" type="xs:string"/>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="cplxProcess">
+		<xs:complexContent>
+			<xs:extension base="cplxNamed"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="cplxNamed">
+		<xs:attribute name="name" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="cplxKnowledgeArea">
+		<xs:complexContent>
+			<xs:extension base="cplxNamed">
+				<xs:sequence>
+					<xs:element name="Process" type="cplxProcess" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="id" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
