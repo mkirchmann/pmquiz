@@ -4,6 +4,9 @@
 package de.neuenberger.pmp.processes;
 
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -15,35 +18,37 @@ import javax.swing.JPanel;
  */
 public class QuestionComposite extends JPanel {
 	private final JLabel question;
-	private final JButton buttonA;
-	private final JButton buttonB;
-	private final JButton buttonC;
-	private final JButton buttonD;
-	private final JLabel optionA;
-	private final JLabel optionB;
-	private final JLabel optionC;
-	private final JLabel optionD;
 	private final JButton nextButton;
 
+	List<JButton> optionButtons = new ArrayList<>();
+	List<JLabel> optionLabels = new ArrayList<>();
+
 	QuestionComposite() {
-		this.setLayout(new GridLayout(2, 6));
+		this.setLayout(new GridLayout(6, 2));
 		this.add(new JLabel("X"));
 		question = new JLabel();
+		this.add(question);
+		createButtonAndLabel("A");
+		createButtonAndLabel("B");
+		createButtonAndLabel("C");
+		createButtonAndLabel("D");
 
-		buttonA = new JButton("A");
-		optionA = new JLabel("");
-
-		buttonB = new JButton("B");
-		optionB = new JLabel("");
-
-		buttonC = new JButton("C");
-		optionC = new JLabel("");
-
-		buttonD = new JButton("D");
-		optionD = new JLabel("");
-
-		new JLabel("");
+		this.add(new JLabel(""));
 		nextButton = new JButton("Next");
+		this.add(nextButton);
+	}
+
+	/**
+	 * @param string
+	 */
+	private void createButtonAndLabel(final String string) {
+		final JButton button = new JButton(string);
+		final JLabel optionLabel = new JLabel("");
+
+		this.add(button);
+		this.add(optionLabel);
+		optionLabels.add(optionLabel);
+		optionButtons.add(button);
 	}
 
 	/**
@@ -54,65 +59,23 @@ public class QuestionComposite extends JPanel {
 	}
 
 	/**
-	 * @return the buttonA
-	 */
-	public JButton getButtonA() {
-		return buttonA;
-	}
-
-	/**
-	 * @return the buttonB
-	 */
-	public JButton getButtonB() {
-		return buttonB;
-	}
-
-	/**
-	 * @return the buttonC
-	 */
-	public JButton getButtonC() {
-		return buttonC;
-	}
-
-	/**
-	 * @return the buttonD
-	 */
-	public JButton getButtonD() {
-		return buttonD;
-	}
-
-	/**
-	 * @return the optionA
-	 */
-	public JLabel getOptionA() {
-		return optionA;
-	}
-
-	/**
-	 * @return the optionB
-	 */
-	public JLabel getOptionB() {
-		return optionB;
-	}
-
-	/**
-	 * @return the optionC
-	 */
-	public JLabel getOptionC() {
-		return optionC;
-	}
-
-	/**
-	 * @return the optionD
-	 */
-	public JLabel getOptionD() {
-		return optionD;
-	}
-
-	/**
 	 * @return the nextButton
 	 */
 	public JButton getNextButton() {
 		return nextButton;
+	}
+
+	/**
+	 * @return the buttons
+	 */
+	public List<JButton> getOptionButtons() {
+		return Collections.unmodifiableList(optionButtons);
+	}
+
+	/**
+	 * @return the labels
+	 */
+	public List<JLabel> getOptionLabels() {
+		return Collections.unmodifiableList(optionLabels);
 	}
 }

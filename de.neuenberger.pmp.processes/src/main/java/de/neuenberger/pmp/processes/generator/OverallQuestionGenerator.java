@@ -3,6 +3,7 @@
  */
 package de.neuenberger.pmp.processes.generator;
 
+import generated.CplxProcessGroups;
 import de.neuenberger.pmp.processes.model.Question;
 
 /**
@@ -10,6 +11,11 @@ import de.neuenberger.pmp.processes.model.Question;
  * 
  */
 public class OverallQuestionGenerator implements QuestionGenerator {
+	private final CplxProcessGroups processGroups;
+
+	public OverallQuestionGenerator(final CplxProcessGroups processGroups) {
+		this.processGroups = processGroups;
+	}
 
 	/*
 	 * (non-Javadoc)
