@@ -27,15 +27,14 @@ public class MainWindow extends JFrame {
 	}
 
 	public static void main(final String[] argv) throws IOException {
-		final InputStream stream = MainWindow.class.getResource(
-				"pmp_processes.xml").openStream();
-		final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream,
-				CplxProcessGroups.class);
+		final InputStream stream = MainWindow.class.getResource("pmp_processes.xml").openStream();
+		final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream, CplxProcessGroups.class);
 		new KnowledgeAreaFactory().process(cplxProcessGroups);
 		final QuestionComposite questionComposite = new QuestionComposite();
-		final QuestionController controller = new QuestionController(null,
-				new OverallQuestionGenerator(cplxProcessGroups),
+		final QuestionController controller = new QuestionController(null, new OverallQuestionGenerator(cplxProcessGroups),
 				questionComposite);
-		new MainWindow(controller).setVisible(true);
+		MainWindow mainWindow = new MainWindow(controller);
+		mainWindow.setSize(300, 200);
+		mainWindow.setVisible(true);
 	}
 }

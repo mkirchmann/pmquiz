@@ -10,8 +10,8 @@ import de.neuenberger.pmp.processes.model.Question;
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class KnowledgeAreaQuestionGenerator implements QuestionGenerator {
-	CplxKnowledgeArea knowledgeArea;
+public class KnowledgeAreaQuestionGenerator implements QuestionDrawer {
+	CplxKnowledgeArea	knowledgeArea;
 
 	public KnowledgeAreaQuestionGenerator(final CplxKnowledgeArea knowledgeArea) {
 		this.knowledgeArea = knowledgeArea;
@@ -28,12 +28,13 @@ public class KnowledgeAreaQuestionGenerator implements QuestionGenerator {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * de.neuenberger.pmp.processes.generator.QuestionGenerator#generateQuestion
+	 * de.neuenberger.pmp.processes.generator.QuestionDrawer#generateQuestion
 	 * ()
 	 */
 	@Override
-	public Question generateQuestion() {
+	public Question drawQuestion() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

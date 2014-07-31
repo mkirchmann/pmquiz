@@ -10,8 +10,8 @@ import de.neuenberger.pmp.processes.model.Question;
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class ProcessGroupQuestionGenerator implements QuestionGenerator {
-	private final CplxProcessGroup processGroup;
+public class ProcessGroupQuestionGenerator implements QuestionDrawer {
+	private final CplxProcessGroup	processGroup;
 
 	public ProcessGroupQuestionGenerator(final CplxProcessGroup processGroup) {
 		this.processGroup = processGroup;
@@ -22,12 +22,13 @@ public class ProcessGroupQuestionGenerator implements QuestionGenerator {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * de.neuenberger.pmp.processes.generator.QuestionGenerator#generateQuestion
+	 * de.neuenberger.pmp.processes.generator.QuestionDrawer#generateQuestion
 	 * ()
 	 */
 	@Override
-	public Question generateQuestion() {
+	public Question drawQuestion() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

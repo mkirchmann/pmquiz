@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 
-import de.neuenberger.pmp.processes.generator.QuestionGenerator;
+import de.neuenberger.pmp.processes.generator.QuestionDrawer;
 import de.neuenberger.pmp.processes.model.Question;
 
 /**
@@ -20,11 +20,11 @@ import de.neuenberger.pmp.processes.model.Question;
  */
 public class QuestionController {
 	Question question;
-	QuestionGenerator generator;
+	QuestionDrawer generator;
 	private final QuestionComposite questionComposite;
 
 	public QuestionController(final Question question,
-			final QuestionGenerator generator,
+			final QuestionDrawer generator,
 			final QuestionComposite questionComposite) {
 		this.question = question;
 		this.generator = generator;
@@ -112,7 +112,7 @@ public class QuestionController {
 	 * 
 	 */
 	public void drawNextQuestion() {
-		setQuestion(generator.generateQuestion());
+		setQuestion(generator.drawQuestion());
 	}
 
 	/**
