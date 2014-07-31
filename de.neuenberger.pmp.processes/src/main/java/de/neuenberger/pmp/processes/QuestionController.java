@@ -23,10 +23,8 @@ public class QuestionController {
 	QuestionDrawer generator;
 	private final QuestionComposite questionComposite;
 
-	public QuestionController(final Question question,
-			final QuestionDrawer generator,
+	public QuestionController(final QuestionDrawer generator,
 			final QuestionComposite questionComposite) {
-		this.question = question;
 		this.generator = generator;
 		this.questionComposite = questionComposite;
 
@@ -39,7 +37,7 @@ public class QuestionController {
 		}
 		questionComposite.getNextButton().addActionListener(
 				new NextQuestionActionListener(this));
-
+		questionComposite.setEnabledNextButton(true);
 	}
 
 	/**
@@ -63,6 +61,7 @@ public class QuestionController {
 			questionComposite.getOptionLabels().get(i).setText(value);
 		}
 		questionComposite.getQuestion().setText(question.getQuestion());
+		questionComposite.setEnabledNextButton(false);
 	}
 
 	public void selectedAnswer(final int idx) {
@@ -81,6 +80,10 @@ public class QuestionController {
 				idxWrong = idx;
 			}
 			markAnswer(idxCorrect, idxWrong);
+			
+			questionComposite.setEnabledNextButton(true);
+			
+			question = null;
 		}
 	}
 

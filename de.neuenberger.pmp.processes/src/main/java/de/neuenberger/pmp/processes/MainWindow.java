@@ -31,10 +31,9 @@ public class MainWindow extends JFrame {
 		final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream, CplxProcessGroups.class);
 		new KnowledgeAreaFactory().process(cplxProcessGroups);
 		final QuestionComposite questionComposite = new QuestionComposite();
-		final QuestionController controller = new QuestionController(null, new OverallQuestionDrawer(cplxProcessGroups),
-				questionComposite);
+		final QuestionController controller = new QuestionController(new OverallQuestionDrawer(cplxProcessGroups), questionComposite);
 		MainWindow mainWindow = new MainWindow(controller);
-		mainWindow.setSize(300, 200);
+		mainWindow.setSize(400, 300);
 		mainWindow.setVisible(true);
 	}
 }

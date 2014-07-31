@@ -3,7 +3,10 @@
  */
 package de.neuenberger.pmp.processes;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.TextArea;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,31 +14,46 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
 /**
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
 public class QuestionComposite extends JPanel {
-	private final JLabel question;
+	private final JTextArea question;
 	private final JButton nextButton;
 
-	List<JButton> optionButtons = new ArrayList<>();
-	List<JLabel> optionLabels = new ArrayList<>();
+	private final List<JButton> optionButtons = new ArrayList<>();
+	private final List<JTextArea> optionLabels = new ArrayList<>();
+	private final JPanel panelLeft;
+	private final JPanel panelRight;
 
 	QuestionComposite() {
-		this.setLayout(new GridLayout(6, 2));
-		this.add(new JLabel("X"));
-		question = new JLabel();
-		this.add(question);
+		
+		BorderLayout layout = new BorderLayout();
+		this.setLayout(layout);
+		panelLeft = new JPanel();
+		panelRight = new JPanel();
+		GridLayout layoutLeft = new GridLayout(6, 1);
+		GridLayout layoutRight = new GridLayout(6, 1);
+		panelLeft.setLayout(layoutLeft);
+		panelRight.setLayout(layoutRight);
+		this.add(panelLeft, BorderLayout.WEST);
+		this.add(panelRight, BorderLayout.CENTER);
+		
+		panelLeft.add(new JLabel("X"));
+		question = createTextLabel();
+		
+		panelRight.add(question);
 		createButtonAndLabel("A");
 		createButtonAndLabel("B");
 		createButtonAndLabel("C");
 		createButtonAndLabel("D");
 
-		this.add(new JLabel(""));
+		panelLeft.add(new JLabel(""));
 		nextButton = new JButton("Next");
-		this.add(nextButton);
+		panelRight.add(nextButton);
 	}
 
 	/**
@@ -43,18 +61,27 @@ public class QuestionComposite extends JPanel {
 	 */
 	private void createButtonAndLabel(final String string) {
 		final JButton button = new JButton(string);
-		final JLabel optionLabel = new JLabel("");
+		final JTextArea optionLabel = createTextLabel();
 
-		this.add(button);
-		this.add(optionLabel);
+		panelLeft.add(button);
+		panelRight.add(optionLabel);
 		optionLabels.add(optionLabel);
 		optionButtons.add(button);
+	}
+
+	private JTextArea createTextLabel() {
+		final JTextArea optionLabel = new JTextArea("");
+		optionLabel.setBorder(new LineBorder(Color.GRAY));
+		optionLabel.setLineWrap(true);
+		optionLabel.setEditable(false);
+		optionLabel.setWrapStyleWord(true);
+		return optionLabel;
 	}
 
 	/**
 	 * @return the question
 	 */
-	public JLabel getQuestion() {
+	public JTextArea getQuestion() {
 		return question;
 	}
 
@@ -75,7 +102,14 @@ public class QuestionComposite extends JPanel {
 	/**
 	 * @return the labels
 	 */
-	public List<JLabel> getOptionLabels() {
+	public List<JTextArea> getOptionLabels() {
 		return Collections.unmodifiableList(optionLabels);
+	}
+
+	public void setEnabledNextButton(boolean b) {
+		for (int i = 0; i < 4; i++) {
+			getOptionButtons().get(i).setEnabled(!b);
+		}
+		getNextButton().setEnabled(b);
 	}
 }
