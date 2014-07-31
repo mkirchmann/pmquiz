@@ -12,7 +12,7 @@ import java.io.InputStream;
 import javax.swing.JFrame;
 import javax.xml.bind.JAXB;
 
-import de.neuenberger.pmp.processes.generator.OverallQuestionGenerator;
+import de.neuenberger.pmp.processes.generator.OverallQuestionDrawer;
 import de.neuenberger.pmp.processes.model.KnowledgeAreaFactory;
 
 /**
@@ -31,7 +31,7 @@ public class MainWindow extends JFrame {
 		final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream, CplxProcessGroups.class);
 		new KnowledgeAreaFactory().process(cplxProcessGroups);
 		final QuestionComposite questionComposite = new QuestionComposite();
-		final QuestionController controller = new QuestionController(null, new OverallQuestionGenerator(cplxProcessGroups),
+		final QuestionController controller = new QuestionController(null, new OverallQuestionDrawer(cplxProcessGroups),
 				questionComposite);
 		MainWindow mainWindow = new MainWindow(controller);
 		mainWindow.setSize(300, 200);

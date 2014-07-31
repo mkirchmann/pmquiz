@@ -16,7 +16,7 @@ import de.neuenberger.pmp.processes.model.Question;
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class ProcessRelatedQuestionGenerator extends AbstractQuestionGenerator {
+public class ProcessRelatedQuestionGenerator extends AbstractLazyQuestionContainer {
 	private final CplxProcessGroup	processGroup;
 	QuestionFactory<Process>		questionFactory;
 
@@ -130,6 +130,16 @@ public class ProcessRelatedQuestionGenerator extends AbstractQuestionGenerator {
 		}
 
 	}
+	
+	public static List<Process> produceAllProcessNotInThisProcessGroup(final CplxProcessGroup processGroup, final List<CplxProcessGroup> allProcessGroups) {
+		List<Process> tempAllProcessesNotInThisProcessGroup = new LinkedList<>();
+		for (CplxProcessGroup cplxProcessGroup : allProcessGroups) {
+			if (cplxProcessGroup != processGroup) {
+				tempAllProcessesNotInThisProcessGroup.addAll(cplxProcessGroup.getProcess());
+			}
+		}
+		return new ArrayList<>(tempAllProcessesNotInThisProcessGroup);
+	}
 
 	public static class GuessProcessOfProcessGroup implements QuestionFactory<Process> {
 
@@ -138,13 +148,7 @@ public class ProcessRelatedQuestionGenerator extends AbstractQuestionGenerator {
 
 		public GuessProcessOfProcessGroup(final CplxProcessGroup processGroup, final List<CplxProcessGroup> allProcessGroups) {
 			this.processGroup = processGroup;
-			List<Process> tempAllProcessesNotInThisProcessGroup = new LinkedList<>();
-			for (CplxProcessGroup cplxProcessGroup : allProcessGroups) {
-				if (cplxProcessGroup != processGroup) {
-					tempAllProcessesNotInThisProcessGroup.addAll(cplxProcessGroup.getProcess());
-				}
-			}
-			allProcessesNotInThisProcessGroup = new ArrayList<>(tempAllProcessesNotInThisProcessGroup);
+			allProcessesNotInThisProcessGroup =produceAllProcessNotInThisProcessGroup(processGroup, allProcessGroups);
 		}
 
 		/*
@@ -159,5 +163,29 @@ public class ProcessRelatedQuestionGenerator extends AbstractQuestionGenerator {
 		}
 
 	}
+	
+	
+	public static class GuessProcessNotInThisProcessGroup implements QuestionFactory<Process> {
 
+		private final CplxProcessGroup	processGroup;
+		private final List<Process>		allProcessesNotInThisProcessGroup;
+
+		public GuessProcessNotInThisProcessGroup(final CplxProcessGroup processGroup, final List<CplxProcessGroup> allProcessGroups) {
+			this.processGroup = processGroup;
+			allProcessesNotInThisProcessGroup =produceAllProcessNotInThisProcessGroup(processGroup, allProcessGroups);
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see de.neuenberger.pmp.processes.generator.QuestionFactory#createQuestionForProcess(generated.CplxNamed)
+		 */
+		@Override
+		public Question createQuestionForProcess(final Process drawnProcess) {
+			Process processNotHere = RandomDrawer.drawRandomSingle(allProcessesNotInThisProcessGroup);
+			final String qString = "Which process is NOT in the " + processGroup.getName() + "?";
+			return QuestionUtil.createQuestion(qString, processNotHere, processGroup.getProcess());
+		}
+
+	}
 }

@@ -3,6 +3,8 @@
  */
 package de.neuenberger.pmp.processes.generator;
 
+import generated.CplxKnowledgeArea;
+import generated.CplxProcess;
 import generated.CplxProcessGroup;
 import generated.CplxProcessGroup.Process;
 import generated.CplxProcessGroups;
@@ -17,11 +19,11 @@ import de.neuenberger.pmp.processes.model.Question;
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class OverallQuestionGenerator implements QuestionDrawer {
+public class OverallQuestionDrawer implements QuestionDrawer {
 	private final CplxProcessGroups	processGroups;
-	List<QuestionDrawer>			generators	= new ArrayList<>();
+	List<QuestionContainer>			generators	= new ArrayList<>();
 
-	public OverallQuestionGenerator(final CplxProcessGroups processGroups) {
+	public OverallQuestionDrawer(final CplxProcessGroups processGroups) {
 		this.processGroups = processGroups;
 
 		final List<CplxProcessGroup> processGroup = processGroups.getProcessGroup();
@@ -34,10 +36,21 @@ public class OverallQuestionGenerator implements QuestionDrawer {
 					cplxProcessGroup, processGroup);
 			QuestionFactory<Process> factory4 = new ProcessRelatedQuestionGenerator.GuessProcessOfProcessGroup(cplxProcessGroup,
 					processGroup);
+			
+			QuestionFactory<Process> factory5 = new ProcessRelatedQuestionGenerator.GuessProcessNotInThisProcessGroup(cplxProcessGroup,
+					processGroup);
 
 			generators.add(new ProcessRelatedQuestionGenerator(cplxProcessGroup, factory1));
 			generators.add(new ProcessRelatedQuestionGenerator(cplxProcessGroup, factory2));
 			generators.add(new ProcessRelatedQuestionGenerator(cplxProcessGroup, factory3));
+			generators.add(new ProcessRelatedQuestionGenerator(cplxProcessGroup, factory4));
+			generators.add(new ProcessRelatedQuestionGenerator(cplxProcessGroup, factory5));
+		}
+		
+		List<CplxKnowledgeArea> knowledgeAreas = processGroups.getKnowledgeArea();
+		for (CplxKnowledgeArea cplxKnowledgeArea : knowledgeAreas) {
+			QuestionFactory<CplxProcess> questionFactory = new KnowledgeAreaRelatedQuestionGenerator.GuessKnowledgeArea(cplxKnowledgeArea, knowledgeAreas);
+			generators.add(new KnowledgeAreaRelatedQuestionGenerator(cplxKnowledgeArea, questionFactory ));
 		}
 	}
 
@@ -50,8 +63,10 @@ public class OverallQuestionGenerator implements QuestionDrawer {
 	 */
 	@Override
 	public Question drawQuestion() {
-		final int genIndex = new Random().nextInt(generators.size());
-		return generators.get(genIndex).drawQuestion();
+		Random random = new Random();
+		final int genIndex = random.nextInt(generators.size());
+		List<Question> allQuestions = generators.get(genIndex).getAllQuestions();
+		return allQuestions.get(random.nextInt(allQuestions.size()));
 	}
 
 }

@@ -13,7 +13,7 @@ import de.neuenberger.pmp.processes.model.Question;
  * 
  * @author Michael Kirchmann, PRODYNA AG
  */
-public abstract class AbstractQuestionGenerator implements QuestionDrawer {
+public abstract class AbstractLazyQuestionContainer implements QuestionContainer {
 	private List<Question>	allQuestions;
 
 	public List<Question> getAllQuestions() {
@@ -24,20 +24,8 @@ public abstract class AbstractQuestionGenerator implements QuestionDrawer {
 	}
 
 	/**
-	 * @return
+	 * @return Returns all created questions.
 	 */
 	abstract protected List<Question> createQuestions();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.neuenberger.pmp.processes.generator.QuestionDrawer#generateQuestion
-	 * ()
-	 */
-	@Override
-	public Question drawQuestion() {
-		List<Question> questions = getAllQuestions();
-		return questions.get(new Random().nextInt(questions.size()));
-	}
 }
