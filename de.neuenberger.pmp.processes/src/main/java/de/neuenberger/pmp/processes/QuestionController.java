@@ -3,8 +3,6 @@
  */
 package de.neuenberger.pmp.processes;
 
-import generated.CplxProcess;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -59,9 +57,9 @@ public class QuestionController {
 		this.question = question;
 
 		clearAnswers();
-		final List<CplxProcess> options = question.getOptions();
+		final List<String> options = question.getOptions();
 		for (int i = 0; i < 4; i++) {
-			final String value = options.get(i).getName();
+			final String value = options.get(i);
 			questionComposite.getOptionLabels().get(i).setText(value);
 		}
 		questionComposite.getQuestion().setText(question.getQuestion());
@@ -69,7 +67,7 @@ public class QuestionController {
 
 	public void selectedAnswer(final int idx) {
 		if (question != null) {
-			final CplxProcess answer = question.getOptions().get(idx);
+			final String answer = question.getOptions().get(idx);
 			Integer idxCorrect;
 			Integer idxWrong;
 			if (answer == question.getCorrectAnswer()) {

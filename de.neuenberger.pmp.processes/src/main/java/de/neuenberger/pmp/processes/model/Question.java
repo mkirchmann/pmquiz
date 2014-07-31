@@ -3,8 +3,6 @@
  */
 package de.neuenberger.pmp.processes.model;
 
-import generated.CplxProcess;
-
 import java.util.List;
 
 /**
@@ -12,29 +10,38 @@ import java.util.List;
  * 
  */
 public class Question {
-	private final List<CplxProcess> options;
-	private final CplxProcess correctAnswer;
+	private final List<String> options;
+	private final String correctAnswer;
 	private final String question;
 
-	public Question(final String question, final List<CplxProcess> options,
-			final CplxProcess correctAnswers) {
+	public Question(final String question, final List<String> options,
+			final String correctAnswers) {
 		super();
 		this.question = question;
 		this.options = options;
 		this.correctAnswer = correctAnswers;
+
+		if (options.size() != 4) {
+			throw new IllegalArgumentException("Question size wrong: "
+					+ options.size());
+		}
+		if (!options.contains(correctAnswers)) {
+			throw new IllegalArgumentException("Answer ('" + correctAnswers
+					+ "') not contained!");
+		}
 	}
 
 	/**
 	 * @return the options
 	 */
-	public List<CplxProcess> getOptions() {
+	public List<String> getOptions() {
 		return options;
 	}
 
 	/**
 	 * @return the correctAnswer
 	 */
-	public CplxProcess getCorrectAnswer() {
+	public String getCorrectAnswer() {
 		return correctAnswer;
 	}
 

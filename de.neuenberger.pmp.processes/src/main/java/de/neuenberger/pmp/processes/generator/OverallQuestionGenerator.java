@@ -3,7 +3,13 @@
  */
 package de.neuenberger.pmp.processes.generator;
 
+import generated.CplxProcessGroup;
 import generated.CplxProcessGroups;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import de.neuenberger.pmp.processes.model.Question;
 
 /**
@@ -12,9 +18,17 @@ import de.neuenberger.pmp.processes.model.Question;
  */
 public class OverallQuestionGenerator implements QuestionGenerator {
 	private final CplxProcessGroups processGroups;
+	List<QuestionGenerator> generators = new ArrayList<>();
 
 	public OverallQuestionGenerator(final CplxProcessGroups processGroups) {
 		this.processGroups = processGroups;
+
+		final List<CplxProcessGroup> processGroup = processGroups
+				.getProcessGroup();
+		for (final CplxProcessGroup cplxProcessGroup : processGroup) {
+			generators.add(new GuessProcessGroupGenerator(cplxProcessGroup,
+					processGroups.getProcessGroup()));
+		}
 	}
 
 	/*
@@ -26,8 +40,7 @@ public class OverallQuestionGenerator implements QuestionGenerator {
 	 */
 	@Override
 	public Question generateQuestion() {
-		// TODO Auto-generated method stub
-		return null;
+		final int genIndex = new Random().nextInt(generators.size());
+		return generators.get(genIndex).generateQuestion();
 	}
-
 }
