@@ -106,7 +106,7 @@ public class QuestionController {
 					.setBackground(Color.GREEN);
 		}
 		if (idxWrong != null) {
-			questionComposite.getOptionButtons().get(idxCorrect)
+			questionComposite.getOptionButtons().get(idxWrong)
 					.setBackground(Color.RED);
 		}
 	}

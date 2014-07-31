@@ -22,6 +22,7 @@ import de.neuenberger.pmp.processes.model.KnowledgeAreaFactory;
 public class MainWindow extends JFrame {
 
 	MainWindow(final QuestionController controller) {
+		setTitle("PMP Quiz");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(controller.getQuestionComposite(), BorderLayout.CENTER);
 	}
