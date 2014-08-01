@@ -7,15 +7,15 @@ package de.neuenberger.pmp.processes.model;
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class QuestionStatisticEntry implements
-		Comparable<QuestionStatisticEntry> {
+public class QuestionStatisticEntry<E extends Named> implements
+		Comparable<QuestionStatisticEntry<E>> {
 
 	private int countCorrect;
 	private int countIncorrect;
-	private final Question question;
+	private final E grouping;
 
-	QuestionStatisticEntry(final Question question) {
-		this.question = question;
+	QuestionStatisticEntry(final E question) {
+		this.grouping = question;
 	}
 
 	/*
@@ -49,7 +49,7 @@ public class QuestionStatisticEntry implements
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((question == null) ? 0 : question.hashCode());
+				+ ((grouping == null) ? 0 : grouping.hashCode());
 		return result;
 	}
 
@@ -70,11 +70,11 @@ public class QuestionStatisticEntry implements
 			return false;
 		}
 		final QuestionStatisticEntry other = (QuestionStatisticEntry) obj;
-		if (question == null) {
-			if (other.question != null) {
+		if (grouping == null) {
+			if (other.grouping != null) {
 				return false;
 			}
-		} else if (!question.equals(other.question)) {
+		} else if (!grouping.equals(other.grouping)) {
 			return false;
 		}
 		return true;
@@ -105,8 +105,8 @@ public class QuestionStatisticEntry implements
 	/**
 	 * 
 	 */
-	public Question getQuestion() {
-		return question;
+	public E getGrouping() {
+		return grouping;
 	}
 
 }

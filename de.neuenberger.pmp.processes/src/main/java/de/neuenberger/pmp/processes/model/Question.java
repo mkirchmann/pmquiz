@@ -9,14 +9,16 @@ import java.util.List;
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class Question {
+public class Question implements Named {
 	private final List<String> options;
 	private final String correctAnswer;
 	private final String question;
+	private final QuestionGroup group;
 
-	public Question(final String question, final List<String> options,
-			final String correctAnswers) {
+	public Question(final QuestionGroup group, final String question,
+			final List<String> options, final String correctAnswers) {
 		super();
+		this.group = group;
 		this.question = question;
 		this.options = options;
 		this.correctAnswer = correctAnswers;
@@ -49,6 +51,23 @@ public class Question {
 	 * @return the question
 	 */
 	public String getQuestion() {
+		return question;
+	}
+
+	/**
+	 * @return the group
+	 */
+	public QuestionGroup getGroup() {
+		return group;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.neuenberger.pmp.processes.model.Named#getName()
+	 */
+	@Override
+	public String getName() {
 		return question;
 	}
 }

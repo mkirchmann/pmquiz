@@ -18,8 +18,8 @@ import java.util.Map;
  * 
  */
 public class QuestionStatistics {
-	Map<Question, QuestionStatisticEntry> mapQuestionToCorrectCount = new LinkedHashMap<Question, QuestionStatisticEntry>();
-	private List<QuestionStatisticEntry> cached;
+	Map<QuestionGroup, QuestionStatisticEntry<QuestionGroup>> mapQuestionToCorrectCount = new LinkedHashMap<>();
+	private List<QuestionStatisticEntry<QuestionGroup>> cached;
 
 	private final PropertyChangeSupport support = new PropertyChangeSupport(
 			this);
@@ -27,10 +27,10 @@ public class QuestionStatistics {
 	public void count(final Question question, final boolean answeredCorrect) {
 		cached = null;
 		QuestionStatisticEntry statisticEntry = mapQuestionToCorrectCount
-				.get(question);
+				.get(question.getGroup());
 		if (statisticEntry == null) {
-			statisticEntry = new QuestionStatisticEntry(question);
-			mapQuestionToCorrectCount.put(question, statisticEntry);
+			statisticEntry = new QuestionStatisticEntry<>(question.getGroup());
+			mapQuestionToCorrectCount.put(question.getGroup(), statisticEntry);
 		}
 
 		statisticEntry.countup(answeredCorrect);
@@ -39,11 +39,11 @@ public class QuestionStatistics {
 				"mapQuestionToCorrectCount", null, true));
 	}
 
-	public List<QuestionStatisticEntry> getStatisticEntries() {
+	public List<QuestionStatisticEntry<QuestionGroup>> getStatisticEntries() {
 		if (cached == null) {
-			final Collection<QuestionStatisticEntry> values = mapQuestionToCorrectCount
+			final Collection<QuestionStatisticEntry<QuestionGroup>> values = mapQuestionToCorrectCount
 					.values();
-			final LinkedList<QuestionStatisticEntry> linkedList = new LinkedList<>(
+			final LinkedList<QuestionStatisticEntry<QuestionGroup>> linkedList = new LinkedList<>(
 					values);
 
 			Collections.sort(linkedList);

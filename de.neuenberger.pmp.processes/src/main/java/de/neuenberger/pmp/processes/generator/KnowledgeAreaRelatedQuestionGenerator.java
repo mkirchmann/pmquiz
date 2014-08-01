@@ -3,23 +3,28 @@
  */
 package de.neuenberger.pmp.processes.generator;
 
+import generated.CplxKnowledgeArea;
+import generated.CplxProcess;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import generated.CplxKnowledgeArea;
-import generated.CplxProcess;
 import de.neuenberger.pmp.processes.model.Question;
+import de.neuenberger.pmp.processes.model.QuestionGroup;
 
 /**
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class KnowledgeAreaRelatedQuestionGenerator extends AbstractLazyQuestionContainer  {
-	CplxKnowledgeArea	knowledgeArea;
-	private QuestionFactory<CplxProcess> questionFactory;
+public class KnowledgeAreaRelatedQuestionGenerator extends
+		AbstractLazyQuestionContainer {
+	CplxKnowledgeArea knowledgeArea;
+	private final QuestionFactory<CplxProcess> questionFactory;
 
-	public KnowledgeAreaRelatedQuestionGenerator(final CplxKnowledgeArea knowledgeArea, QuestionFactory<CplxProcess> questionFactory) {
+	public KnowledgeAreaRelatedQuestionGenerator(
+			final CplxKnowledgeArea knowledgeArea,
+			final QuestionFactory<CplxProcess> questionFactory) {
 		super(questionFactory.toString());
 		this.knowledgeArea = knowledgeArea;
 		this.questionFactory = questionFactory;
@@ -34,42 +39,62 @@ public class KnowledgeAreaRelatedQuestionGenerator extends AbstractLazyQuestionC
 
 	@Override
 	protected List<Question> createQuestions() {
-		List<CplxProcess> process = knowledgeArea.getProcess();
-		List<Question> lAllQuestions = new ArrayList<>(process.size());
-		for (CplxProcess cplxProcess : process) {
-			Question question = questionFactory.createQuestionForProcess(cplxProcess);
-			if (question!=null) {
+		final List<CplxProcess> process = knowledgeArea.getProcess();
+		final List<Question> lAllQuestions = new ArrayList<>(process.size());
+		for (final CplxProcess cplxProcess : process) {
+			final Question question = questionFactory
+					.createQuestionForProcess(cplxProcess);
+			if (question != null) {
 				lAllQuestions.add(question);
 			}
 		}
 		return lAllQuestions;
 	}
 
-	public static class GuessKnowledgeArea implements QuestionFactory<CplxProcess> {
-		private CplxKnowledgeArea knowledgeArea;
-		private List<CplxProcess> allNonCommonProcesses;
-		public GuessKnowledgeArea(CplxKnowledgeArea	knowledgeArea, List<CplxKnowledgeArea> allKnowledgeAreas) {
+	public static class GuessKnowledgeArea implements
+			QuestionFactory<CplxProcess> {
+		private final CplxKnowledgeArea knowledgeArea;
+		private final List<CplxProcess> allNonCommonProcesses;
+		private final QuestionGroup questionGroup;
+
+		public GuessKnowledgeArea(final CplxKnowledgeArea knowledgeArea,
+				final List<CplxKnowledgeArea> allKnowledgeAreas) {
 			this.knowledgeArea = knowledgeArea;
-			
-			List<CplxKnowledgeArea> allExceptCurrentKnowledgeAreas = new LinkedList<>(allKnowledgeAreas);
+			questionGroup = new QuestionGroup(
+					"Which process belongs to the knowledgearea "
+							+ knowledgeArea.getName() + "?");
+			final List<CplxKnowledgeArea> allExceptCurrentKnowledgeAreas = new LinkedList<>(
+					allKnowledgeAreas);
 			allExceptCurrentKnowledgeAreas.remove(knowledgeArea);
-			
+
 			allNonCommonProcesses = new LinkedList<>();
-			for (CplxKnowledgeArea cplxKnowledgeArea : allExceptCurrentKnowledgeAreas) {
+			for (final CplxKnowledgeArea cplxKnowledgeArea : allExceptCurrentKnowledgeAreas) {
 				allNonCommonProcesses.addAll(cplxKnowledgeArea.getProcess());
-				allNonCommonProcesses.removeAll(knowledgeArea.getProcess()); // remove all processes common to this and other knowledge areas.
+				allNonCommonProcesses.removeAll(knowledgeArea.getProcess()); // remove
+																				// all
+																				// processes
+																				// common
+																				// to
+																				// this
+																				// and
+																				// other
+																				// knowledge
+																				// areas.
 			}
 		}
+
 		@Override
-		public Question createQuestionForProcess(CplxProcess drawnProcess) {
-			String qString = "Which process belongs to the knowledgearea "+knowledgeArea.getName()+"?";
-			return QuestionUtil.createQuestion(qString, drawnProcess, allNonCommonProcesses);
+		public Question createQuestionForProcess(final CplxProcess drawnProcess) {
+			final String qString = "Which process belongs to the knowledgearea "
+					+ knowledgeArea.getName() + "?";
+			return QuestionUtil.createQuestion(questionGroup, qString,
+					drawnProcess, allNonCommonProcesses);
 		}
-		
+
 		@Override
 		public String toString() {
-			return "Guess Knowledge Area for "+knowledgeArea.getName();
+			return "Guess Knowledge Area for " + knowledgeArea.getName();
 		}
-		
+
 	}
 }
