@@ -4,7 +4,6 @@
 package de.neuenberger.pmp.processes.ui;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -18,9 +17,10 @@ import de.neuenberger.pmp.processes.model.Question;
  * @author Michael Kirchmann, PRODYNA AG
  * 
  */
-public class QuestionController {
-	Question question;
-	QuestionDrawer generator;
+public class QuestionController implements
+		Controller<QuestionComposite, Question> {
+	private Question question;
+	private final QuestionDrawer generator;
 	private final QuestionComposite questionComposite;
 
 	public QuestionController(final QuestionDrawer generator,
@@ -80,9 +80,9 @@ public class QuestionController {
 				idxWrong = idx;
 			}
 			markAnswer(idxCorrect, idxWrong);
-			
+
 			questionComposite.setEnabledNextButton(true);
-			
+
 			question = null;
 		}
 	}
@@ -116,13 +116,6 @@ public class QuestionController {
 	 */
 	public void drawNextQuestion() {
 		setQuestion(generator.drawQuestion());
-	}
-
-	/**
-	 * @return
-	 */
-	public Component getQuestionComposite() {
-		return questionComposite;
 	}
 
 	public static class QuestionSelectedListener implements ActionListener {
@@ -171,6 +164,36 @@ public class QuestionController {
 			questionController.drawNextQuestion();
 		}
 
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.neuenberger.pmp.processes.ui.Controller#getComponent()
+	 */
+	@Override
+	public QuestionComposite getComponent() {
+		return questionComposite;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.neuenberger.pmp.processes.ui.Controller#getModel()
+	 */
+	@Override
+	public Question getModel() {
+		return question;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Quiz";
 	}
 
 }
