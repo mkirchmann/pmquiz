@@ -11,7 +11,7 @@ import de.neuenberger.pmp.processes.model.Question;
 /**
  * Class for ...
  * 
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  */
 public abstract class AbstractLazyQuestionContainer implements QuestionContainer {
 	private List<Question>	allQuestions;

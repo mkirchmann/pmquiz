@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class QuestionStatisticsComposite extends JPanel {

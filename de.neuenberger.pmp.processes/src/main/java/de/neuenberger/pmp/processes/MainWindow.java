@@ -25,7 +25,7 @@ import de.neuenberger.pmp.processes.ui.SelectQuestionContainerComposite;
 import de.neuenberger.pmp.processes.ui.SelectQuestionContainerController;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class MainWindow extends JFrame {

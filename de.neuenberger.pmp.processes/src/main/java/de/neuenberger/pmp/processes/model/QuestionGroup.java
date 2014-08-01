@@ -4,7 +4,7 @@
 package de.neuenberger.pmp.processes.model;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class QuestionGroup implements Named {

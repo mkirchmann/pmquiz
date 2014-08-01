@@ -14,7 +14,7 @@ import de.neuenberger.pmp.processes.model.Question;
 import de.neuenberger.pmp.processes.model.QuestionGroup;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class ProcessRelatedQuestionGenerator extends

@@ -17,7 +17,7 @@ import java.util.List;
 import de.neuenberger.pmp.processes.model.Question;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class OverallQuestionDrawer implements QuestionDrawer {

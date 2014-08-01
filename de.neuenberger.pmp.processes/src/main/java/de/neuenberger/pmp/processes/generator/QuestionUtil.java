@@ -15,7 +15,7 @@ import de.neuenberger.pmp.processes.model.QuestionGroup;
 /**
  * Class for ...
  * 
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  */
 public class QuestionUtil {
 	/**

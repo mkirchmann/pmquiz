@@ -6,7 +6,7 @@ package de.neuenberger.pmp.processes.model;
 import java.util.List;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class Question implements Named {

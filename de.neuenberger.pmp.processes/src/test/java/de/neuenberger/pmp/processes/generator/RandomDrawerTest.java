@@ -13,7 +13,7 @@ import org.junit.Test;
 /**
  * Class for ...
  * 
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  */
 public class RandomDrawerTest {
 
