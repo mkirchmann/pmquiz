@@ -108,5 +108,16 @@ public class QuestionStatisticEntry<E extends Named> implements
 	public E getGrouping() {
 		return grouping;
 	}
+	
+	public double getPercentage() {
+		double result;
+		int dividor = countCorrect+countIncorrect;
+		if (dividor==0) {
+			result = 0;
+		} else {
+			result = (double)countCorrect/dividor;
+		}
+		return result;
+	}
 
 }
