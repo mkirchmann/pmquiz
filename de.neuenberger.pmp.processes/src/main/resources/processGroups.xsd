@@ -41,9 +41,34 @@
 		<xs:complexContent>
 			<xs:extension base="cplxNamed">
 				<xs:sequence>
-					<xs:element name="Process" type="cplxProcess" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Process" type="cplxProcess"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="Addition" type="cplxAddition" maxOccurs="1" minOccurs="0"></xs:element>
 				</xs:sequence>
 				<xs:attribute name="id" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="cplxAddition">
+
+		<xs:sequence>
+			<xs:element name="Group" type="cplxGroup" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="cplxGroup">
+		<xs:complexContent>
+			<xs:extension base="cplxNamed">
+				<xs:sequence>
+					<xs:element name="Definition" type="cplxDefinition" maxOccurs="unbounded" minOccurs="4"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="cplxDefinition">
+		<xs:complexContent>
+			<xs:extension base="cplxNamed">
+				<xs:attribute name="description" type="xs:string"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

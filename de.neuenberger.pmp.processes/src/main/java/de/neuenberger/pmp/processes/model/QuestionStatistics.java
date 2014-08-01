@@ -18,8 +18,8 @@ import java.util.Map;
  * 
  */
 public class QuestionStatistics {
-	Map<QuestionGroup, QuestionStatisticEntry<QuestionGroup>> mapQuestionToCorrectCount = new LinkedHashMap<>();
-	private List<QuestionStatisticEntry<QuestionGroup>> cached;
+	Map<DefaultQuestionGroup, QuestionStatisticEntry<DefaultQuestionGroup>> mapQuestionToCorrectCount = new LinkedHashMap<>();
+	private List<QuestionStatisticEntry<DefaultQuestionGroup>> cached;
 
 	private final PropertyChangeSupport support = new PropertyChangeSupport(
 			this);
@@ -39,11 +39,11 @@ public class QuestionStatistics {
 				"mapQuestionToCorrectCount", null, true));
 	}
 
-	public List<QuestionStatisticEntry<QuestionGroup>> getStatisticEntries() {
+	public List<QuestionStatisticEntry<DefaultQuestionGroup>> getStatisticEntries() {
 		if (cached == null) {
-			final Collection<QuestionStatisticEntry<QuestionGroup>> values = mapQuestionToCorrectCount
+			final Collection<QuestionStatisticEntry<DefaultQuestionGroup>> values = mapQuestionToCorrectCount
 					.values();
-			final LinkedList<QuestionStatisticEntry<QuestionGroup>> linkedList = new LinkedList<>(
+			final LinkedList<QuestionStatisticEntry<DefaultQuestionGroup>> linkedList = new LinkedList<>(
 					values);
 
 			Collections.sort(linkedList);

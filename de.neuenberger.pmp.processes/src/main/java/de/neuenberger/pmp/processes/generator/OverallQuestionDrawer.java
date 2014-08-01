@@ -72,6 +72,7 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 					cplxKnowledgeArea, knowledgeAreas);
 			generators.add(new KnowledgeAreaRelatedQuestionGenerator(
 					cplxKnowledgeArea, questionFactory));
+			generators.add(new KnowledgeAreaReleatedAdditionalQuestionsGenerator(cplxKnowledgeArea));
 		}
 	}
 

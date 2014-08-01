@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 
-import de.neuenberger.pmp.processes.model.QuestionGroup;
+import de.neuenberger.pmp.processes.model.DefaultQuestionGroup;
 import de.neuenberger.pmp.processes.model.QuestionStatisticEntry;
 import de.neuenberger.pmp.processes.model.QuestionStatistics;
 
@@ -48,7 +48,7 @@ public class QuestionStatisticsTableModel extends AbstractTableModel implements
 		return getEntries().size();
 	}
 
-	private List<QuestionStatisticEntry<QuestionGroup>> getEntries() {
+	private List<QuestionStatisticEntry<DefaultQuestionGroup>> getEntries() {
 		return statistics.getStatisticEntries();
 	}
 

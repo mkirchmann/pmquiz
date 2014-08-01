@@ -5,7 +5,70 @@
 <KnowledgeArea id="TimM" name="Time Management"/>
 <KnowledgeArea id="CostM" name="Cost Management"/>
 <KnowledgeArea id="QM" name="Quality Management"/>
-<KnowledgeArea id="HRM" name="Human Resource Management"/>
+<KnowledgeArea id="HRM" name="Human Resource Management">
+<Addition>
+	<Group name="Leading Style">
+		<Definition name="Directing" description="Tell others what to do"/>
+		<Definition name="Facilitating" description="Coordinate the input of others"/>
+		<Definition name="Coaching" description="Help others achieve their goals"/>
+		<Definition name="Supporting" description="Provide assistance along the way"/>
+		<Definition name="Autocratic" description="Everyone does what the manager wants them to do"/>
+		<Definition name="Consultative" description="Obtain others' oppinions and act as the servant-leader for the team."/>
+		<Definition name="Consultative-Autocratic" description="Solicit input from team members, but retain decision-making authority for him- or herself."/>
+		<Definition name="Consensus" description="Problem solving in a group, decisions are made based on group agreements."/>
+		<Definition name="Delegating" description="Establish goals and give the team sufficient authority to complete the work."/>
+		<Definition name="Bureaucratic" description="Follow procedures exactly."/>
+		<Definition name="Charismatic" description="Energize and encourage the team in performing project work."/>
+		<Definition name="Democratic or Participative" description="Encourage team in the decision-making process."/>
+		<Definition name="Laissez-faire" description="Allow to act, allow to do, leave alone."/>
+		<Definition name="Analytical" description="Depend on technical know-how and ability."/>
+		<Definition name="Driver" description="Constantly give directions."/>
+		<Definition name="Influencing" description="Emphasize teamwork, team building and team decision making."/>
+	</Group>
+	<Group name="Conflict Reasons">
+		<Definition name="No. 1 Conflict Reason" description="Schedules"/>
+		<Definition name="No. 2 Conflict Reason" description="Project Priorities"/>
+		<Definition name="No. 3 Conflict Reason" description="Resources"/>
+		<Definition name="No. 4 Conflict Reason" description="Technical opinions"/>
+		<Definition name="No. 5 Conflict Reason" description="Administrative procedures"/>
+		<Definition name="No. 6 Conflict Reason" description="Cost"/>
+		<Definition name="No. 7 Conflict Reason" description="Personality"/>
+	</Group>
+	<Group name="Conflict Resolution styles">
+		<Definition name="Collaborating" description="Problem solving"/>
+		<Definition name="Compromising" description="Reconciling"/>
+		<Definition name="Withdrawal" description="Avoidance"/>
+		<Definition name="Smoothing" description="Accomodating"/>
+		<Definition name="Forcing" description="Directing"/>
+	</Group>
+	<Group name="Conflict Resolution styles definititions">
+		<Definition name="Collaborating" description="The parties openly discuss differences and try to incorporate multiple viewpoints in order to lead to consensus. This leads to a win-win situation."/>
+		<Definition name="Compromising" description="Finding solutions and bring some degree of satisfaction to both parties."/>
+		<Definition name="Withdrawal" description="Retreat or postpone a decision on a problem."/>
+		<Definition name="Smoothing" description="Emphasize agreement rather than differences of options"/>
+		<Definition name="Forcing" description="Push one viewpoint at the expense of another."/>
+	</Group>
+	<Group name="Conflict Resolution styles evaluation">
+		<Definition name="Collaborating" description="win-win"/>
+		<Definition name="Compromising" description="lose-lose"/>
+		<Definition name="Withdrawal" description="Not usually the best, but sometimes necessary"/>
+		<Definition name="Forcing" description="win-lose"/>
+	</Group>
+	<Group name="Team building phases">
+		<Definition name="Forming" description="People are brought together as a team."/>
+		<Definition name="Storming" description="There are disagreements as people learn to work together."/>
+		<Definition name="Norming" description="Team members begin to build good working relationships."/>
+		<Definition name="Performing" description="The team becomes efficient and works effectively together."/>
+		<Definition name="Adjourning" description="The project ends, and the team is disbanded."/>
+	</Group>
+	<Group name="Other terms">
+		<Definition name="Expectancy Theory" description="Employees who believe their efforts will lead to effective performance and who expect to be rewarded for their accomplishments will remain productive as rewards meet their expectations."/>
+		<Definition name="Arbitration" description="A neutral party hears and resolves a dispute."/>
+		<Definition name="Perquisites (Perks)" description="Some employees receive special rewards, such as assigned parking spaces, corner offices, and executive dining."/>
+		<Definition name="Fringe Benefits" description="These are the &quot;standard&quot; benefits formally given to all employees, such as education benefits, insurance, and profit sharing."/>
+	</Group>
+</Addition>
+</KnowledgeArea>
 <KnowledgeArea id="ComM" name="Communications Management"/>
 <KnowledgeArea id="RiskM" name="Risk Management"/>
 <KnowledgeArea id="ProcM" name="Procurement Management"/>

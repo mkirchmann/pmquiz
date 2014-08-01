@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import de.neuenberger.pmp.processes.model.Question;
-import de.neuenberger.pmp.processes.model.QuestionGroup;
+import de.neuenberger.pmp.processes.model.DefaultQuestionGroup;
 
 /**
  * @author Michael Kirchmann
@@ -55,12 +55,12 @@ public class KnowledgeAreaRelatedQuestionGenerator extends
 			QuestionFactory<CplxProcess> {
 		private final CplxKnowledgeArea knowledgeArea;
 		private final List<CplxProcess> allNonCommonProcesses;
-		private final QuestionGroup questionGroup;
+		private final DefaultQuestionGroup questionGroup;
 
 		public GuessKnowledgeArea(final CplxKnowledgeArea knowledgeArea,
 				final List<CplxKnowledgeArea> allKnowledgeAreas) {
 			this.knowledgeArea = knowledgeArea;
-			questionGroup = new QuestionGroup(
+			questionGroup = new DefaultQuestionGroup(
 					"Which process belongs to the knowledgearea "
 							+ knowledgeArea.getName() + "?");
 			final List<CplxKnowledgeArea> allExceptCurrentKnowledgeAreas = new LinkedList<>(
