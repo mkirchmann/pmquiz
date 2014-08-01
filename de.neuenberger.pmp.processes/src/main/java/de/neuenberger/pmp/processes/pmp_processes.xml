@@ -90,7 +90,7 @@
 		<Process name="Create forecasts" knowledgeAreaId="TimM,CostM"/>
 		<Process name="Gain acceptance of interim deliverables from the customer" knowledgeAreaId="ScopM"/>
 		<Process name="Perform quality control" knowledgeAreaId="QM"/>
-		<Process name="Perfom risk reasssessments and audits" knowledgeAreaId="RiskM"/>
+		<Process name="Perfom risk reassessments and audits" knowledgeAreaId="RiskM"/>
 		<Process name="Manage reserves" knowledgeAreaId="RiskM"/>
 		<Process name="Control procurements" knowledgeAreaId="ProcM"/>
 	</ProcessGroup>
