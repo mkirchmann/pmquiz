@@ -21,6 +21,7 @@ public class ProcessRelatedQuestionGenerator extends AbstractLazyQuestionContain
 	QuestionFactory<Process>		questionFactory;
 
 	ProcessRelatedQuestionGenerator(final CplxProcessGroup processGroup, final QuestionFactory<Process> questionFactory) {
+		super(questionFactory.toString());
 		this.processGroup = processGroup;
 		this.questionFactory = questionFactory;
 	}
@@ -68,6 +69,11 @@ public class ProcessRelatedQuestionGenerator extends AbstractLazyQuestionContain
 			final Question question = QuestionUtil.createQuestion(qString, processGroup, allProcessGroups);
 			return question;
 		}
+		
+		@Override
+		public String toString() {
+			return "Guess Process group for "+processGroup.getName();
+		}
 
 	}
 
@@ -98,6 +104,11 @@ public class ProcessRelatedQuestionGenerator extends AbstractLazyQuestionContain
 			}
 			return result;
 		}
+		
+		@Override
+		public String toString() {
+			return "Guess Previous Process";
+		}
 
 	}
 
@@ -127,6 +138,11 @@ public class ProcessRelatedQuestionGenerator extends AbstractLazyQuestionContain
 				result = QuestionUtil.createQuestion(qString, correctAnswer, allProcesses);
 			}
 			return result;
+		}
+		
+		@Override
+		public String toString() {
+			return "Guess Next Process";
 		}
 
 	}
@@ -161,6 +177,11 @@ public class ProcessRelatedQuestionGenerator extends AbstractLazyQuestionContain
 			final String qString = "Which process is in the " + processGroup.getName() + "?";
 			return QuestionUtil.createQuestion(qString, drawnProcess, allProcessesNotInThisProcessGroup);
 		}
+		
+		@Override
+		public String toString() {
+			return "Guess Process in Process Group "+processGroup.getName();
+		}
 
 	}
 	
@@ -185,6 +206,11 @@ public class ProcessRelatedQuestionGenerator extends AbstractLazyQuestionContain
 			Process processNotHere = RandomDrawer.drawRandomSingle(allProcessesNotInThisProcessGroup);
 			final String qString = "Which process is NOT in the " + processGroup.getName() + "?";
 			return QuestionUtil.createQuestion(qString, processNotHere, processGroup.getProcess());
+		}
+		
+		@Override
+		public String toString() {
+			return "Guess Process not in Process Group "+processGroup.getName();
 		}
 
 	}

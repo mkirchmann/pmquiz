@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.neuenberger.pmp.processes;
+package de.neuenberger.pmp.processes.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,7 +29,7 @@ public class QuestionComposite extends JPanel {
 	private final JPanel panelLeft;
 	private final JPanel panelRight;
 
-	QuestionComposite() {
+	public QuestionComposite() {
 		
 		BorderLayout layout = new BorderLayout();
 		this.setLayout(layout);

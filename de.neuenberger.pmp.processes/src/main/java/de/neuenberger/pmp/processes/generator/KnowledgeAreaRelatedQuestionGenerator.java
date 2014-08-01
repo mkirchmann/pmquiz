@@ -20,6 +20,7 @@ public class KnowledgeAreaRelatedQuestionGenerator extends AbstractLazyQuestionC
 	private QuestionFactory<CplxProcess> questionFactory;
 
 	public KnowledgeAreaRelatedQuestionGenerator(final CplxKnowledgeArea knowledgeArea, QuestionFactory<CplxProcess> questionFactory) {
+		super(questionFactory.toString());
 		this.knowledgeArea = knowledgeArea;
 		this.questionFactory = questionFactory;
 	}
@@ -63,6 +64,11 @@ public class KnowledgeAreaRelatedQuestionGenerator extends AbstractLazyQuestionC
 		public Question createQuestionForProcess(CplxProcess drawnProcess) {
 			String qString = "Which process belongs to the knowledgearea "+knowledgeArea.getName()+"?";
 			return QuestionUtil.createQuestion(qString, drawnProcess, allNonCommonProcesses);
+		}
+		
+		@Override
+		public String toString() {
+			return "Guess Knowledge Area for "+knowledgeArea.getName();
 		}
 		
 	}

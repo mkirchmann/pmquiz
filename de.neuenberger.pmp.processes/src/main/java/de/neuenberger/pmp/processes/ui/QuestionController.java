@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.neuenberger.pmp.processes;
+package de.neuenberger.pmp.processes.ui;
 
 import java.awt.Color;
 import java.awt.Component;

@@ -10,4 +10,6 @@ public interface QuestionContainer {
 	 * @return Returns all Questions.
 	 */
 	public List<Question> getAllQuestions();
+	
+	public String getName();
 }
