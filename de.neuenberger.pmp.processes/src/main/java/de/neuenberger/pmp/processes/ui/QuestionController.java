@@ -12,6 +12,7 @@ import javax.swing.JButton;
 
 import de.neuenberger.pmp.processes.generator.QuestionDrawer;
 import de.neuenberger.pmp.processes.model.Question;
+import de.neuenberger.pmp.processes.model.QuestionStatistics;
 
 /**
  * @author Michael Kirchmann, PRODYNA AG
@@ -22,10 +23,19 @@ public class QuestionController implements
 	private Question question;
 	private final QuestionDrawer generator;
 	private final QuestionComposite questionComposite;
+	private final QuestionStatistics questionStatistics;
 
+	/**
+	 * 
+	 * @param generator
+	 * @param questionStatistics
+	 * @param questionComposite
+	 */
 	public QuestionController(final QuestionDrawer generator,
+			final QuestionStatistics questionStatistics,
 			final QuestionComposite questionComposite) {
 		this.generator = generator;
+		this.questionStatistics = questionStatistics;
 		this.questionComposite = questionComposite;
 
 		final List<JButton> optionButtons = questionComposite
@@ -69,21 +79,25 @@ public class QuestionController implements
 			final String answer = question.getOptions().get(idx);
 			Integer idxCorrect;
 			Integer idxWrong;
+			boolean answeredCorrect;
 			if (answer == question.getCorrectAnswer()) {
 				// correct
 				idxWrong = null;
 				idxCorrect = idx;
+				answeredCorrect = true;
 			} else {
 				// incorrect
 				idxCorrect = question.getOptions().indexOf(
 						question.getCorrectAnswer());
 				idxWrong = idx;
+				answeredCorrect = false;
 			}
 			markAnswer(idxCorrect, idxWrong);
 
 			questionComposite.setEnabledNextButton(true);
-
+			questionStatistics.count(question, answeredCorrect);
 			question = null;
+
 		}
 	}
 

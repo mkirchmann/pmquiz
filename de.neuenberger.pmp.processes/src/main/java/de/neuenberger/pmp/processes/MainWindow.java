@@ -15,9 +15,12 @@ import javax.xml.bind.JAXB;
 
 import de.neuenberger.pmp.processes.generator.OverallQuestionDrawer;
 import de.neuenberger.pmp.processes.model.KnowledgeAreaFactory;
+import de.neuenberger.pmp.processes.model.QuestionStatistics;
 import de.neuenberger.pmp.processes.ui.Controller;
 import de.neuenberger.pmp.processes.ui.QuestionComposite;
 import de.neuenberger.pmp.processes.ui.QuestionController;
+import de.neuenberger.pmp.processes.ui.QuestionStatisticsComposite;
+import de.neuenberger.pmp.processes.ui.QuestionStatisticsController;
 import de.neuenberger.pmp.processes.ui.SelectQuestionContainerComposite;
 import de.neuenberger.pmp.processes.ui.SelectQuestionContainerController;
 
@@ -42,16 +45,21 @@ public class MainWindow extends JFrame {
 				"pmp_processes.xml").openStream();
 		final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream,
 				CplxProcessGroups.class);
+		final QuestionStatistics questionStatistics = new QuestionStatistics();
 		new KnowledgeAreaFactory().process(cplxProcessGroups);
 		final QuestionComposite questionComposite = new QuestionComposite();
 		final OverallQuestionDrawer questionDrawer = new OverallQuestionDrawer(
 				cplxProcessGroups);
 		final QuestionController controller = new QuestionController(
-				questionDrawer, questionComposite);
+				questionDrawer, questionStatistics, questionComposite);
 		final SelectQuestionContainerController controller2 = new SelectQuestionContainerController(
 				new SelectQuestionContainerComposite(), questionDrawer);
 
-		final MainWindow mainWindow = new MainWindow(controller, controller2);
+		final QuestionStatisticsController controller3 = new QuestionStatisticsController(
+				new QuestionStatisticsComposite(), questionStatistics);
+
+		final MainWindow mainWindow = new MainWindow(controller, controller2,
+				controller3);
 		mainWindow.setSize(400, 300);
 		mainWindow.setVisible(true);
 	}
