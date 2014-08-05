@@ -1,220 +1,331 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PMP_Processes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\mkirchmann\processGroups.xsd">
-<KnowledgeArea id="IM" name="Integration Management"/>
-<KnowledgeArea id="ScopM" name="Scope Management"/>
-<KnowledgeArea id="TimM" name="Time Management"/>
-<KnowledgeArea id="CostM" name="Cost Management"/>
-<KnowledgeArea id="QM" name="Quality Management"/>
-<KnowledgeArea id="HRM" name="Human Resource Management">
-<Addition>
-	<Group name="Leading Style">
-		<Definition name="Directing" description="Tell others what to do"/>
-		<Definition name="Facilitating" description="Coordinate the input of others"/>
-		<Definition name="Coaching" description="Help others achieve their goals"/>
-		<Definition name="Supporting" description="Provide assistance along the way"/>
-		<Definition name="Autocratic" description="Everyone does what the manager wants them to do"/>
-		<Definition name="Consultative" description="Obtain others' oppinions and act as the servant-leader for the team."/>
-		<Definition name="Consultative-Autocratic" description="Solicit input from team members, but retain decision-making authority for him- or herself."/>
-		<Definition name="Consensus" description="Problem solving in a group, decisions are made based on group agreements."/>
-		<Definition name="Delegating" description="Establish goals and give the team sufficient authority to complete the work."/>
-		<Definition name="Bureaucratic" description="Follow procedures exactly."/>
-		<Definition name="Charismatic" description="Energize and encourage the team in performing project work."/>
-		<Definition name="Democratic or Participative" description="Encourage team in the decision-making process."/>
-		<Definition name="Laissez-faire" description="Allow to act, allow to do, leave alone."/>
-		<Definition name="Analytical" description="Depend on technical know-how and ability."/>
-		<Definition name="Driver" description="Constantly give directions."/>
-		<Definition name="Influencing" description="Emphasize teamwork, team building and team decision making."/>
-	</Group>
-	<Group name="Conflict Reasons">
-		<Definition name="No. 1 Conflict Reason" description="Schedules"/>
-		<Definition name="No. 2 Conflict Reason" description="Project Priorities"/>
-		<Definition name="No. 3 Conflict Reason" description="Resources"/>
-		<Definition name="No. 4 Conflict Reason" description="Technical opinions"/>
-		<Definition name="No. 5 Conflict Reason" description="Administrative procedures"/>
-		<Definition name="No. 6 Conflict Reason" description="Cost"/>
-		<Definition name="No. 7 Conflict Reason" description="Personality"/>
-	</Group>
-	<Group name="Conflict Resolution styles">
-		<Definition name="Collaborating" description="Problem solving"/>
-		<Definition name="Compromising" description="Reconciling"/>
-		<Definition name="Withdrawal" description="Avoidance"/>
-		<Definition name="Smoothing" description="Accomodating"/>
-		<Definition name="Forcing" description="Directing"/>
-	</Group>
-	<Group name="Conflict Resolution styles definititions">
-		<Definition name="Collaborating" description="The parties openly discuss differences and try to incorporate multiple viewpoints in order to lead to consensus. This leads to a win-win situation."/>
-		<Definition name="Compromising" description="Finding solutions and bring some degree of satisfaction to both parties."/>
-		<Definition name="Withdrawal" description="Retreat or postpone a decision on a problem."/>
-		<Definition name="Smoothing" description="Emphasize agreement rather than differences of options"/>
-		<Definition name="Forcing" description="Push one viewpoint at the expense of another."/>
-	</Group>
-	<Group name="Conflict Resolution styles evaluation">
-		<Definition name="Collaborating" description="win-win"/>
-		<Definition name="Compromising" description="lose-lose"/>
-		<Definition name="Withdrawal" description="Not usually the best, but sometimes necessary"/>
-		<Definition name="Forcing" description="win-lose"/>
-	</Group>
-	<Group name="Team building phases">
-		<Definition name="Forming" description="People are brought together as a team."/>
-		<Definition name="Storming" description="There are disagreements as people learn to work together."/>
-		<Definition name="Norming" description="Team members begin to build good working relationships."/>
-		<Definition name="Performing" description="The team becomes efficient and works effectively together."/>
-		<Definition name="Adjourning" description="The project ends, and the team is disbanded."/>
-	</Group>
-	<Group name="Other terms">
-		<Definition name="Expectancy Theory" description="Employees who believe their efforts will lead to effective performance and who expect to be rewarded for their accomplishments will remain productive as rewards meet their expectations."/>
-		<Definition name="Arbitration" description="A neutral party hears and resolves a dispute."/>
-		<Definition name="Perquisites (Perks)" description="Some employees receive special rewards, such as assigned parking spaces, corner offices, and executive dining."/>
-		<Definition name="Fringe Benefits" description="These are the &quot;standard&quot; benefits formally given to all employees, such as education benefits, insurance, and profit sharing."/>
-	</Group>
-</Addition>
-</KnowledgeArea>
-<KnowledgeArea id="ComM" name="Communications Management"/>
-<KnowledgeArea id="RiskM" name="Risk Management"/>
-<KnowledgeArea id="ProcM" name="Procurement Management">
-	<Addition>
-		<Group name="Contract types">
-			<Definition name="FFP" description="Firm Fixed Price"/>
-			<Definition name="FPIF" description="Fixed Price Incentive Fee"/>
-			<Definition name="FPAF" description="Fixed Price Award Fee"/>
-			<Definition name="FPEPA" description="Fixed Price Economic Price Adjustment"/>
-			<Definition name="T&amp;M" description="Time and Material"/>
-			<Definition name="CR" description="Cost Reimbursable"/>
-			<Definition name="CPF" description="Cost Plus Fee"/>
-			<Definition name="CPFF" description="Cost Plus Fixed Fee"/>
-			<Definition name="CPPC" description="Cost Plus Percentag of Cost"/>
-			<Definition name="CPIF" description="Cost Plus Incentive Fee"/>
-			<Definition name="CPAF" description="Cost Plus Award Fee"/>
-		</Group>
-		<Group name="Contract example">
-			<Definition name="FFP" description="$1,100,000"/>
-			<Definition name="FPIF" description="$1,100,000, for every month early the project is finished, additional $10,000 is paid to the seller."/>
-			<Definition name="FPAF" description="$1,100,000, for every month performance exceeds planned performance by more than 15%, an additional $5000 is awarded to the seller, maximum award $50,000"/>
-			<Definition name="FPEPA" description="$1,100,000, plus a price increase based on the official consumer price index."/>
-			<Definition name="T&amp;M" description="$120 per hour plus expenses"/>
-			<Definition name="CR" description="Cost for work and materials"/>
-			<Definition name="CPFF" description="Cost plus $10,000."/>
-			<Definition name="CPPC" description="Cost plus 10% of costs as fee."/>
-			<Definition name="CPIF" description="$500,000 target cost plus $30,000 target fee, savings or overruns sharing at a 80% for the buyer and 20% to the seller."/>
-			<Definition name="CPAF" description="Cost plus a base fee of $10,000, maximum award is $50,000."/>
-		</Group>
-		<Group name="Procurement documents">
-			<Definition name="RFP" description="Request for Proposal"/>
-			<Definition name="IFB" description="Invitation for Bid"/>
-			<Definition name="RFB" description="Request for Bid"/>
-			<Definition name="RFQ" description="Request for Quotation"/>
-			<Definition name="RFI" description="Request for Information"/>
-		</Group>
-		<Group name="Bad Negotiation tactics examples">
-			<Definition name="Attacks" description="If your company is not able to manage this process, maybe it should get out of business"/>
-			<Definition name="Personal insults" description="If you can't handle this problem, maybe you should find another job!"/>
-			<Definition name="Good guy/bad guy" description="One person is helpful, while another one is hard to deal with"/>
-			<Definition name="Deadline" description="I have an important appointment at 4 p.m. this afternoon and the contract must be signed until then."/>
-			<Definition name="Lying" description="Obviously or hidden giving false statements"/>
-			<Definition name="Limited authority" description="I am authorized to sign contracts worth less than $10,000, so let's stay below this and I can sign it immediately."/>
-			<Definition name="Missing man" description="If we change the contract to ____ I can sign it, otherwise my boss has to sign it."/>
-			<Definition name="Fair and reasonable" description="Let's stay fair and reasonable and sign this offer as it is described here."/>
-			<Definition name="Delay" description="Let's have a look at this on my next visit at this site."/>
-			<Definition name="Extreme demands" description="Putting very high prices to start the negotiation at a price much higher than the actual cost."/>
-			<Definition name="Withdrawal" description="Show or pretend a lessening of interest"/>
-			<Definition name="Fait accompli" description="These terms must be in all our contracts"/>
-		</Group>
-	</Addition>
-</KnowledgeArea>
-<KnowledgeArea id="StakM" name="Stakeholder Management"/>
+<PMP_Processes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="C:\Users\mkirchmann\processGroups.xsd">
+	<KnowledgeArea id="IM" name="Integration Management" />
+	<KnowledgeArea id="ScopM" name="Scope Management" />
+	<KnowledgeArea id="TimM" name="Time Management" />
+	<KnowledgeArea id="CostM" name="Cost Management" />
+	<KnowledgeArea id="QM" name="Quality Management" />
+	<KnowledgeArea id="HRM" name="Human Resource Management">
+		<Addition>
+			<Group name="Leading Style">
+				<Definition name="Directing" description="Tell others what to do" />
+				<Definition name="Facilitating" description="Coordinate the input of others" />
+				<Definition name="Coaching" description="Help others achieve their goals" />
+				<Definition name="Supporting" description="Provide assistance along the way" />
+				<Definition name="Autocratic"
+					description="Everyone does what the manager wants them to do" />
+				<Definition name="Consultative"
+					description="Obtain others' oppinions and act as the servant-leader for the team." />
+				<Definition name="Consultative-Autocratic"
+					description="Solicit input from team members, but retain decision-making authority for him- or herself." />
+				<Definition name="Consensus"
+					description="Problem solving in a group, decisions are made based on group agreements." />
+				<Definition name="Delegating"
+					description="Establish goals and give the team sufficient authority to complete the work." />
+				<Definition name="Bureaucratic" description="Follow procedures exactly." />
+				<Definition name="Charismatic"
+					description="Energize and encourage the team in performing project work." />
+				<Definition name="Democratic or Participative"
+					description="Encourage team in the decision-making process." />
+				<Definition name="Laissez-faire"
+					description="Allow to act, allow to do, leave alone." />
+				<Definition name="Analytical"
+					description="Depend on technical know-how and ability." />
+				<Definition name="Driver" description="Constantly give directions." />
+				<Definition name="Influencing"
+					description="Emphasize teamwork, team building and team decision making." />
+			</Group>
+			<Group name="Conflict Reasons">
+				<Definition name="No. 1 Conflict Reason" description="Schedules" />
+				<Definition name="No. 2 Conflict Reason" description="Project Priorities" />
+				<Definition name="No. 3 Conflict Reason" description="Resources" />
+				<Definition name="No. 4 Conflict Reason" description="Technical opinions" />
+				<Definition name="No. 5 Conflict Reason" description="Administrative procedures" />
+				<Definition name="No. 6 Conflict Reason" description="Cost" />
+				<Definition name="No. 7 Conflict Reason" description="Personality" />
+			</Group>
+			<Group name="Conflict Resolution styles">
+				<Definition name="Collaborating" description="Problem solving" />
+				<Definition name="Compromising" description="Reconciling" />
+				<Definition name="Withdrawal" description="Avoidance" />
+				<Definition name="Smoothing" description="Accomodating" />
+				<Definition name="Forcing" description="Directing" />
+			</Group>
+			<Group name="Conflict Resolution styles definititions">
+				<Definition name="Collaborating"
+					description="The parties openly discuss differences and try to incorporate multiple viewpoints in order to lead to consensus. This leads to a win-win situation." />
+				<Definition name="Compromising"
+					description="Finding solutions and bring some degree of satisfaction to both parties." />
+				<Definition name="Withdrawal"
+					description="Retreat or postpone a decision on a problem." />
+				<Definition name="Smoothing"
+					description="Emphasize agreement rather than differences of options" />
+				<Definition name="Forcing"
+					description="Push one viewpoint at the expense of another." />
+			</Group>
+			<Group name="Conflict Resolution styles evaluation">
+				<Definition name="Collaborating" description="win-win" />
+				<Definition name="Compromising" description="lose-lose" />
+				<Definition name="Withdrawal"
+					description="Not usually the best, but sometimes necessary" />
+				<Definition name="Forcing" description="win-lose" />
+			</Group>
+			<Group name="Team building phases">
+				<Definition name="Forming" description="People are brought together as a team." />
+				<Definition name="Storming"
+					description="There are disagreements as people learn to work together." />
+				<Definition name="Norming"
+					description="Team members begin to build good working relationships." />
+				<Definition name="Performing"
+					description="The team becomes efficient and works effectively together." />
+				<Definition name="Adjourning"
+					description="The project ends, and the team is disbanded." />
+			</Group>
+			<Group name="Other terms">
+				<Definition name="Expectancy Theory"
+					description="Employees who believe their efforts will lead to effective performance and who expect to be rewarded for their accomplishments will remain productive as rewards meet their expectations." />
+				<Definition name="Arbitration"
+					description="A neutral party hears and resolves a dispute." />
+				<Definition name="Perquisites (Perks)"
+					description="Some employees receive special rewards, such as assigned parking spaces, corner offices, and executive dining." />
+				<Definition name="Fringe Benefits"
+					description="These are the &quot;standard&quot; benefits formally given to all employees, such as education benefits, insurance, and profit sharing." />
+			</Group>
+		</Addition>
+	</KnowledgeArea>
+	<KnowledgeArea id="ComM" name="Communications Management" />
+	<KnowledgeArea id="RiskM" name="Risk Management" />
+	<KnowledgeArea id="ProcM" name="Procurement Management">
+		<Addition>
+			<Group name="Contract types">
+				<Definition name="FFP" description="Firm Fixed Price" />
+				<Definition name="FPIF" description="Fixed Price Incentive Fee" />
+				<Definition name="FPAF" description="Fixed Price Award Fee" />
+				<Definition name="FPEPA" description="Fixed Price Economic Price Adjustment" />
+				<Definition name="T&amp;M" description="Time and Material" />
+				<Definition name="CR" description="Cost Reimbursable" />
+				<Definition name="CPF" description="Cost Plus Fee" />
+				<Definition name="CPFF" description="Cost Plus Fixed Fee" />
+				<Definition name="CPPC" description="Cost Plus Percentag of Cost" />
+				<Definition name="CPIF" description="Cost Plus Incentive Fee" />
+				<Definition name="CPAF" description="Cost Plus Award Fee" />
+			</Group>
+			<Group name="Contract example">
+				<Definition name="FFP" description="$1,100,000" />
+				<Definition name="FPIF"
+					description="$1,100,000, for every month early the project is finished, additional $10,000 is paid to the seller." />
+				<Definition name="FPAF"
+					description="$1,100,000, for every month performance exceeds planned performance by more than 15%, an additional $5000 is awarded to the seller, maximum award $50,000" />
+				<Definition name="FPEPA"
+					description="$1,100,000, plus a price increase based on the official consumer price index." />
+				<Definition name="T&amp;M" description="$120 per hour plus expenses" />
+				<Definition name="CR" description="Cost for work and materials" />
+				<Definition name="CPFF" description="Cost plus $10,000." />
+				<Definition name="CPPC" description="Cost plus 10% of costs as fee." />
+				<Definition name="CPIF"
+					description="$500,000 target cost plus $30,000 target fee, savings or overruns sharing at a 80% for the buyer and 20% to the seller." />
+				<Definition name="CPAF"
+					description="Cost plus a base fee of $10,000, maximum award is $50,000." />
+			</Group>
+			<Group name="Procurement documents">
+				<Definition name="RFP" description="Request for Proposal" />
+				<Definition name="IFB" description="Invitation for Bid" />
+				<Definition name="RFB" description="Request for Bid" />
+				<Definition name="RFQ" description="Request for Quotation" />
+				<Definition name="RFI" description="Request for Information" />
+			</Group>
+			<Group name="Bad Negotiation tactics examples">
+				<Definition name="Attacks"
+					description="If your company is not able to manage this process, maybe it should get out of business" />
+				<Definition name="Personal insults"
+					description="If you can't handle this problem, maybe you should find another job!" />
+				<Definition name="Good guy/bad guy"
+					description="One person is helpful, while another one is hard to deal with" />
+				<Definition name="Deadline"
+					description="I have an important appointment at 4 p.m. this afternoon and the contract must be signed until then." />
+				<Definition name="Lying"
+					description="Obviously or hidden giving false statements" />
+				<Definition name="Limited authority"
+					description="I am authorized to sign contracts worth less than $10,000, so let's stay below this and I can sign it immediately." />
+				<Definition name="Missing man"
+					description="If we change the contract to ____ I can sign it, otherwise my boss has to sign it." />
+				<Definition name="Fair and reasonable"
+					description="Let's stay fair and reasonable and sign this offer as it is described here." />
+				<Definition name="Delay"
+					description="Let's have a look at this on my next visit at this site." />
+				<Definition name="Extreme demands"
+					description="Putting very high prices to start the negotiation at a price much higher than the actual cost." />
+				<Definition name="Withdrawal"
+					description="Show or pretend a lessening of interest" />
+				<Definition name="Fait accompli"
+					description="These terms must be in all our contracts" />
+			</Group>
+		</Addition>
+	</KnowledgeArea>
+	<KnowledgeArea id="StakM" name="Stakeholder Management">
+		<Addition>
+			<Group name="Stakeholder management levels">
+				<Definition name="High power, high influence"
+					description="Manage closely" />
+				<Definition name="High power, low influence" description="Keep satisfied" />
+				<Definition name="Low power, low influence" description="don't worry" />
+				<Definition name="Low power, high influence" description="Keep informed" />
+				<Definition name="No power, negative influence"
+					description="Ignore" ignoreAsQuestion="true" />
+			</Group>
+		</Addition>
+	</KnowledgeArea>
 	<ProcessGroup name="Initiating">
-		<Process name="Select Project Manager" knowledgeAreaId="IM"/>
-		<Process name="Determine Company Culture and Existing Systems" knowledgeAreaId="IM"/>
-		<Process name="Collect Processes, procedures, and historical information" knowledgeAreaId="IM"/>
-		<Process name="Divide large projects into phases" knowledgeAreaId="IM"/>
-		<Process name="Understand the business case" knowledgeAreaId="IM"/>
-		<Process name="Uncover initial requirements, assumptions, risks, constaints and existing agreements" knowledgeAreaId="IM"/>
-		<Process name="Assess project and product feasibility within the given constraints" knowledgeAreaId="IM"/>
-		<Process name="Create measurable objectives" knowledgeAreaId="IM"/>
-		<Process name="Develop project charter" knowledgeAreaId="IM"/>
-		<Process name="Identify Stakeholders and determine their expectations, influence and impact" knowledgeAreaId="StakM"/>
+		<Process name="Select Project Manager" knowledgeAreaId="IM" />
+		<Process name="Determine Company Culture and Existing Systems"
+			knowledgeAreaId="IM" />
+		<Process name="Collect Processes, procedures, and historical information"
+			knowledgeAreaId="IM" />
+		<Process name="Divide large projects into phases"
+			knowledgeAreaId="IM" />
+		<Process name="Understand the business case" knowledgeAreaId="IM" />
+		<Process
+			name="Uncover initial requirements, assumptions, risks, constaints and existing agreements"
+			knowledgeAreaId="IM" />
+		<Process
+			name="Assess project and product feasibility within the given constraints"
+			knowledgeAreaId="IM" />
+		<Process name="Create measurable objectives" knowledgeAreaId="IM" />
+		<Process name="Develop project charter" knowledgeAreaId="IM" />
+		<Process
+			name="Identify Stakeholders and determine their expectations, influence and impact"
+			knowledgeAreaId="StakM" />
 	</ProcessGroup>
 	<ProcessGroup name="Planning">
-		<Process name="Determine how you will plan for each knowledge area" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Determine detailed requirements" knowledgeAreaId="ScopM"/>
-		<Process name="Create Project scope statement" knowledgeAreaId="ScopM"/>
-		<Process name="Assess what to purchase and create procurement documents" knowledgeAreaId="ProcM"/>
-		<Process name="Determine planning team" knowledgeAreaId="IM,HRM"/>
-		<Process name="Create WBS and WBS dictionary" knowledgeAreaId="ScopM"/>
-		<Process name="Create Activity List" knowledgeAreaId="TimM"/>
-		<Process name="Create Network Diagram" knowledgeAreaId="TimM"/>
-		<Process name="Estimate resource requirements" knowledgeAreaId="TimM"/>
-		<Process name="Estimate time and cost" knowledgeAreaId="TimM,CostM"/>
-		<Process name="Determine critical path" knowledgeAreaId="TimM"/>
-		<Process name="Develop schedule" knowledgeAreaId="TimM"/>
-		<Process name="Develop budget" knowledgeAreaId="CostM"/>
-		<Process name="Determine quality standards, processes, and metrics" knowledgeAreaId="QM"/>
-		<Process name="Create process improvement plan" knowledgeAreaId="QM"/>
-		<Process name="Determine all roles and responsibilities" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Plan communications and stakeholder engagement" knowledgeAreaId="ComM,StakM"/>
-		<Process name="Perform risk identification, qualtitative risk analysis, and risk response planning" knowledgeAreaId="RiskM"/>
-		<Process name="Go back - iterations" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Finalize procurement documents" knowledgeAreaId="ProcM"/>
-		<Process name="Create change management plan" knowledgeAreaId="IM"/>
-		<Process name="Finalize the &quot;how to execute and control&quot; part of all management plans" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,CostM,RiskM,ProcM,StakM"/>
-		<Process name="Develop realistic and final PM plan and performance measurement baseline" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,CostM,RiskM,ProcM,StakM"/>
-		<Process name="Gain formal approval of the plan" knowledgeAreaId="IM"/>
-		<Process name="Hold Kickoff meeting" knowledgeAreaId="IM"/>
+		<Process name="Determine how you will plan for each knowledge area"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
+		<Process name="Determine detailed requirements"
+			knowledgeAreaId="ScopM" />
+		<Process name="Create Project scope statement"
+			knowledgeAreaId="ScopM" />
+		<Process name="Assess what to purchase and create procurement documents"
+			knowledgeAreaId="ProcM" />
+		<Process name="Determine planning team" knowledgeAreaId="IM,HRM" />
+		<Process name="Create WBS and WBS dictionary" knowledgeAreaId="ScopM" />
+		<Process name="Create Activity List" knowledgeAreaId="TimM" />
+		<Process name="Create Network Diagram" knowledgeAreaId="TimM" />
+		<Process name="Estimate resource requirements"
+			knowledgeAreaId="TimM" />
+		<Process name="Estimate time and cost" knowledgeAreaId="TimM,CostM" />
+		<Process name="Determine critical path" knowledgeAreaId="TimM" />
+		<Process name="Develop schedule" knowledgeAreaId="TimM" />
+		<Process name="Develop budget" knowledgeAreaId="CostM" />
+		<Process name="Determine quality standards, processes, and metrics"
+			knowledgeAreaId="QM" />
+		<Process name="Create process improvement plan"
+			knowledgeAreaId="QM" />
+		<Process name="Determine all roles and responsibilities"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
+		<Process name="Plan communications and stakeholder engagement"
+			knowledgeAreaId="ComM,StakM" />
+		<Process
+			name="Perform risk identification, qualtitative risk analysis, and risk response planning"
+			knowledgeAreaId="RiskM" />
+		<Process name="Go back - iterations"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
+		<Process name="Finalize procurement documents"
+			knowledgeAreaId="ProcM" />
+		<Process name="Create change management plan" knowledgeAreaId="IM" />
+		<Process
+			name="Finalize the &quot;how to execute and control&quot; part of all management plans"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,CostM,RiskM,ProcM,StakM" />
+		<Process
+			name="Develop realistic and final PM plan and performance measurement baseline"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,CostM,RiskM,ProcM,StakM" />
+		<Process name="Gain formal approval of the plan"
+			knowledgeAreaId="IM" />
+		<Process name="Hold Kickoff meeting" knowledgeAreaId="IM" />
 	</ProcessGroup>
 	<ProcessGroup name="Executing">
-		<Process name="Execute the work according to the PM plan" knowledgeAreaId="IM"/>
-		<Process name="Produce product deliverables (product scope)" knowledgeAreaId="IM"/>
-		<Process name="Gather work performance data" knowledgeAreaId="IM"/>
-		<Process name="Request changes" knowledgeAreaId="IM,QM,HRM,ProcM,StakM"/>
-		<Process name="Implement only approved changes" knowledgeAreaId="IM"/>
-		<Process name="Continuously improve" knowledgeAreaId="IM,QM"/>
-		<Process name="Follow process" knowledgeAreaId="IM,QM"/>
-		<Process name="Determine whether processes are correct and effective (quality assurance)" knowledgeAreaId="QM"/>
-		<Process name="Perform quality audits" knowledgeAreaId="QM"/>
-		<Process name="Acquire final team" knowledgeAreaId="HRM"/>
-		<Process name="Manage people" knowledgeAreaId="HRM"/>
-		<Process name="Evaluate team and individual performance" knowledgeAreaId="HRM"/>
-		<Process name="Hold team building activities" knowledgeAreaId="HRM"/>
-		<Process name="Give recognition and rewards" knowledgeAreaId="HRM"/>
-		<Process name="Use issue logs" knowledgeAreaId="HRM"/>
-		<Process name="Facilitate conflict resolution" knowledgeAreaId="HRM"/>
-		<Process name="Release resources as work is completed" knowledgeAreaId="HRM"/>
-		<Process name="Send and receive information, and solicit feedback" knowledgeAreaId="ComM"/>
-		<Process name="Report on project performance" knowledgeAreaId="ComM"/>
-		<Process name="Manage stakeholder engagement and expectations" knowledgeAreaId="StakM"/>
-		<Process name="Hold Meetings" knowledgeAreaId="IM,ComM"/>
-		<Process name="Select sellers" knowledgeAreaId="ProcM"/>
+		<Process name="Execute the work according to the PM plan"
+			knowledgeAreaId="IM" />
+		<Process name="Produce product deliverables (product scope)"
+			knowledgeAreaId="IM" />
+		<Process name="Gather work performance data" knowledgeAreaId="IM" />
+		<Process name="Request changes" knowledgeAreaId="IM,QM,HRM,ProcM,StakM" />
+		<Process name="Implement only approved changes"
+			knowledgeAreaId="IM" />
+		<Process name="Continuously improve" knowledgeAreaId="IM,QM" />
+		<Process name="Follow process" knowledgeAreaId="IM,QM" />
+		<Process
+			name="Determine whether processes are correct and effective (quality assurance)"
+			knowledgeAreaId="QM" />
+		<Process name="Perform quality audits" knowledgeAreaId="QM" />
+		<Process name="Acquire final team" knowledgeAreaId="HRM" />
+		<Process name="Manage people" knowledgeAreaId="HRM" />
+		<Process name="Evaluate team and individual performance"
+			knowledgeAreaId="HRM" />
+		<Process name="Hold team building activities" knowledgeAreaId="HRM" />
+		<Process name="Give recognition and rewards" knowledgeAreaId="HRM" />
+		<Process name="Use issue logs" knowledgeAreaId="HRM" />
+		<Process name="Facilitate conflict resolution"
+			knowledgeAreaId="HRM" />
+		<Process name="Release resources as work is completed"
+			knowledgeAreaId="HRM" />
+		<Process name="Send and receive information, and solicit feedback"
+			knowledgeAreaId="ComM" />
+		<Process name="Report on project performance" knowledgeAreaId="ComM" />
+		<Process name="Manage stakeholder engagement and expectations"
+			knowledgeAreaId="StakM" />
+		<Process name="Hold Meetings" knowledgeAreaId="IM,ComM" />
+		<Process name="Select sellers" knowledgeAreaId="ProcM" />
 	</ProcessGroup>
 	<ProcessGroup name="Monitoring and Controlling">
-		<Process name="Take action to control the project" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Measure performance against the performance measurement baseline" knowledgeAreaId="IM,ScopM,TimM,CostM"/>
-		<Process name="Measure performance against the other metrics in the PM plan" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,CostM,RiskM,ProcM,StakM"/>
-		<Process name="Analyze and evaluate performance" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Determine if variances warrant a corrective action or other change request" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Influence the factors that cause changes" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Request changes" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM"/>
-		<Process name="Perform integrated change control" knowledgeAreaId="IM"/>
-		<Process name="Approve or reject changes" knowledgeAreaId="IM"/>
-		<Process name="Update the PM plan and project documents" knowledgeAreaId="IM,TimM,CostM,ComM,ProcM"/>
-		<Process name="Inform stakeholders of the results of change requests" knowledgeAreaId="IM,ComM,StakM"/>
-		<Process name="Monitor stakeholder engagement" knowledgeAreaId="StakM"/>
-		<Process name="Manage configuration" knowledgeAreaId="IM"/>
-		<Process name="Create forecasts" knowledgeAreaId="TimM,CostM"/>
-		<Process name="Gain acceptance of interim deliverables from the customer" knowledgeAreaId="ScopM"/>
-		<Process name="Perform quality control" knowledgeAreaId="QM"/>
-		<Process name="Perfom risk reassessments and audits" knowledgeAreaId="RiskM"/>
-		<Process name="Manage reserves" knowledgeAreaId="RiskM"/>
-		<Process name="Control procurements" knowledgeAreaId="ProcM"/>
+		<Process name="Take action to control the project"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM" />
+		<Process
+			name="Measure performance against the performance measurement baseline"
+			knowledgeAreaId="IM,ScopM,TimM,CostM" />
+		<Process
+			name="Measure performance against the other metrics in the PM plan"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,CostM,RiskM,ProcM,StakM" />
+		<Process name="Analyze and evaluate performance"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM" />
+		<Process
+			name="Determine if variances warrant a corrective action or other change request"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM" />
+		<Process name="Influence the factors that cause changes"
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM" />
+		<Process name="Request changes" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM" />
+		<Process name="Perform integrated change control"
+			knowledgeAreaId="IM" />
+		<Process name="Approve or reject changes" knowledgeAreaId="IM" />
+		<Process name="Update the PM plan and project documents"
+			knowledgeAreaId="IM,TimM,CostM,ComM,ProcM" />
+		<Process name="Inform stakeholders of the results of change requests"
+			knowledgeAreaId="IM,ComM,StakM" />
+		<Process name="Monitor stakeholder engagement"
+			knowledgeAreaId="StakM" />
+		<Process name="Manage configuration" knowledgeAreaId="IM" />
+		<Process name="Create forecasts" knowledgeAreaId="TimM,CostM" />
+		<Process name="Gain acceptance of interim deliverables from the customer"
+			knowledgeAreaId="ScopM" />
+		<Process name="Perform quality control" knowledgeAreaId="QM" />
+		<Process name="Perfom risk reassessments and audits"
+			knowledgeAreaId="RiskM" />
+		<Process name="Manage reserves" knowledgeAreaId="RiskM" />
+		<Process name="Control procurements" knowledgeAreaId="ProcM" />
 	</ProcessGroup>
 	<ProcessGroup name="Closing">
-		<Process name="Confirm work is done to requirements" knowledgeAreaId="IM,ProcM"/>
-		<Process name="Complete procurement closure" knowledgeAreaId="ProcM"/>
-		<Process name="Gain final acceptance of the product" knowledgeAreaId="IM"/>
-		<Process name="Complete financial closure" knowledgeAreaId="IM"/>
-		<Process name="Hand off completed product" knowledgeAreaId="IM"/>
-		<Process name="Solicit feedback from the customer about the project" knowledgeAreaId="IM"/>
-		<Process name="Complete final performance reporting" knowledgeAreaId="IM"/>
-		<Process name="Index and archive records" knowledgeAreaId="IM,ProcM"/>
-		<Process name="Gather final lessons learned and update knowledge base" knowledgeAreaId="IM,ProcM"/>
+		<Process name="Confirm work is done to requirements"
+			knowledgeAreaId="IM,ProcM" />
+		<Process name="Complete procurement closure" knowledgeAreaId="ProcM" />
+		<Process name="Gain final acceptance of the product"
+			knowledgeAreaId="IM" />
+		<Process name="Complete financial closure" knowledgeAreaId="IM" />
+		<Process name="Hand off completed product" knowledgeAreaId="IM" />
+		<Process name="Solicit feedback from the customer about the project"
+			knowledgeAreaId="IM" />
+		<Process name="Complete final performance reporting"
+			knowledgeAreaId="IM" />
+		<Process name="Index and archive records" knowledgeAreaId="IM,ProcM" />
+		<Process name="Gather final lessons learned and update knowledge base"
+			knowledgeAreaId="IM,ProcM" />
 	</ProcessGroup>
 </PMP_Processes>
