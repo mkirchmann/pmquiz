@@ -6,16 +6,16 @@ package de.neuenberger.pmp.processes.model;
 import java.util.List;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class Question implements Named {
 	private final List<String> options;
 	private final String correctAnswer;
 	private final String question;
-	private final QuestionGroup group;
+	private final DefaultQuestionGroup group;
 
-	public Question(final QuestionGroup group, final String question,
+	public Question(final DefaultQuestionGroup group, final String question,
 			final List<String> options, final String correctAnswers) {
 		super();
 		this.group = group;
@@ -57,7 +57,7 @@ public class Question implements Named {
 	/**
 	 * @return the group
 	 */
-	public QuestionGroup getGroup() {
+	public DefaultQuestionGroup getGroup() {
 		return group;
 	}
 

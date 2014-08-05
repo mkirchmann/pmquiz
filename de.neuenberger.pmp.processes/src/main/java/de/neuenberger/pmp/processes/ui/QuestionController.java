@@ -15,7 +15,7 @@ import de.neuenberger.pmp.processes.model.Question;
 import de.neuenberger.pmp.processes.model.QuestionStatistics;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class QuestionController implements

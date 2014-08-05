@@ -11,10 +11,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import de.neuenberger.pmp.processes.model.Question;
-import de.neuenberger.pmp.processes.model.QuestionGroup;
+import de.neuenberger.pmp.processes.model.DefaultQuestionGroup;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
 public class ProcessRelatedQuestionGenerator extends
@@ -51,7 +51,7 @@ public class ProcessRelatedQuestionGenerator extends
 
 		private final CplxProcessGroup processGroup;
 		private final List<CplxProcessGroup> allProcessGroups;
-		private final QuestionGroup questionGroup;
+		private final DefaultQuestionGroup questionGroup;
 
 		/**
 		 * Constructor for
@@ -63,7 +63,7 @@ public class ProcessRelatedQuestionGenerator extends
 			this.processGroup = processGroup;
 			this.allProcessGroups = allProcessGroups;
 
-			questionGroup = new QuestionGroup(
+			questionGroup = new DefaultQuestionGroup(
 					"To which process group does the process belong ('"
 							+ processGroup.getName() + "')");
 		}
@@ -95,12 +95,12 @@ public class ProcessRelatedQuestionGenerator extends
 	public static class GuessPreviousProcessQuestionFactory implements
 			QuestionFactory<Process> {
 		private final List<Process> allProcesses;
-		private final QuestionGroup questionGroup;
+		private final DefaultQuestionGroup questionGroup;
 
 		public GuessPreviousProcessQuestionFactory(
 				final List<Process> allProcesses) {
 			this.allProcesses = allProcesses;
-			questionGroup = new QuestionGroup("Previous process");
+			questionGroup = new DefaultQuestionGroup("Previous process");
 		}
 
 		/*
@@ -137,11 +137,11 @@ public class ProcessRelatedQuestionGenerator extends
 	public static class GuessNextProcessQuestionFactory implements
 			QuestionFactory<Process> {
 		private final List<Process> allProcesses;
-		private final QuestionGroup questionGroup;
+		private final DefaultQuestionGroup questionGroup;
 
 		public GuessNextProcessQuestionFactory(final List<Process> allProcesses) {
 			this.allProcesses = allProcesses;
-			questionGroup = new QuestionGroup("Next process");
+			questionGroup = new DefaultQuestionGroup("Next process");
 		}
 
 		/*
@@ -193,14 +193,14 @@ public class ProcessRelatedQuestionGenerator extends
 
 		private final CplxProcessGroup processGroup;
 		private final List<Process> allProcessesNotInThisProcessGroup;
-		private final QuestionGroup questionGroup;
+		private final DefaultQuestionGroup questionGroup;
 
 		public GuessProcessOfProcessGroup(final CplxProcessGroup processGroup,
 				final List<CplxProcessGroup> allProcessGroups) {
 			this.processGroup = processGroup;
 			allProcessesNotInThisProcessGroup = produceAllProcessNotInThisProcessGroup(
 					processGroup, allProcessGroups);
-			questionGroup = new QuestionGroup("Which process is in "
+			questionGroup = new DefaultQuestionGroup("Which process is in "
 					+ processGroup.getName());
 		}
 
@@ -230,7 +230,7 @@ public class ProcessRelatedQuestionGenerator extends
 
 		private final CplxProcessGroup processGroup;
 		private final List<Process> allProcessesNotInThisProcessGroup;
-		private final QuestionGroup questionGroup;
+		private final DefaultQuestionGroup questionGroup;
 
 		public GuessProcessNotInThisProcessGroup(
 				final CplxProcessGroup processGroup,
@@ -238,7 +238,7 @@ public class ProcessRelatedQuestionGenerator extends
 			this.processGroup = processGroup;
 			allProcessesNotInThisProcessGroup = produceAllProcessNotInThisProcessGroup(
 					processGroup, allProcessGroups);
-			questionGroup = new QuestionGroup("Which process is NOT in the "
+			questionGroup = new DefaultQuestionGroup("Which process is NOT in the "
 					+ processGroup.getName() + "?");
 		}
 

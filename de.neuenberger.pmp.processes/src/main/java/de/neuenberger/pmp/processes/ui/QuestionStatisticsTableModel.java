@@ -5,12 +5,14 @@ package de.neuenberger.pmp.processes.ui;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 
-import de.neuenberger.pmp.processes.model.QuestionGroup;
+import de.neuenberger.pmp.processes.model.DefaultQuestionGroup;
 import de.neuenberger.pmp.processes.model.QuestionStatisticEntry;
 import de.neuenberger.pmp.processes.model.QuestionStatistics;
 
@@ -35,7 +37,7 @@ public class QuestionStatisticsTableModel extends AbstractTableModel implements
 	 */
 	@Override
 	public int getColumnCount() {
-		return 3;
+		return 4;
 	}
 
 	/*
@@ -48,7 +50,7 @@ public class QuestionStatisticsTableModel extends AbstractTableModel implements
 		return getEntries().size();
 	}
 
-	private List<QuestionStatisticEntry<QuestionGroup>> getEntries() {
+	private List<QuestionStatisticEntry<DefaultQuestionGroup>> getEntries() {
 		return statistics.getStatisticEntries();
 	}
 
@@ -65,8 +67,12 @@ public class QuestionStatisticsTableModel extends AbstractTableModel implements
 			result = entry.getGrouping().getName();
 		} else if (column == 1) {
 			result = "" + entry.getCountCorrect();
-		} else {
+		} else if (column ==2){
 			result = "" + entry.getCountIncorrect();
+		} else if (column==3) {
+			result = "" + NumberFormat.getPercentInstance().format(entry.getPercentage());
+		} else {
+			result ="";
 		}
 		return result;
 	}

@@ -12,7 +12,7 @@ import de.neuenberger.pmp.processes.generator.RandomDrawerTest;
 /**
  * Class for ...
  * 
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  */
 @SuiteClasses(RandomDrawerTest.class)
 @RunWith(Suite.class)

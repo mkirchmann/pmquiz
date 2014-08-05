@@ -4,13 +4,13 @@
 package de.neuenberger.pmp.processes.model;
 
 /**
- * @author Michael Kirchmann, PRODYNA AG
+ * @author Michael Kirchmann
  * 
  */
-public class QuestionGroup implements Named {
+public class DefaultQuestionGroup implements Named {
 	private final String name;
 
-	public QuestionGroup(final String name) {
+	public DefaultQuestionGroup(final String name) {
 		this.name = name;
 	}
 
