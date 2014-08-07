@@ -6,36 +6,36 @@
 	<KnowledgeArea id="TimM" name="Time Management">
 	    <Addition>
 	        <Group name="Time Management Definitions">
-	            <Definition name="BAC" definition="Total Planned Value"/>
-	            <Definition name="CV" definition="EV-AC"/>
-	            <Definition name="SV" definition="EV-PV"/>
-	            <Definition name="CPI" definition="EV/AC"/>
-	            <Definition name="SPI" definition="EV/PV"/>
-	            <Definition name="TCPI BAC based" definition="(BAC-EV)/(BAC-AC)"/>
-	            <Definition name="TCPI EAC based" definition="(BAC-EV)/(EAC-AC)"/>
-	            <Definition name="EV" definition="Measure of work performed in terms of the budget authorized for that work."/>
-	            <Definition name="AC" definition="Realized cost incurred for the work performed on an activity during a specific time period."/>
-	            <Definition name="PV" definition="Authorized Budget assigned to schedule work."/>
-	            <Definition name="VAC" definition="BAC-EAC"/>
-	            <Definition name="ETC" definition="AC+EAC"/>
-	            <Definition name="EAC forecast for ETC work performed at budgeted rate" definition="AC+BAC-EV"/>
-	            <Definition name="EAC forecast for ETC work performed at present cost performance" definition="BAC/CPI"/>
-	            <Definition name="EAC forecast for ETC work performed at present cost and scheduling performance" definition="AC+(BAC-EV)/(CPI*SPI)"/>
-	            <Definition name="EAC forecast when budgeted plan is no longer valid" definition="AC + Bottom up ETC"/>
+	            <Definition name="BAC" description="Total Planned Value"/>
+	            <Definition name="CV" description="EV-AC"/>
+	            <Definition name="SV" description="EV-PV"/>
+	            <Definition name="CPI" description="EV/AC"/>
+	            <Definition name="SPI" description="EV/PV"/>
+	            <Definition name="TCPI BAC based" description="(BAC-EV)/(BAC-AC)"/>
+	            <Definition name="TCPI EAC based" description="(BAC-EV)/(EAC-AC)"/>
+	            <Definition name="EV" description="Measure of work performed in terms of the budget authorized for that work."/>
+	            <Definition name="AC" description="Realized cost incurred for the work performed on an activity during a specific time period."/>
+	            <Definition name="PV" description="Authorized Budget assigned to schedule work."/>
+	            <Definition name="VAC" description="BAC-EAC"/>
+	            <Definition name="ETC" description="AC+EAC"/>
+	            <Definition name="EAC forecast for ETC work performed at budgeted rate" description="AC+BAC-EV"/>
+	            <Definition name="EAC forecast for ETC work performed at present cost performance" description="BAC/CPI"/>
+	            <Definition name="EAC forecast for ETC work performed at present cost and scheduling performance" description="AC+(BAC-EV)/(CPI*SPI)"/>
+	            <Definition name="EAC forecast when budgeted plan is no longer valid" description="AC + Bottom up ETC"/>
 	        </Group>
 	        <Group name="Abbreviations">
-	            <Definition name="EVM" definition="Earned Value Management"/>
-	            <Definition name="EAC" definition="Estimate at completion"/>
-	            <Definition name="CV" definition="Cost Variance"/>
-	            <Definition name="SV" definition="Schedule Variance"/>
-	            <Definition name="CPI" definition="Cost Performance Index"/>
-	           	<Definition name="TCPI" definition="To complete performance Index"/>
-	           	<Definition name="SPI" definition="Schedule performance index"/>
-	           	<Definition name="ETC" definition="Estimate to complete"/>
-	           	<Definition name="PV" definition="Planned Value"/>
-	           	<Definition name="EV" definition="Earned Value"/>
-	           	<Definition name="BAC" definition="Budget at Completion"/>
-	           	<Definition name="VAC" definition="Variance at Completion"/>
+	            <Definition name="EVM" description="Earned Value Management"/>
+	            <Definition name="EAC" description="Estimate at completion"/>
+	            <Definition name="CV" description="Cost Variance"/>
+	            <Definition name="SV" description="Schedule Variance"/>
+	            <Definition name="CPI" description="Cost Performance Index"/>
+	           	<Definition name="TCPI" description="To complete performance Index"/>
+	           	<Definition name="SPI" description="Schedule performance index"/>
+	           	<Definition name="ETC" description="Estimate to complete"/>
+	           	<Definition name="PV" description="Planned Value"/>
+	           	<Definition name="EV" description="Earned Value"/>
+	           	<Definition name="BAC" description="Budget at Completion"/>
+	           	<Definition name="VAC" description="Variance at Completion"/>
 	        </Group>
 	    </Addition>
 	</KnowledgeArea>

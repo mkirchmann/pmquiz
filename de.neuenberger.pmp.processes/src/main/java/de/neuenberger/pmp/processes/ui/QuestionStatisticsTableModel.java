@@ -47,7 +47,7 @@ public class QuestionStatisticsTableModel extends AbstractTableModel implements
 	 */
 	@Override
 	public int getRowCount() {
-		return getEntries().size();
+		return getEntries().size()+1;
 	}
 
 	private List<QuestionStatisticEntry<DefaultQuestionGroup>> getEntries() {
@@ -61,7 +61,15 @@ public class QuestionStatisticsTableModel extends AbstractTableModel implements
 	 */
 	@Override
 	public Object getValueAt(final int row, final int column) {
-		final QuestionStatisticEntry entry = getEntries().get(row);
+		
+		List<QuestionStatisticEntry<DefaultQuestionGroup>> entries = getEntries();
+		final QuestionStatisticEntry entry;
+		if (row==entries.size()) {
+			// this is the overall row
+			entry = statistics.getOverall();
+		} else {
+			entry = entries.get(row);
+		}
 		String result;
 		if (column == 0) {
 			result = entry.getGrouping().getName();

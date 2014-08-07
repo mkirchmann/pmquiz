@@ -21,6 +21,8 @@ public class QuestionStatistics {
 	Map<DefaultQuestionGroup, QuestionStatisticEntry<DefaultQuestionGroup>> mapQuestionToCorrectCount = new LinkedHashMap<>();
 	private List<QuestionStatisticEntry<DefaultQuestionGroup>> cached;
 
+	private final QuestionStatisticEntry overall = new QuestionStatisticEntry<>(new DefaultNamed("Overall"));
+	
 	private final PropertyChangeSupport support = new PropertyChangeSupport(
 			this);
 
@@ -34,7 +36,7 @@ public class QuestionStatistics {
 		}
 
 		statisticEntry.countup(answeredCorrect);
-
+		overall.countup(answeredCorrect);
 		support.firePropertyChange(new PropertyChangeEvent(this,
 				"mapQuestionToCorrectCount", null, true));
 	}
@@ -67,6 +69,13 @@ public class QuestionStatistics {
 	public void removePropertyChangeListener(
 			final PropertyChangeListener listener) {
 		support.removePropertyChangeListener(listener);
+	}
+
+	/**
+	 * @return the overall
+	 */
+	public QuestionStatisticEntry getOverall() {
+		return overall;
 	}
 
 }
