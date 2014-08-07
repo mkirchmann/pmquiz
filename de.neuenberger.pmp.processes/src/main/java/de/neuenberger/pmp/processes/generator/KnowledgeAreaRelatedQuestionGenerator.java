@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.neuenberger.pmp.processes.model.Question;
 import de.neuenberger.pmp.processes.model.DefaultQuestionGroup;
+import de.neuenberger.pmp.processes.model.Question;
 
 /**
  * @author Michael Kirchmann
@@ -42,11 +42,8 @@ public class KnowledgeAreaRelatedQuestionGenerator extends
 		final List<CplxProcess> process = knowledgeArea.getProcess();
 		final List<Question> lAllQuestions = new ArrayList<>(process.size());
 		for (final CplxProcess cplxProcess : process) {
-			final Question question = questionFactory
-					.createQuestionForProcess(cplxProcess);
-			if (question != null) {
-				lAllQuestions.add(question);
-			}
+			questionFactory
+					.createQuestionForProcess(cplxProcess, lAllQuestions);
 		}
 		return lAllQuestions;
 	}
@@ -84,11 +81,12 @@ public class KnowledgeAreaRelatedQuestionGenerator extends
 		}
 
 		@Override
-		public Question createQuestionForProcess(final CplxProcess drawnProcess) {
+		public void createQuestionForProcess(final CplxProcess drawnProcess,
+				final List<Question> list) {
 			final String qString = "Which process belongs to the knowledgearea "
 					+ knowledgeArea.getName() + "?";
-			return QuestionUtil.createQuestion(questionGroup, qString,
-					drawnProcess, allNonCommonProcesses);
+			list.add(QuestionUtil.createQuestion(questionGroup, qString,
+					drawnProcess, allNonCommonProcesses));
 		}
 
 		@Override

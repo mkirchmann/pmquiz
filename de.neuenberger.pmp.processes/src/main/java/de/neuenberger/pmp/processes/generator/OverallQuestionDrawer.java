@@ -42,6 +42,8 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 
 			final QuestionFactory<Process> factory5 = new ProcessRelatedQuestionGenerator.GuessProcessNotInThisProcessGroup(
 					cplxProcessGroup, processGroup);
+			final QuestionFactory<Process> factory6 = new ProcessRelatedQuestionGenerator.GuessInputOutputOfProcess(
+					cplxProcessGroup, processGroup);
 
 			if (cplxProcessGroup.getName().contains("Plan")) {
 				final QuestionFactory<Process> factory1 = new ProcessRelatedQuestionGenerator.GuessNextProcessQuestionFactory(
@@ -61,6 +63,8 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 					cplxProcessGroup, factory4));
 			generators.add(new ProcessRelatedQuestionGenerator(
 					cplxProcessGroup, factory5));
+			generators.add(new ProcessRelatedQuestionGenerator(
+					cplxProcessGroup, factory6));
 
 			selectedContainers = generators;
 		}
@@ -72,7 +76,9 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 					cplxKnowledgeArea, knowledgeAreas);
 			generators.add(new KnowledgeAreaRelatedQuestionGenerator(
 					cplxKnowledgeArea, questionFactory));
-			generators.add(new KnowledgeAreaReleatedAdditionalQuestionsGenerator(cplxKnowledgeArea));
+			generators
+					.add(new KnowledgeAreaReleatedAdditionalQuestionsGenerator(
+							cplxKnowledgeArea));
 		}
 	}
 

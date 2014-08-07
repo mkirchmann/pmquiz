@@ -31,7 +31,14 @@
 	</xs:complexType>
 	<xs:complexType name="cplxProcess">
 		<xs:complexContent>
-			<xs:extension base="cplxNamed"/>
+			<xs:extension base="cplxNamed">
+				<xs:sequence>
+					<xs:element name="Input" type="cplxInputOutput"
+						maxOccurs="unbounded" minOccurs="0">
+					</xs:element>
+					<xs:element name="Output" type="cplxInputOutput" maxOccurs="unbounded" minOccurs="0"></xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="cplxNamed">
@@ -71,6 +78,12 @@
 				<xs:attribute name="description" type="xs:string"></xs:attribute>
 				<xs:attribute name="ignoreAsQuestion" type="xs:boolean"></xs:attribute>
 			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="cplxInputOutput">
+		<xs:complexContent>
+			<xs:extension base="cplxNamed"></xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>
