@@ -45,7 +45,7 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 			final QuestionFactory<Process> factory6 = new ProcessRelatedQuestionGenerator.GuessInputOutputOfProcess(
 					cplxProcessGroup, processGroup);
 
-			if (cplxProcessGroup.getName().contains("Plan")) {
+			if (Boolean.TRUE.equals(cplxProcessGroup.isSequential())) {
 				final QuestionFactory<Process> factory1 = new ProcessRelatedQuestionGenerator.GuessNextProcessQuestionFactory(
 						allProcesses);
 				final QuestionFactory<Process> factory2 = new ProcessRelatedQuestionGenerator.GuessPreviousProcessQuestionFactory(

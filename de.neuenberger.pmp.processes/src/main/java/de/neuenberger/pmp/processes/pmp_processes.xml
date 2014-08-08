@@ -232,7 +232,7 @@
 			name="Identify Stakeholders and determine their expectations, influence and impact"
 			knowledgeAreaId="StakM" />
 	</ProcessGroup>
-	<ProcessGroup name="Planning">
+	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
 			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
 		<Process name="Determine detailed requirements"
