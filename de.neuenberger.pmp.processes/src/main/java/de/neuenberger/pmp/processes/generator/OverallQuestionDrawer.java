@@ -6,7 +6,6 @@ package de.neuenberger.pmp.processes.generator;
 import generated.CplxKnowledgeArea;
 import generated.CplxProcess;
 import generated.CplxProcessGroup;
-import generated.CplxProcessGroup.Process;
 import generated.CplxProcessGroups;
 
 import java.util.ArrayList;
@@ -33,22 +32,23 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 		final List<CplxProcessGroup> processGroup = processGroups
 				.getProcessGroup();
 		for (final CplxProcessGroup cplxProcessGroup : processGroup) {
-			final List<Process> allProcesses = cplxProcessGroup.getProcess();
+			final List<CplxProcess> allProcesses = cplxProcessGroup
+					.getProcess();
 
-			final QuestionFactory<Process> factory3 = new ProcessRelatedQuestionGenerator.GuessProcessGroupQuestionFactory(
+			final QuestionFactory<CplxProcess> factory3 = new ProcessRelatedQuestionGenerator.GuessProcessGroupQuestionFactory(
 					cplxProcessGroup, processGroup);
-			final QuestionFactory<Process> factory4 = new ProcessRelatedQuestionGenerator.GuessProcessOfProcessGroup(
+			final QuestionFactory<CplxProcess> factory4 = new ProcessRelatedQuestionGenerator.GuessProcessOfProcessGroup(
 					cplxProcessGroup, processGroup);
 
-			final QuestionFactory<Process> factory5 = new ProcessRelatedQuestionGenerator.GuessProcessNotInThisProcessGroup(
+			final QuestionFactory<CplxProcess> factory5 = new ProcessRelatedQuestionGenerator.GuessProcessNotInThisProcessGroup(
 					cplxProcessGroup, processGroup);
-			final QuestionFactory<Process> factory6 = new ProcessRelatedQuestionGenerator.GuessInputOutputOfProcess(
+			final QuestionFactory<CplxProcess> factory6 = new ProcessRelatedQuestionGenerator.GuessInputOutputOfProcess(
 					cplxProcessGroup, processGroup);
 
 			if (Boolean.TRUE.equals(cplxProcessGroup.isSequential())) {
-				final QuestionFactory<Process> factory1 = new ProcessRelatedQuestionGenerator.GuessNextProcessQuestionFactory(
+				final QuestionFactory<CplxProcess> factory1 = new ProcessRelatedQuestionGenerator.GuessNextProcessQuestionFactory(
 						allProcesses);
-				final QuestionFactory<Process> factory2 = new ProcessRelatedQuestionGenerator.GuessPreviousProcessQuestionFactory(
+				final QuestionFactory<CplxProcess> factory2 = new ProcessRelatedQuestionGenerator.GuessPreviousProcessQuestionFactory(
 						allProcesses);
 
 				generators.add(new ProcessRelatedQuestionGenerator(

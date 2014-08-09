@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.neuenberger.pmp.processes.model.Question;
 import de.neuenberger.pmp.processes.model.DefaultQuestionGroup;
+import de.neuenberger.pmp.processes.model.Question;
 
 /**
  * Class for ...

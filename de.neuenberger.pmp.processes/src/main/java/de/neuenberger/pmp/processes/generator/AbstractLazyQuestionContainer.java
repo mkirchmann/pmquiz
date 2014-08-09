@@ -4,7 +4,6 @@
 package de.neuenberger.pmp.processes.generator;
 
 import java.util.List;
-import java.util.Random;
 
 import de.neuenberger.pmp.processes.model.Question;
 

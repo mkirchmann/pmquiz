@@ -4,8 +4,8 @@
 package de.neuenberger.pmp.processes.model;
 
 import generated.CplxKnowledgeArea;
+import generated.CplxProcess;
 import generated.CplxProcessGroup;
-import generated.CplxProcessGroup.Process;
 import generated.CplxProcessGroups;
 
 import java.util.HashMap;
@@ -27,8 +27,8 @@ public class KnowledgeAreaFactory {
 					cplxKnowledgeArea);
 		}
 		for (final CplxProcessGroup cplxProcessGroup : list) {
-			final List<Process> processList = cplxProcessGroup.getProcess();
-			for (final Process process : processList) {
+			final List<CplxProcess> processList = cplxProcessGroup.getProcess();
+			for (final CplxProcess process : processList) {
 				final String knowledgeAreaId = process.getKnowledgeAreaId();
 				final String[] split = knowledgeAreaId.split(",");
 				for (final String kaId : split) {

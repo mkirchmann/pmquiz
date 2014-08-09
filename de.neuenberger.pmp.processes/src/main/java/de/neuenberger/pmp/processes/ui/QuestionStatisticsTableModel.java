@@ -5,7 +5,6 @@ package de.neuenberger.pmp.processes.ui;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
 

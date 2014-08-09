@@ -58,7 +58,7 @@ public class KnowledgeAreaRelatedQuestionGenerator extends
 				final List<CplxKnowledgeArea> allKnowledgeAreas) {
 			this.knowledgeArea = knowledgeArea;
 			questionGroup = new DefaultQuestionGroup(
-					"Which process belongs to the knowledgearea "
+					"Which Process belongs to the knowledgearea "
 							+ knowledgeArea.getName() + "?");
 			final List<CplxKnowledgeArea> allExceptCurrentKnowledgeAreas = new LinkedList<>(
 					allKnowledgeAreas);
@@ -83,7 +83,7 @@ public class KnowledgeAreaRelatedQuestionGenerator extends
 		@Override
 		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
-			final String qString = "Which process belongs to the knowledgearea "
+			final String qString = "Which Process belongs to the knowledgearea "
 					+ knowledgeArea.getName() + "?";
 			list.add(QuestionUtil.createQuestion(questionGroup, qString,
 					drawnProcess, allNonCommonProcesses));

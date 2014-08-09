@@ -3,9 +3,12 @@
  */
 package de.neuenberger.pmp.processes.generator;
 
-import generated.CplxInputOutput;
+import generated.CplxNamed;
+import generated.CplxProcess;
 import generated.CplxProcessGroup;
-import generated.CplxProcessGroup.Process;
+import generated.CplxProcessParameters;
+import generated.CplxProcessResult;
+import generated.CplxToolOrTechnique;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,10 +24,10 @@ import de.neuenberger.pmp.processes.model.Question;
 public class ProcessRelatedQuestionGenerator extends
 		AbstractLazyQuestionContainer {
 	private final CplxProcessGroup processGroup;
-	QuestionFactory<Process> questionFactory;
+	QuestionFactory<CplxProcess> questionFactory;
 
 	ProcessRelatedQuestionGenerator(final CplxProcessGroup processGroup,
-			final QuestionFactory<Process> questionFactory) {
+			final QuestionFactory<CplxProcess> questionFactory) {
 		super(questionFactory.toString());
 		this.processGroup = processGroup;
 		this.questionFactory = questionFactory;
@@ -35,16 +38,16 @@ public class ProcessRelatedQuestionGenerator extends
 	 */
 	@Override
 	protected List<Question> createQuestions() {
-		final List<Process> process = processGroup.getProcess();
+		final List<CplxProcess> process = processGroup.getProcess();
 		final List<Question> result = new ArrayList<>(process.size());
-		for (final Process p : process) {
+		for (final CplxProcess p : process) {
 			questionFactory.createQuestionForProcess(p, result);
 		}
 		return result;
 	}
 
 	public static class GuessProcessGroupQuestionFactory implements
-			QuestionFactory<Process> {
+			QuestionFactory<CplxProcess> {
 
 		private final CplxProcessGroup processGroup;
 		private final List<CplxProcessGroup> allProcessGroups;
@@ -61,7 +64,7 @@ public class ProcessRelatedQuestionGenerator extends
 			this.allProcessGroups = allProcessGroups;
 
 			questionGroup = new DefaultQuestionGroup(
-					"To which process group does the process belong ('"
+					"To Which Process group does the CplxProcess belong ('"
 							+ processGroup.getName() + "')");
 		}
 
@@ -73,9 +76,9 @@ public class ProcessRelatedQuestionGenerator extends
 		 * .QuestionFactory#createQuestionForProcess(generated .CplxNamed)
 		 */
 		@Override
-		public void createQuestionForProcess(final Process drawnProcess,
+		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
-			final String qString = "To which process group does the process '"
+			final String qString = "To Which Process group does the CplxProcess '"
 					+ drawnProcess.getName() + "' belong?";
 
 			final Question question = QuestionUtil.createQuestion(
@@ -85,18 +88,18 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess Process group for " + processGroup.getName();
+			return "Guess CplxProcess group for " + processGroup.getName();
 		}
 
 	}
 
 	public static class GuessPreviousProcessQuestionFactory implements
-			QuestionFactory<Process> {
-		private final List<Process> allProcesses;
+			QuestionFactory<CplxProcess> {
+		private final List<CplxProcess> allProcesses;
 		private final DefaultQuestionGroup questionGroup;
 
 		public GuessPreviousProcessQuestionFactory(
-				final List<Process> allProcesses) {
+				final List<CplxProcess> allProcesses) {
 			this.allProcesses = allProcesses;
 			questionGroup = new DefaultQuestionGroup("Previous process");
 		}
@@ -109,14 +112,14 @@ public class ProcessRelatedQuestionGenerator extends
 		 * .QuestionFactory#createQuestionForProcess(generated .CplxNamed)
 		 */
 		@Override
-		public void createQuestionForProcess(final Process drawnProcess,
+		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
 			final int indexOfDrawn = allProcesses.indexOf(drawnProcess);
 			if (indexOfDrawn <= 0) {
 			} else {
-				final String qString = "Which process is the direct predecessor of "
+				final String qString = "Which Process is the direct predecessor of "
 						+ drawnProcess.getName() + "?";
-				final Process correctAnswer = allProcesses
+				final CplxProcess correctAnswer = allProcesses
 						.get(indexOfDrawn - 1);
 				Question result;
 				result = QuestionUtil.createQuestion(questionGroup, qString,
@@ -133,11 +136,12 @@ public class ProcessRelatedQuestionGenerator extends
 	}
 
 	public static class GuessNextProcessQuestionFactory implements
-			QuestionFactory<Process> {
-		private final List<Process> allProcesses;
+			QuestionFactory<CplxProcess> {
+		private final List<CplxProcess> allProcesses;
 		private final DefaultQuestionGroup questionGroup;
 
-		public GuessNextProcessQuestionFactory(final List<Process> allProcesses) {
+		public GuessNextProcessQuestionFactory(
+				final List<CplxProcess> allProcesses) {
 			this.allProcesses = allProcesses;
 			questionGroup = new DefaultQuestionGroup("Next process");
 		}
@@ -150,14 +154,14 @@ public class ProcessRelatedQuestionGenerator extends
 		 * .QuestionFactory#createQuestionForProcess(generated .CplxNamed)
 		 */
 		@Override
-		public void createQuestionForProcess(final Process drawnProcess,
+		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
 			final int indexOfDrawn = allProcesses.indexOf(drawnProcess);
 			if (indexOfDrawn < 0 || indexOfDrawn > allProcesses.size() - 2) {
 			} else {
-				final String qString = "Which process is the direct successor of "
+				final String qString = "Which Process is the direct successor of "
 						+ drawnProcess.getName() + "?";
-				final Process correctAnswer = allProcesses
+				final CplxProcess correctAnswer = allProcesses
 						.get(indexOfDrawn + 1);
 				final Question result = QuestionUtil.createQuestion(
 						questionGroup, qString, correctAnswer, allProcesses);
@@ -172,10 +176,10 @@ public class ProcessRelatedQuestionGenerator extends
 
 	}
 
-	public static List<Process> produceAllProcessNotInThisProcessGroup(
+	public static List<CplxProcess> produceAllProcessNotInThisProcessGroup(
 			final CplxProcessGroup processGroup,
 			final List<CplxProcessGroup> allProcessGroups) {
-		final List<Process> tempAllProcessesNotInThisProcessGroup = new LinkedList<>();
+		final List<CplxProcess> tempAllProcessesNotInThisProcessGroup = new LinkedList<>();
 		for (final CplxProcessGroup cplxProcessGroup : allProcessGroups) {
 			if (cplxProcessGroup != processGroup) {
 				tempAllProcessesNotInThisProcessGroup.addAll(cplxProcessGroup
@@ -186,10 +190,10 @@ public class ProcessRelatedQuestionGenerator extends
 	}
 
 	public static class GuessProcessOfProcessGroup implements
-			QuestionFactory<Process> {
+			QuestionFactory<CplxProcess> {
 
 		private final CplxProcessGroup processGroup;
-		private final List<Process> allProcessesNotInThisProcessGroup;
+		private final List<CplxProcess> allProcessesNotInThisProcessGroup;
 		private final DefaultQuestionGroup questionGroup;
 
 		public GuessProcessOfProcessGroup(final CplxProcessGroup processGroup,
@@ -197,7 +201,7 @@ public class ProcessRelatedQuestionGenerator extends
 			this.processGroup = processGroup;
 			allProcessesNotInThisProcessGroup = produceAllProcessNotInThisProcessGroup(
 					processGroup, allProcessGroups);
-			questionGroup = new DefaultQuestionGroup("Which process is in "
+			questionGroup = new DefaultQuestionGroup("Which Process is in "
 					+ processGroup.getName());
 		}
 
@@ -208,9 +212,9 @@ public class ProcessRelatedQuestionGenerator extends
 		 * createQuestionForProcess(generated.CplxNamed)
 		 */
 		@Override
-		public void createQuestionForProcess(final Process drawnProcess,
+		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
-			final String qString = "Which process is in the "
+			final String qString = "Which Process is in the "
 					+ processGroup.getName() + "?";
 			list.add(QuestionUtil.createQuestion(questionGroup, qString,
 					drawnProcess, allProcessesNotInThisProcessGroup));
@@ -218,13 +222,14 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess Process in Process Group " + processGroup.getName();
+			return "Guess CplxProcess in CplxProcess Group "
+					+ processGroup.getName();
 		}
 
 	}
 
 	public static class GuessInputOutputOfProcess implements
-			QuestionFactory<Process> {
+			QuestionFactory<CplxProcess> {
 
 		private final CplxProcessGroup processGroup;
 		private final DefaultQuestionGroup questionGroup;
@@ -243,42 +248,97 @@ public class ProcessRelatedQuestionGenerator extends
 		 * createQuestionForProcess(generated.CplxNamed)
 		 */
 		@Override
-		public void createQuestionForProcess(final Process drawnProcess,
+		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
-			final List<CplxInputOutput> input = drawnProcess.getInput();
-			final List<CplxInputOutput> output = drawnProcess.getInput();
-			final List<Process> process = processGroup.getProcess();
-			final List<CplxInputOutput> allWrongInputAnswers = new ArrayList<>();
-			final List<CplxInputOutput> allWrongOutputAnswers = new ArrayList<>();
-			for (final Process p : process) {
-				if (p != drawnProcess) {
-					allWrongInputAnswers.addAll(CplxNamedUtil
-							.addAllWithNameNot(input, p.getInput()));
-					allWrongInputAnswers.addAll(CplxNamedUtil
-							.addAllWithNameNot(input, p.getOutput()));
+
+			final List<CplxProcess> process = processGroup.getProcess();
+			if (drawnProcess.getProcessParameters() != null) {
+				final AcquireInputsOutputsAndToolsOrTechniques acq = new AcquireInputsOutputsAndToolsOrTechniques(
+						process, drawnProcess);
+				acq.createQuestions(list);
+			} else {
+				for (final CplxProcess cplxProcess : drawnProcess
+						.getSubProcess()) {
+					createQuestionForProcess(cplxProcess, list);
 				}
 			}
-			createInputOutputQuestion(drawnProcess, list, input,
-					allWrongInputAnswers, "input");
-			createInputOutputQuestion(drawnProcess, list, output,
-					allWrongOutputAnswers, "output");
 		}
 
-		private void createInputOutputQuestion(final Process drawnProcess,
-				final List<Question> list, final List<CplxInputOutput> input,
-				final List<CplxInputOutput> allWrongInputAnswers,
+		public class AcquireInputsOutputsAndToolsOrTechniques {
+			private final List<CplxProcessResult> allWrongInputAnswers = new ArrayList<>();
+			private final List<CplxProcessResult> allWrongOutputAnswers = new ArrayList<>();
+			private final List<CplxToolOrTechnique> allWrongToolOrTechniqueAnswers = new ArrayList<>();
+			private final List<CplxProcessResult> input;
+			private final List<CplxProcessResult> output;
+			private final List<CplxToolOrTechnique> toolsOrTechniques;
+			private final CplxProcess drawnProcess;
+			private final List<CplxProcess> processes;
+
+			/**
+			 * 
+			 */
+			public AcquireInputsOutputsAndToolsOrTechniques(
+					final List<CplxProcess> processes,
+					final CplxProcess drawnProcess) {
+				this.processes = processes;
+				this.drawnProcess = drawnProcess;
+				final CplxProcessParameters drawnProcessParameters = drawnProcess
+						.getProcessParameters();
+				input = drawnProcessParameters.getInput();
+				output = drawnProcessParameters.getInput();
+				toolsOrTechniques = drawnProcessParameters.getToolOrTechnique();
+				collectAllInformation(processes);
+			}
+
+			/**
+			 * 
+			 */
+			public void createQuestions(final List<Question> list) {
+				createInputOutputQuestion(drawnProcess, list, input,
+						allWrongInputAnswers, "input");
+				createInputOutputQuestion(drawnProcess, list, output,
+						allWrongOutputAnswers, "output");
+				createInputOutputQuestion(drawnProcess, list,
+						toolsOrTechniques, allWrongToolOrTechniqueAnswers,
+						"tool or technique");
+			}
+
+			private void collectAllInformation(final List<CplxProcess> process) {
+				for (final CplxProcess p : process) {
+					if (p != drawnProcess) {
+						final CplxProcessParameters pp = p
+								.getProcessParameters();
+						if (pp != null) {
+							allWrongInputAnswers.addAll(CplxNamedUtil
+									.addAllWithNameNot(input, pp.getInput()));
+							allWrongOutputAnswers.addAll(CplxNamedUtil
+									.addAllWithNameNot(output, pp.getOutput()));
+							allWrongToolOrTechniqueAnswers.addAll(CplxNamedUtil
+									.addAllWithNameNot(toolsOrTechniques,
+											pp.getToolOrTechnique()));
+						} else {
+							collectAllInformation(p.getSubProcess());
+						}
+					}
+				}
+			}
+		}
+
+		private <P extends CplxNamed> void createInputOutputQuestion(
+				final CplxProcess drawnProcess, final List<Question> list,
+				final List<P> input, final List<P> allWrongAnswers,
 				final String type) {
-			if (allWrongInputAnswers.size() > 3) {
-				for (final CplxInputOutput cplxInputOutput : input) {
+			if (allWrongAnswers.size() > 3) {
+				for (final P cplxInputOutput : input) {
 					final String qStringI = "Which is an " + type + " to the '"
 							+ drawnProcess.getName() + "' process?";
 					list.add(QuestionUtil.createQuestion(questionGroup,
-							qStringI, cplxInputOutput, allWrongInputAnswers));
+							qStringI, cplxInputOutput, allWrongAnswers));
 				}
 			}
 			if (input.size() > 3) {
 				// you can create NOT questions
-				for (final CplxInputOutput cplxInputOutput : allWrongInputAnswers) {
+				for (final P cplxInputOutput : allWrongAnswers) {
 					final String qStringI = "Which is an " + type + " to the '"
 							+ drawnProcess.getName() + "' process?";
 					list.add(QuestionUtil.createQuestion(questionGroup,
@@ -289,17 +349,17 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess Input/Output in Process Group "
+			return "Guess Input/Output in CplxProcess Group "
 					+ processGroup.getName();
 		}
 
 	}
 
 	public static class GuessProcessNotInThisProcessGroup implements
-			QuestionFactory<Process> {
+			QuestionFactory<CplxProcess> {
 
 		private final CplxProcessGroup processGroup;
-		private final List<Process> allProcessesNotInThisProcessGroup;
+		private final List<CplxProcess> allProcessesNotInThisProcessGroup;
 		private final DefaultQuestionGroup questionGroup;
 
 		public GuessProcessNotInThisProcessGroup(
@@ -309,7 +369,7 @@ public class ProcessRelatedQuestionGenerator extends
 			allProcessesNotInThisProcessGroup = produceAllProcessNotInThisProcessGroup(
 					processGroup, allProcessGroups);
 			questionGroup = new DefaultQuestionGroup(
-					"Which process is NOT in the " + processGroup.getName()
+					"Which Process is NOT in the " + processGroup.getName()
 							+ "?");
 		}
 
@@ -320,11 +380,11 @@ public class ProcessRelatedQuestionGenerator extends
 		 * createQuestionForProcess(generated.CplxNamed)
 		 */
 		@Override
-		public void createQuestionForProcess(final Process drawnProcess,
+		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
-			final Process processNotHere = RandomDrawer
+			final CplxProcess processNotHere = RandomDrawer
 					.drawRandomSingle(allProcessesNotInThisProcessGroup);
-			final String qString = "Which process is NOT in the "
+			final String qString = "Which Process is NOT in the "
 					+ processGroup.getName() + "?";
 			list.add(QuestionUtil.createQuestion(questionGroup, qString,
 					processNotHere, processGroup.getProcess()));
@@ -332,7 +392,7 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess Process not in Process Group "
+			return "Guess CplxProcess not in CplxProcess Group "
 					+ processGroup.getName();
 		}
 

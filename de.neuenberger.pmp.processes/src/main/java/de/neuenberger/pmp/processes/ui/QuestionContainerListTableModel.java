@@ -4,9 +4,7 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import de.neuenberger.pmp.processes.generator.OverallQuestionDrawer;
 import de.neuenberger.pmp.processes.generator.QuestionContainer;
-import de.neuenberger.pmp.processes.generator.QuestionDrawer;
 
 public class QuestionContainerListTableModel extends AbstractTableModel {
 	private final List<QuestionContainer> questionContainerList;

@@ -2,9 +2,7 @@
 <?eclipse.ant.import?>
 <project>
 	<import file="build.xml" />
-	<!-- ================================= 
-	          target: genSrc              
-	     ================================= -->
+	<!-- ================================= target: genSrc ================================= -->
 	<target name="genSrc" depends="" description="PMP Schema">
 		<mkdir dir="src/gen/java" />
 		<xjc destDir="src/gen/java" extension="true">
@@ -12,6 +10,10 @@
 				<!-- Quellverzeichnis der XSD-Files -->
 				<include name="*.xsd" />
 			</schema>
+			<!-- http://confluence.highsource.org/display/J2B/JAXB2+Basics+Plugins
+			xjcArg value="-Xequals" /
+			xjcArg value="-XhashCode" /
+			xjcArg value="-XtoString" / -->
 		</xjc>
 	</target>
 </project>
