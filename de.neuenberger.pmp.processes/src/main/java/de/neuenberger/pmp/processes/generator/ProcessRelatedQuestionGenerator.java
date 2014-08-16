@@ -64,7 +64,7 @@ public class ProcessRelatedQuestionGenerator extends
 			this.allProcessGroups = allProcessGroups;
 
 			questionGroup = new DefaultQuestionGroup(
-					"To Which Process group does the CplxProcess belong ('"
+					"To Which Process group does the Process belong ('"
 							+ processGroup.getName() + "')");
 		}
 
@@ -78,7 +78,7 @@ public class ProcessRelatedQuestionGenerator extends
 		@Override
 		public void createQuestionForProcess(final CplxProcess drawnProcess,
 				final List<Question> list) {
-			final String qString = "To Which Process group does the CplxProcess '"
+			final String qString = "To Which Process group does the Process '"
 					+ drawnProcess.getName() + "' belong?";
 
 			final Question question = QuestionUtil.createQuestion(
@@ -88,7 +88,7 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess CplxProcess group for " + processGroup.getName();
+			return "Guess Process group for " + processGroup.getName();
 		}
 
 	}
@@ -222,8 +222,7 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess CplxProcess in CplxProcess Group "
-					+ processGroup.getName();
+			return "Guess Process in Process Group " + processGroup.getName();
 		}
 
 	}
@@ -349,7 +348,7 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess Input/Output in CplxProcess Group "
+			return "Guess Input/Output in Process Group "
 					+ processGroup.getName();
 		}
 
@@ -392,7 +391,7 @@ public class ProcessRelatedQuestionGenerator extends
 
 		@Override
 		public String toString() {
-			return "Guess CplxProcess not in CplxProcess Group "
+			return "Guess Process not in Process Group "
 					+ processGroup.getName();
 		}
 
