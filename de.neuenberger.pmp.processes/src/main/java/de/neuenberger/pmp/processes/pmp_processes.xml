@@ -2,52 +2,65 @@
 <PMP_Processes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="C:\Users\mkirchmann\processGroups.xsd">
 	<KnowledgeArea id="Gen" name="General">
-	    <Addition>
-	        <Group name="Eisenhower Principle">
-	            <Definition name="Very important, very Urgent" description="Immediately do it yourself"/> 
-	            <Definition name="Not so important, very urgent" description="Delegate to competent employee"/>
-	            <Definition name="Very important, not urgent" description="Make a deadline and do it yourself"/>
-	            <Definition name="Not so important, Not urgent" description="Bin"/>
-	        </Group>
-	    </Addition>
+		<Addition>
+			<Group name="Eisenhower Principle">
+				<Definition name="Very important, very Urgent"
+					description="Immediately do it yourself" />
+				<Definition name="Not so important, very urgent"
+					description="Delegate to competent employee" />
+				<Definition name="Very important, not urgent"
+					description="Make a deadline and do it yourself" />
+				<Definition name="Not so important, Not urgent"
+					description="Bin" />
+			</Group>
+		</Addition>
 	</KnowledgeArea>
 	<KnowledgeArea id="IM" name="Integration Management" />
 	<KnowledgeArea id="ScopM" name="Scope Management" />
 	<KnowledgeArea id="TimM" name="Time Management">
-	    <Addition>
-	        <Group name="Time Management Definitions">
-	            <Definition name="BAC" description="Total Planned Value"/>
-	            <Definition name="CV" description="EV-AC"/>
-	            <Definition name="SV" description="EV-PV"/>
-	            <Definition name="CPI" description="EV/AC"/>
-	            <Definition name="SPI" description="EV/PV"/>
-	            <Definition name="TCPI BAC based" description="(BAC-EV)/(BAC-AC)"/>
-	            <Definition name="TCPI EAC based" description="(BAC-EV)/(EAC-AC)"/>
-	            <Definition name="EV" description="Measure of work performed in terms of the budget authorized for that work."/>
-	            <Definition name="AC" description="Realized cost incurred for the work performed on an activity during a specific time period."/>
-	            <Definition name="PV" description="Authorized Budget assigned to schedule work."/>
-	            <Definition name="VAC" description="BAC-EAC"/>
-	            <Definition name="ETC" description="AC+EAC"/>
-	            <Definition name="EAC forecast for ETC work performed at budgeted rate" description="AC+BAC-EV"/>
-	            <Definition name="EAC forecast for ETC work performed at present cost performance" description="BAC/CPI"/>
-	            <Definition name="EAC forecast for ETC work performed at present cost and scheduling performance" description="AC+(BAC-EV)/(CPI*SPI)"/>
-	            <Definition name="EAC forecast when budgeted plan is no longer valid" description="AC + Bottom up ETC"/>
-	        </Group>
-	        <Group name="Abbreviations">
-	            <Definition name="EVM" description="Earned Value Management"/>
-	            <Definition name="EAC" description="Estimate at completion"/>
-	            <Definition name="CV" description="Cost Variance"/>
-	            <Definition name="SV" description="Schedule Variance"/>
-	            <Definition name="CPI" description="Cost Performance Index"/>
-	           	<Definition name="TCPI" description="To complete performance Index"/>
-	           	<Definition name="SPI" description="Schedule performance index"/>
-	           	<Definition name="ETC" description="Estimate to complete"/>
-	           	<Definition name="PV" description="Planned Value"/>
-	           	<Definition name="EV" description="Earned Value"/>
-	           	<Definition name="BAC" description="Budget at Completion"/>
-	           	<Definition name="VAC" description="Variance at Completion"/>
-	        </Group>
-	    </Addition>
+		<Addition>
+			<Group name="Time Management Definitions">
+				<Definition name="BAC" description="Total Planned Value" />
+				<Definition name="CV" description="EV-AC" />
+				<Definition name="SV" description="EV-PV" />
+				<Definition name="CPI" description="EV/AC" />
+				<Definition name="SPI" description="EV/PV" />
+				<Definition name="TCPI BAC based" description="(BAC-EV)/(BAC-AC)" />
+				<Definition name="TCPI EAC based" description="(BAC-EV)/(EAC-AC)" />
+				<Definition name="EV"
+					description="Measure of work performed in terms of the budget authorized for that work." />
+				<Definition name="AC"
+					description="Realized cost incurred for the work performed on an activity during a specific time period." />
+				<Definition name="PV"
+					description="Authorized Budget assigned to schedule work." />
+				<Definition name="VAC" description="BAC-EAC" />
+				<Definition name="ETC" description="AC+EAC" />
+				<Definition name="EAC forecast for ETC work performed at budgeted rate"
+					description="AC+BAC-EV" />
+				<Definition
+					name="EAC forecast for ETC work performed at present cost performance"
+					description="BAC/CPI" />
+				<Definition
+					name="EAC forecast for ETC work performed at present cost and scheduling performance"
+					description="AC+(BAC-EV)/(CPI*SPI)" />
+				<Definition name="EAC forecast when budgeted plan is no longer valid"
+					description="AC + Bottom up ETC" />
+			</Group>
+			<Group name="Abbreviations">
+				<Definition name="EVM" description="Earned Value Management" />
+				<Definition name="EAC" description="Estimate at completion" />
+				<Definition name="CV" description="Cost Variance" />
+				<Definition name="SV" description="Schedule Variance" />
+				<Definition name="CPI" description="Cost Performance Index" />
+				<Definition name="TCPI" description="To complete performance Index" />
+				<Definition name="SPI" description="Schedule performance index" />
+				<Definition name="ETC" description="Estimate to complete" />
+				<Definition name="PV" description="Planned Value" />
+				<Definition name="EV" description="Earned Value" />
+				<Definition name="BAC" description="Budget at Completion" />
+				<Definition name="VAC" description="Variance at Completion" />
+			</Group>
+		</Addition>
 	</KnowledgeArea>
 	<KnowledgeArea id="CostM" name="Cost Management" />
 	<KnowledgeArea id="QM" name="Quality Management" />
@@ -238,24 +251,49 @@
 			knowledgeAreaId="IM" />
 		<Process name="Create measurable objectives" knowledgeAreaId="IM" />
 		<Process name="Develop project charter" knowledgeAreaId="IM">
-		    <ProcessParameters>
-		        <Input name="Project Statement of work"/>
-		        <Input name="Business case"/>
-		        <Input name="Agreements"/>
-		        <Input name="Enterprise environmental factors"/>
-		        <Input name="Organizational process assets"/>
-		        <Output name="Project charter"/>
-		        <ToolOrTechnique name="Expert judgment"/>
-		        <ToolOrTechnique name="Facilitation techniques"/>
-		    </ProcessParameters>
+			<ProcessParameters>
+				<Input name="Project Statement of work" />
+				<Input name="Business case" />
+				<Input name="Agreements" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<Output name="Project charter" />
+				<ToolOrTechnique name="Expert judgment" />
+				<ToolOrTechnique name="Facilitation techniques" />
+			</ProcessParameters>
 		</Process>
 		<Process
 			name="Identify Stakeholders and determine their expectations, influence and impact"
-			knowledgeAreaId="StakM" />
+			knowledgeAreaId="StakM">
+			<ProcessParameters>
+				<Input name="Project charter" />
+				<Input name="Procurement documents" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Stakeholder analysis" />
+				<ToolOrTechnique name="Expert judgment" />
+				<ToolOrTechnique name="Meetings" />
+				<Output name="Stakeholder register" />
+			</ProcessParameters>
+		</Process>
 	</ProcessGroup>
 	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
-			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM">
+			<SubProcess name="Plan Stakeholder Management">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Stakeholde register" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Meetings" />
+					<ToolOrTechnique name="Analytical techniques" />
+					<Output name="Stakeholder management plan" />
+					<Output name="Project documents updates" />
+				</ProcessParameters>
+			</SubProcess>
+		</Process>
 		<Process name="Determine detailed requirements"
 			knowledgeAreaId="ScopM" />
 		<Process name="Create Project scope statement"
@@ -279,10 +317,65 @@
 		<Process name="Determine all roles and responsibilities"
 			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
 		<Process name="Plan communications and stakeholder engagement"
-			knowledgeAreaId="ComM,StakM" />
+			knowledgeAreaId="ComM,StakM">
+		</Process>
 		<Process
-			name="Perform risk identification, qualtitative risk analysis, and risk response planning"
-			knowledgeAreaId="RiskM" />
+			name="Perform risk identification, qualitative risk analysis, and risk response planning"
+			knowledgeAreaId="RiskM">
+			<SubProcess name="Identify Risks" knowledgeAreaId="RiskM">
+				<ProcessParameters>
+					<Input name="Risk management plan" />
+					<Input name="Cost management plan" />
+					<Input name="Schedule management plan" />
+					<Input name="Quality management plan" />
+					<Input name="Human resource management plan" />
+					<Input name="Scope baseline" />
+					<Input name="Activity cost estimates" />
+					<Input name="Activity duration estimates" />
+					<Input name="Stakeholder register" />
+					<Input name="Project documents" />
+					<Input name="Procurement documents" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Documentation reviews" />
+					<ToolOrTechnique name="Information gathering techniques" />
+					<ToolOrTechnique name="Checklist analysis" />
+					<ToolOrTechnique name="Assumptions analysis" />
+					<ToolOrTechnique name="Diagramming techniques" />
+					<ToolOrTechnique name="SWOT analysis" />
+					<ToolOrTechnique name="Expert judgment" />
+					<Output name="Risk register" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Perform Qualitative Risk Analysis" knowledgeAreaId="RiskM">
+				<ProcessParameters>
+					<Input name="Risk management plan" />
+					<Input name="Scope baseline" />
+					<Input name="Risk register" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Risk probability and impact assessment" />
+					<ToolOrTechnique name="Probability and impact matrix" />
+					<ToolOrTechnique name="Risk data quality assessment" />
+					<ToolOrTechnique name="Risk categorization" />
+					<ToolOrTechnique name="Risk urgency assessment" />
+					<ToolOrTechnique name="Expert judgment" />
+					<Output name="Project documents updates" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Plan Risk Responses" knowledgeAreaId="RiskM">
+				<ProcessParameters>
+					<Input name="Risk management plan" />
+					<Input name="Risk register" />
+					<ToolOrTechnique name="Strategies for negative risks or threats"/>
+					<ToolOrTechnique name="Strategies for positive risks or opportunities"/>
+					<ToolOrTechnique name="Contingent response strategies"/>
+					<ToolOrTechnique name="Expert judgment"/>
+					<Output name="Project management plan updates"/>
+					<Output name="Project documents updates" />
+				</ProcessParameters>
+			</SubProcess>
+		</Process>
 		<Process name="Go back - iterations"
 			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
 		<Process name="Finalize procurement documents"
@@ -328,7 +421,22 @@
 			knowledgeAreaId="ComM" />
 		<Process name="Report on project performance" knowledgeAreaId="ComM" />
 		<Process name="Manage stakeholder engagement and expectations"
-			knowledgeAreaId="StakM" />
+			knowledgeAreaId="StakM">
+			<ProcessParameters>
+				<Input name="Stakeholder management plan" />
+				<Input name="Communications management plan" />
+				<Input name="Change log" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Communication methods" />
+				<ToolOrTechnique name="Interpersonal skills" />
+				<ToolOrTechnique name="Management skills" />
+				<Output name="Issue log" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project document updates" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
+		</Process>
 		<Process name="Hold Meetings" knowledgeAreaId="IM,ComM" />
 		<Process name="Select sellers" knowledgeAreaId="ProcM" />
 	</ProcessGroup>
@@ -351,28 +459,43 @@
 		<Process name="Request changes" knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM" />
 		<Process name="Perform integrated change control"
 			knowledgeAreaId="IM">
-		    <ProcessParameters>
-		        <Input name="Project management plan"/>
-		        <Input name="Work performance reports"/>
-		        <Input name="Change requests"/>
-		        <Input name="Enterprise environmental factors"/>
-		        <Input name="Organizational process assets"/>
-		        <ToolOrTechnique name="Expert judgment"/>
-		        <ToolOrTechnique name="Meetings"/>
-		        <ToolOrTechnique name="Change control tools"/>
-		        <Output name="Approved change requests"/>
-		        <Output name="Change log"/>
-		        <Output name="Project management plan updates"/>
-		        <Output name="Project document updates"/>
-		    </ProcessParameters>
+			<ProcessParameters>
+				<Input name="Project management plan" />
+				<Input name="Work performance reports" />
+				<Input name="Change requests" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Expert judgment" />
+				<ToolOrTechnique name="Meetings" />
+				<ToolOrTechnique name="Change control tools" />
+				<Output name="Approved change requests" />
+				<Output name="Change log" />
+				<Output name="Project management plan updates" />
+				<Output name="Project document updates" />
+			</ProcessParameters>
 		</Process>
 		<Process name="Approve or reject changes" knowledgeAreaId="IM" />
 		<Process name="Update the PM plan and project documents"
 			knowledgeAreaId="IM,TimM,CostM,ComM,ProcM" />
 		<Process name="Inform stakeholders of the results of change requests"
 			knowledgeAreaId="IM,ComM,StakM" />
-		<Process name="Monitor stakeholder engagement"
-			knowledgeAreaId="StakM" />
+		<Process name="Control stakeholder engagement"
+			knowledgeAreaId="StakM">
+			<ProcessParameters>
+				<Input name="Project management plan" />
+				<Input name="Issue log" />
+				<Input name="Work performance data" />
+				<Input name="Project documents" />
+				<ToolOrTechnique name="Information management systems" />
+				<ToolOrTechnique name="Expert jugdements" />
+				<ToolOrTechnique name="Meetings" />
+				<Output name="Work performance information" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project documents updates" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
+		</Process>
 		<Process name="Manage configuration" knowledgeAreaId="IM" />
 		<Process name="Create forecasts" knowledgeAreaId="TimM,CostM" />
 		<Process name="Gain acceptance of interim deliverables from the customer"
