@@ -279,9 +279,9 @@
 	</ProcessGroup>
 	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
-			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM">
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,ProcM">
 			<SubProcess name="Plan Stakeholder Management">
-				<ProcessParameters>
+				<ProcessParameters knowledgeAreaId="StakM">
 					<Input name="Project management plan" />
 					<Input name="Stakeholde register" />
 					<Input name="Enterprise environmental factors" />
@@ -291,6 +291,19 @@
 					<ToolOrTechnique name="Analytical techniques" />
 					<Output name="Stakeholder management plan" />
 					<Output name="Project documents updates" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Plan Risk Management" knowledgeAreaId="RiskM">
+				<ProcessParameters>
+					<Input name="Project management plan"/>
+					<Input name="Project charter" />
+					<Input  name="Stakeholder register"/>
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Meetings" />
+					<ToolOrTechnique name="Analytical techniques" />
+					<Output name="Risk management plan" />
 				</ProcessParameters>
 			</SubProcess>
 		</Process>
@@ -347,7 +360,8 @@
 					<Output name="Risk register" />
 				</ProcessParameters>
 			</SubProcess>
-			<SubProcess name="Perform Qualitative Risk Analysis" knowledgeAreaId="RiskM">
+			<SubProcess name="Perform Qualitative Risk Analysis"
+				knowledgeAreaId="RiskM">
 				<ProcessParameters>
 					<Input name="Risk management plan" />
 					<Input name="Scope baseline" />
@@ -367,11 +381,11 @@
 				<ProcessParameters>
 					<Input name="Risk management plan" />
 					<Input name="Risk register" />
-					<ToolOrTechnique name="Strategies for negative risks or threats"/>
-					<ToolOrTechnique name="Strategies for positive risks or opportunities"/>
-					<ToolOrTechnique name="Contingent response strategies"/>
-					<ToolOrTechnique name="Expert judgment"/>
-					<Output name="Project management plan updates"/>
+					<ToolOrTechnique name="Strategies for negative risks or threats" />
+					<ToolOrTechnique name="Strategies for positive risks or opportunities" />
+					<ToolOrTechnique name="Contingent response strategies" />
+					<ToolOrTechnique name="Expert judgment" />
+					<Output name="Project management plan updates" />
 					<Output name="Project documents updates" />
 				</ProcessParameters>
 			</SubProcess>
@@ -501,9 +515,26 @@
 		<Process name="Gain acceptance of interim deliverables from the customer"
 			knowledgeAreaId="ScopM" />
 		<Process name="Perform quality control" knowledgeAreaId="QM" />
-		<Process name="Perfom risk reassessments and audits"
-			knowledgeAreaId="RiskM" />
-		<Process name="Manage reserves" knowledgeAreaId="RiskM" />
+		<Process name="Control Risks" informalName="Perfom risk reassessments and audits, Manage reserves"
+			knowledgeAreaId="RiskM">
+		    <ProcessParameters>
+		        <Input name="Project management plan"/>
+		        <Input name="Risk register"/>
+		        <Input name="Work performance data"/>
+		        <Input name="Work performance reports"/>
+		        <ToolOrTechnique name="Risk reassessment"/>
+		        <ToolOrTechnique name="Risk audits"/>
+		        <ToolOrTechnique name="Variance and trend analysis"/>
+		        <ToolOrTechnique name="Technical performance measurement"/>
+		        <ToolOrTechnique name="Reserve analysis"/>
+		        <ToolOrTechnique name="Meetings"/>
+		        <Output name="Work performance information"/>
+		        <Output name="Change requests"/>
+		        <Output name="Project management plan updates"/>
+		        <Output name="Project document updates"/>
+		        <Output name="Organizational process assets updates"/>
+		    </ProcessParameters>
+		</Process>
 		<Process name="Control procurements" knowledgeAreaId="ProcM" />
 	</ProcessGroup>
 	<ProcessGroup name="Closing">

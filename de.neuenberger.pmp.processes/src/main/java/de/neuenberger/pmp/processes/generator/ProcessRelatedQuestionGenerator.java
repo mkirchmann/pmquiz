@@ -329,8 +329,9 @@ public class ProcessRelatedQuestionGenerator extends
 				final String type) {
 			if (allWrongAnswers.size() > 3) {
 				for (final P cplxInputOutput : input) {
-					final String qStringI = "Which is an " + type + " to the '"
-							+ drawnProcess.getName() + "' process?";
+					final String qStringI = "Which is a/an " + type
+							+ " to the '" + drawnProcess.getName()
+							+ "' process?";
 					list.add(QuestionUtil.createQuestion(questionGroup,
 							qStringI, cplxInputOutput, allWrongAnswers));
 				}
@@ -338,8 +339,9 @@ public class ProcessRelatedQuestionGenerator extends
 			if (input.size() > 3) {
 				// you can create NOT questions
 				for (final P cplxInputOutput : allWrongAnswers) {
-					final String qStringI = "Which is an " + type + " to the '"
-							+ drawnProcess.getName() + "' process?";
+					final String qStringI = "Which is not a/an " + type
+							+ " to the '" + drawnProcess.getName()
+							+ "' process?";
 					list.add(QuestionUtil.createQuestion(questionGroup,
 							qStringI, cplxInputOutput, input));
 				}

@@ -38,13 +38,14 @@
 						maxOccurs="unbounded" minOccurs="0">
 					</xs:element>
 				</xs:choice>
-				<xs:attribute name="knowledgeAreaId" type="xs:string"></xs:attribute>
+				<xs:attribute name="knowledgeAreaId" type="xs:string"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="cplxNamed">
 		<xs:attribute name="name" type="xs:string" />
-	</xs:complexType>
+        <xs:attribute name="informalName" type="xs:string"></xs:attribute>
+    </xs:complexType>
 	<xs:complexType name="cplxKnowledgeArea">
 		<xs:complexContent>
 			<xs:extension base="cplxNamed">
