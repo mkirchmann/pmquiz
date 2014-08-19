@@ -284,7 +284,7 @@ public class ProcessRelatedQuestionGenerator extends
 				final CplxProcessParameters drawnProcessParameters = drawnProcess
 						.getProcessParameters();
 				input = drawnProcessParameters.getInput();
-				output = drawnProcessParameters.getInput();
+				output = drawnProcessParameters.getOutput();
 				toolsOrTechniques = drawnProcessParameters.getToolOrTechnique();
 				collectAllInformation(processes);
 			}

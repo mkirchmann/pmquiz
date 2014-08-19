@@ -283,7 +283,7 @@
 			<SubProcess name="Plan Stakeholder Management">
 				<ProcessParameters knowledgeAreaId="StakM">
 					<Input name="Project management plan" />
-					<Input name="Stakeholde register" />
+					<Input name="Stakeholder register" />
 					<Input name="Enterprise environmental factors" />
 					<Input name="Organizational process assets" />
 					<ToolOrTechnique name="Expert judgment" />
