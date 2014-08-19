@@ -377,6 +377,20 @@
 					<Output name="Project documents updates" />
 				</ProcessParameters>
 			</SubProcess>
+			<SubProcess>
+			    <ProcessParameters>
+			        <Input name="Risk management plan" />
+			        <Input name="Cost management plan"/>
+			        <Input name="Schedule management plan"/>
+			        <Input name="Risk register" />
+			        <Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+			        <ToolOrTechnique name="Data gathering and representation techniques"/>
+			        <ToolOrTechnique name="Quantitative risk analysis and modelling techniques"/>
+			        <ToolOrTechnique name="Expert judgment"/>
+			        <Output name="Project documents updates"/>
+			    </ProcessParameters>
+			</SubProcess>
 			<SubProcess name="Plan Risk Responses" knowledgeAreaId="RiskM">
 				<ProcessParameters>
 					<Input name="Risk management plan" />

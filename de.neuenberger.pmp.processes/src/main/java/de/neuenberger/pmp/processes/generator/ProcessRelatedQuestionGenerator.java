@@ -294,12 +294,12 @@ public class ProcessRelatedQuestionGenerator extends
 			 */
 			public void createQuestions(final List<Question> list) {
 				createInputOutputQuestion(drawnProcess, list, input,
-						allWrongInputAnswers, "input");
+						allWrongInputAnswers, "an input to");
 				createInputOutputQuestion(drawnProcess, list, output,
-						allWrongOutputAnswers, "output");
+						allWrongOutputAnswers, "an output of");
 				createInputOutputQuestion(drawnProcess, list,
 						toolsOrTechniques, allWrongToolOrTechniqueAnswers,
-						"tool or technique");
+						"a tool or technique of");
 			}
 
 			private void collectAllInformation(final List<CplxProcess> process) {
@@ -329,9 +329,8 @@ public class ProcessRelatedQuestionGenerator extends
 				final String type) {
 			if (allWrongAnswers.size() > 3) {
 				for (final P cplxInputOutput : input) {
-					final String qStringI = "Which is a/an " + type
-							+ " to the '" + drawnProcess.getName()
-							+ "' process?";
+					final String qStringI = "Which is " + type + "  the '"
+							+ drawnProcess.getName() + "' process?";
 					list.add(QuestionUtil.createQuestion(questionGroup,
 							qStringI, cplxInputOutput, allWrongAnswers));
 				}
@@ -339,9 +338,8 @@ public class ProcessRelatedQuestionGenerator extends
 			if (input.size() > 3) {
 				// you can create NOT questions
 				for (final P cplxInputOutput : allWrongAnswers) {
-					final String qStringI = "Which is not a/an " + type
-							+ " to the '" + drawnProcess.getName()
-							+ "' process?";
+					final String qStringI = "Which is not " + type + " the '"
+							+ drawnProcess.getName() + "' process?";
 					list.add(QuestionUtil.createQuestion(questionGroup,
 							qStringI, cplxInputOutput, input));
 				}
