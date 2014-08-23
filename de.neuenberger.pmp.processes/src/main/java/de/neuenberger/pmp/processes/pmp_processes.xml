@@ -153,7 +153,30 @@
 		</Addition>
 	</KnowledgeArea>
 	<KnowledgeArea id="ComM" name="Communications Management" />
-	<KnowledgeArea id="RiskM" name="Risk Management" />
+	<KnowledgeArea id="RiskM" name="Risk Management">
+	    <Addition>
+	        <Group name="SWOT">
+	            <Definition name="S" description="Strengths"/>
+	            <Definition name="W" description="Weaknesses"/>
+	            <Definition name="O" description="Opportunities"/>
+	            <Definition name="T" description="Threats"/>
+	        </Group>
+	    </Addition>
+	    <Addition>
+	        <Group name="ways handling risks">
+	            <Definition name="Mitigate" description="Taking some sort of action that will cause the risk to do as little damage to your project as possible."></Definition>
+	            <Definition name="Avoid" description="Prevent the risk from happening,"/>
+	            <Definition name="Transfer" description="Pay someone else to accept the risk for you. The most common way to do this is to buy an insurance."/>
+	            <Definition name="Accept" description="Analyze the risk and don't choose to mitigate, avoid or transfer it."/>
+	        </Group>
+	        <Group name="ways handling opportunities">
+	            <Definition name="Exploit" description="Make sure you take advantage of an opportunity or make sure you make the most out of it."/>
+	            <Definition name="Share" description="If it is hard to take advantage of an opportunity of your own, it might be a solution to call in another company to share this opportunity."/>
+	            <Definition name="Enhance" description="Influencing the triggers of an opportunity such that chances are higher that it happens."/>
+	            <Definition name="Accept" description="If it does not make sense to exploit, enhance or share the opportunity."/>
+	        </Group>
+	    </Addition>
+	</KnowledgeArea>
 	<KnowledgeArea id="ProcM" name="Procurement Management">
 		<Addition>
 			<Group name="Contract types">
@@ -279,7 +302,7 @@
 	</ProcessGroup>
 	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
-			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,ProcM">
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ProcM">
 			<SubProcess name="Plan Stakeholder Management">
 				<ProcessParameters knowledgeAreaId="StakM">
 					<Input name="Project management plan" />
@@ -292,6 +315,21 @@
 					<Output name="Stakeholder management plan" />
 					<Output name="Project documents updates" />
 				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Plan Communications Management" knowledgeAreaId="ComM">
+			    <ProcessParameters>
+			        <Input name="Project management plan" />
+			        <Input name="Stakeholder register" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Communication requirements analysis"/>
+					<ToolOrTechnique name="Communication technology"/>
+					<ToolOrTechnique name="Communication models"/>
+					<ToolOrTechnique name="Communication methods"/>
+					<ToolOrTechnique name="Meetings"/>
+					<Output name="Communications management plan"/>
+					<Output name="Project documents updates" />					
+			    </ProcessParameters>
 			</SubProcess>
 			<SubProcess name="Plan Risk Management" knowledgeAreaId="RiskM">
 				<ProcessParameters>
