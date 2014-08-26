@@ -154,28 +154,35 @@
 	</KnowledgeArea>
 	<KnowledgeArea id="ComM" name="Communications Management" />
 	<KnowledgeArea id="RiskM" name="Risk Management">
-	    <Addition>
-	        <Group name="SWOT">
-	            <Definition name="S" description="Strengths"/>
-	            <Definition name="W" description="Weaknesses"/>
-	            <Definition name="O" description="Opportunities"/>
-	            <Definition name="T" description="Threats"/>
-	        </Group>
-	    </Addition>
-	    <Addition>
-	        <Group name="ways handling risks">
-	            <Definition name="Mitigate" description="Taking some sort of action that will cause the risk to do as little damage to your project as possible."></Definition>
-	            <Definition name="Avoid" description="Prevent the risk from happening,"/>
-	            <Definition name="Transfer" description="Pay someone else to accept the risk for you. The most common way to do this is to buy an insurance."/>
-	            <Definition name="Accept" description="Analyze the risk and don't choose to mitigate, avoid or transfer it."/>
-	        </Group>
-	        <Group name="ways handling opportunities">
-	            <Definition name="Exploit" description="Make sure you take advantage of an opportunity or make sure you make the most out of it."/>
-	            <Definition name="Share" description="If it is hard to take advantage of an opportunity of your own, it might be a solution to call in another company to share this opportunity."/>
-	            <Definition name="Enhance" description="Influencing the triggers of an opportunity such that chances are higher that it happens."/>
-	            <Definition name="Accept" description="If it does not make sense to exploit, enhance or share the opportunity."/>
-	        </Group>
-	    </Addition>
+		<Addition>
+			<Group name="SWOT">
+				<Definition name="S" description="Strengths" />
+				<Definition name="W" description="Weaknesses" />
+				<Definition name="O" description="Opportunities" />
+				<Definition name="T" description="Threats" />
+			</Group>
+		</Addition>
+		<Addition>
+			<Group name="ways handling risks">
+				<Definition name="Mitigate"
+					description="Taking some sort of action that will cause the risk to do as little damage to your project as possible."></Definition>
+				<Definition name="Avoid" description="Prevent the risk from happening," />
+				<Definition name="Transfer"
+					description="Pay someone else to accept the risk for you. The most common way to do this is to buy an insurance." />
+				<Definition name="Accept"
+					description="Analyze the risk and don't choose to mitigate, avoid or transfer it." />
+			</Group>
+			<Group name="ways handling opportunities">
+				<Definition name="Exploit"
+					description="Make sure you take advantage of an opportunity or make sure you make the most out of it." />
+				<Definition name="Share"
+					description="If it is hard to take advantage of an opportunity of your own, it might be a solution to call in another company to share this opportunity." />
+				<Definition name="Enhance"
+					description="Influencing the triggers of an opportunity such that chances are higher that it happens." />
+				<Definition name="Accept"
+					description="If it does not make sense to exploit, enhance or share the opportunity." />
+			</Group>
+		</Addition>
 	</KnowledgeArea>
 	<KnowledgeArea id="ProcM" name="Procurement Management">
 		<Addition>
@@ -302,7 +309,7 @@
 	</ProcessGroup>
 	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
-			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ProcM">
+			knowledgeAreaId="IM,ScopM,TimM,CostM">
 			<SubProcess name="Plan Stakeholder Management">
 				<ProcessParameters knowledgeAreaId="StakM">
 					<Input name="Project management plan" />
@@ -316,32 +323,97 @@
 					<Output name="Project documents updates" />
 				</ProcessParameters>
 			</SubProcess>
-			<SubProcess name="Plan Communications Management" knowledgeAreaId="ComM">
-			    <ProcessParameters>
-			        <Input name="Project management plan" />
-			        <Input name="Stakeholder register" />
+			<SubProcess name="Plan Communications Management"
+				knowledgeAreaId="ComM">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Stakeholder register" />
 					<Input name="Enterprise environmental factors" />
 					<Input name="Organizational process assets" />
-					<ToolOrTechnique name="Communication requirements analysis"/>
-					<ToolOrTechnique name="Communication technology"/>
-					<ToolOrTechnique name="Communication models"/>
-					<ToolOrTechnique name="Communication methods"/>
-					<ToolOrTechnique name="Meetings"/>
-					<Output name="Communications management plan"/>
-					<Output name="Project documents updates" />					
-			    </ProcessParameters>
+					<ToolOrTechnique name="Communication requirements analysis" />
+					<ToolOrTechnique name="Communication technology" />
+					<ToolOrTechnique name="Communication models" />
+					<ToolOrTechnique name="Communication methods" />
+					<ToolOrTechnique name="Meetings" />
+					<Output name="Communications management plan" />
+					<Output name="Project documents updates" />
+				</ProcessParameters>
 			</SubProcess>
 			<SubProcess name="Plan Risk Management" knowledgeAreaId="RiskM">
 				<ProcessParameters>
-					<Input name="Project management plan"/>
+					<Input name="Project management plan" />
 					<Input name="Project charter" />
-					<Input  name="Stakeholder register"/>
+					<Input name="Stakeholder register" />
 					<Input name="Enterprise environmental factors" />
 					<Input name="Organizational process assets" />
 					<ToolOrTechnique name="Expert judgment" />
 					<ToolOrTechnique name="Meetings" />
 					<ToolOrTechnique name="Analytical techniques" />
 					<Output name="Risk management plan" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Plan Procurement Management"
+				knowledgeAreaId="ProcM">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Requirements documentation" />
+					<Input name="Risk Register" />
+					<Input name="Activity resource requirements" />
+					<Input name="Project schedule" />
+					<Input name="Activity cost estimates" />
+					<Input name="Stakeholder register" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Make-or-buy analysis" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Market research" />
+					<ToolOrTechnique name="Meetings" />
+					<Output name="Procurement management plan" />
+					<Output name="Procurement statement of work" />
+					<Output name="Procurement documents" />
+					<Output name="Source selection criteria" />
+					<Output name="Make-or-buy-decisions" />
+					<Output name="Change requests" />
+					<Output name="Project documents updates" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Plan Human Resource Management"
+				knowledgeAreaId="HRM">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Activity resource requiements" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Organizational charts and position descriptions" />
+					<ToolOrTechnique name="Networking" />
+					<ToolOrTechnique name="Organizational theory" />
+					<ToolOrTechnique name="Expert judgments" />
+					<ToolOrTechnique name="Meetings" />
+					<Output name="" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Plan Quality Management"
+				knowledgeAreaId="QM">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Stakeholder register" />
+					<Input name="Risk Register" />
+					<Input name="Requirements documentation" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Cost-benefit analysis" />
+					<ToolOrTechnique name="Cost of quality" />
+					<ToolOrTechnique name="Seven basic quality tools" />
+					<ToolOrTechnique name="Benchmarking" />
+					<ToolOrTechnique name="Design of experiments" />
+					<ToolOrTechnique name="Statistical sampling" />
+					<ToolOrTechnique name="Additional quality planning tools" />
+					<ToolOrTechnique name="Meetings" />
+					<Output name="Quality management plan" />
+					<Output name="Process improvement plan" />
+					<Output name="Quality metrics" />
+					<Output name="Quality checklists" />
+					<Output name="Project documents updates" />
 				</ProcessParameters>
 			</SubProcess>
 		</Process>
@@ -368,7 +440,24 @@
 		<Process name="Determine all roles and responsibilities"
 			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,HRM,ComM,RiskM,ProcM,StakM" />
 		<Process name="Plan communications and stakeholder engagement"
-			knowledgeAreaId="ComM,StakM">
+			knowledgeAreaId="StakM">
+			<SubProcess name="Manage Communications" knowledgeAreaId="ComM">
+				<ProcessParameters>
+					<Input name="Communications management plan" />
+					<Input name="Work performance reports" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Communication technology" />
+					<ToolOrTechnique name="Communication models" />
+					<ToolOrTechnique name="Communication methods" />
+					<ToolOrTechnique name="Information management systems" />
+					<ToolOrTechnique name="Performance reporting" />
+					<Output name="Project communications" />
+					<Output name="Project management plan updates" />
+					<Output name="Project documents updates" />
+					<Output name="Organizational process assets updates" />
+				</ProcessParameters>
+			</SubProcess>
 		</Process>
 		<Process
 			name="Perform risk identification, qualitative risk analysis, and risk response planning"
@@ -416,18 +505,19 @@
 				</ProcessParameters>
 			</SubProcess>
 			<SubProcess>
-			    <ProcessParameters>
-			        <Input name="Risk management plan" />
-			        <Input name="Cost management plan"/>
-			        <Input name="Schedule management plan"/>
-			        <Input name="Risk register" />
-			        <Input name="Enterprise environmental factors" />
+				<ProcessParameters>
+					<Input name="Risk management plan" />
+					<Input name="Cost management plan" />
+					<Input name="Schedule management plan" />
+					<Input name="Risk register" />
+					<Input name="Enterprise environmental factors" />
 					<Input name="Organizational process assets" />
-			        <ToolOrTechnique name="Data gathering and representation techniques"/>
-			        <ToolOrTechnique name="Quantitative risk analysis and modelling techniques"/>
-			        <ToolOrTechnique name="Expert judgment"/>
-			        <Output name="Project documents updates"/>
-			    </ProcessParameters>
+					<ToolOrTechnique name="Data gathering and representation techniques" />
+					<ToolOrTechnique
+						name="Quantitative risk analysis and modelling techniques" />
+					<ToolOrTechnique name="Expert judgment" />
+					<Output name="Project documents updates" />
+				</ProcessParameters>
 			</SubProcess>
 			<SubProcess name="Plan Risk Responses" knowledgeAreaId="RiskM">
 				<ProcessParameters>
@@ -471,9 +561,75 @@
 		<Process
 			name="Determine whether processes are correct and effective (quality assurance)"
 			knowledgeAreaId="QM" />
-		<Process name="Perform quality audits" knowledgeAreaId="QM" />
-		<Process name="Acquire final team" knowledgeAreaId="HRM" />
-		<Process name="Manage people" knowledgeAreaId="HRM" />
+		<Process name="Perform Quality Assurance" knowledgeAreaId="QM"
+			informalName="Perform quality audits">
+			<ProcessParameters>
+				<Input name="Quality management plan" />
+				<Input name="Process improvement plan" />
+				<Input name="Quality metrics" />
+				<Input name="Quality control measurements" />
+				<Input name="Project documents" />
+				<ToolOrTechnique name="Quality management and control tools" />
+				<ToolOrTechnique name="Quality audits" />
+				<ToolOrTechnique name="Process analysis" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project documents updates" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
+		</Process>
+		<Process name="Acquire Project Team" knowledgeAreaId="HRM"
+			informalName="Acquire final team">
+			<ProcessParameters>
+				<Input name="Human resource management plan" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Pre-Assignment" />
+				<ToolOrTechnique name="Negotiation" />
+				<ToolOrTechnique name="Acquisition" />
+				<ToolOrTechnique name="Virtual teams" />
+				<ToolOrTechnique name="Multi-criteria decision analysis" />
+				<Output name="Project staff assignments" />
+				<Output name="Resource calendars" />
+				<Output name="Project managment plan updates" />
+			</ProcessParameters>
+		</Process>
+		<Process name="Develope Project Team" knowledgeAreaId="HRM">
+			<ProcessParameters>
+				<Input name="Human resource management plan" />
+				<Input name="Project staff assignments" />
+				<Input name="Resource calendars" />
+				<ToolOrTechnique name="Interpersonal skills" />
+				<ToolOrTechnique name="Training" />
+				<ToolOrTechnique name="Team-building activities" />
+				<ToolOrTechnique name="Ground rules" />
+				<ToolOrTechnique name="Colocation" />
+				<ToolOrTechnique name="Recognition and rewards" />
+				<ToolOrTechnique name="Personal assessment tools" />
+				<Output name="Team performance assessments" />
+				<Output name="Enterprise Environmental factors updates" />
+			</ProcessParameters>
+		</Process>
+		<Process name="Manage Project Team" knowledgeAreaId="HRM"
+			informalName="Manage people">
+			<ProcessParameters>
+				<Input name="Human resource management plan" />
+				<Input name="Project staff assignments" />
+				<Input name="Team performance assessments" />
+				<Input name="Issue log" />
+				<Input name="Work performance reports" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Observation and conversation" />
+				<ToolOrTechnique name="Project performance appraisals" />
+				<ToolOrTechnique name="Conflict management" />
+				<ToolOrTechnique name="Interpersonal skills" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project documents updates" />
+				<Output name="Enterprise Environmental factors updates" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
+		</Process>
 		<Process name="Evaluate team and individual performance"
 			knowledgeAreaId="HRM" />
 		<Process name="Hold team building activities" knowledgeAreaId="HRM" />
@@ -504,11 +660,54 @@
 			</ProcessParameters>
 		</Process>
 		<Process name="Hold Meetings" knowledgeAreaId="IM,ComM" />
-		<Process name="Select sellers" knowledgeAreaId="ProcM" />
+		<Process name="Conduct Procurements" knowledgeAreaId="ProcM"
+			informalName="Select sellers">
+			<ProcessParameters>
+				<Input name="Procurement management plan" />
+				<Input name="Procurement documents" />
+				<Input name="Source selection criteria" />
+				<Input name="Seller proposals" />
+				<Input name="Project documents" />
+				<Input name="Make-or-buy analysis" />
+				<Input name="Procurement statement of work" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Bidder conference" />
+				<ToolOrTechnique name="Proposal evaluation techniques" />
+				<ToolOrTechnique name="Independent estimates" />
+				<ToolOrTechnique name="Expert judgment" />
+				<ToolOrTechnique name="Advertising" />
+				<ToolOrTechnique name="Analytical techniques" />
+				<ToolOrTechnique name="Procurement negotiations" />
+				<Output name="Selected sellers" />
+				<Output name="Agreements" />
+				<Output name="Resource calendars" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project document updates" />
+			</ProcessParameters>
+		</Process>
 	</ProcessGroup>
 	<ProcessGroup name="Monitoring and Controlling">
 		<Process name="Take action to control the project"
-			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,ProcM,StakM" />
+			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,StakM,ProcM">
+			<SubProcess name="Control Communications">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Project communications" />
+					<Input name="Issue log" />
+					<Input name="Work performance data" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Information management systems" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Meetings" />
+					<Output name="Work performance information" />
+					<Output name="Change requests" />
+					<Output name="Project management plan updates" />
+					<Output name="Project documents updates" />
+					<Output name="Organizational process assets updates" />
+				</ProcessParameters>
+			</SubProcess>
+		</Process>
 		<Process
 			name="Measure performance against the performance measurement baseline"
 			knowledgeAreaId="IM,ScopM,TimM,CostM" />
@@ -566,33 +765,90 @@
 		<Process name="Create forecasts" knowledgeAreaId="TimM,CostM" />
 		<Process name="Gain acceptance of interim deliverables from the customer"
 			knowledgeAreaId="ScopM" />
-		<Process name="Perform quality control" knowledgeAreaId="QM" />
-		<Process name="Control Risks" informalName="Perfom risk reassessments and audits, Manage reserves"
-			knowledgeAreaId="RiskM">
-		    <ProcessParameters>
-		        <Input name="Project management plan"/>
-		        <Input name="Risk register"/>
-		        <Input name="Work performance data"/>
-		        <Input name="Work performance reports"/>
-		        <ToolOrTechnique name="Risk reassessment"/>
-		        <ToolOrTechnique name="Risk audits"/>
-		        <ToolOrTechnique name="Variance and trend analysis"/>
-		        <ToolOrTechnique name="Technical performance measurement"/>
-		        <ToolOrTechnique name="Reserve analysis"/>
-		        <ToolOrTechnique name="Meetings"/>
-		        <Output name="Work performance information"/>
-		        <Output name="Change requests"/>
-		        <Output name="Project management plan updates"/>
-		        <Output name="Project document updates"/>
-		        <Output name="Organizational process assets updates"/>
-		    </ProcessParameters>
+		<Process name="Control Quality " knowledgeAreaId="QM"
+			informalName="Perform quality control">
+			<ProcessParameters>
+				<Input name="Project management plan" />
+				<Input name="Quality metrics" />
+				<Input name="Quality checklists" />
+				<Input name="Work performance data" />
+				<Input name="Approved change requests" />
+				<Input name="Deliverables" />
+				<Input name="Project documents" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Seven basic quality tools" />
+				<ToolOrTechnique name="Statistical sampling" />
+				<ToolOrTechnique name="Inspection" />
+				<ToolOrTechnique name="Approved change requests review" />
+				<Output name="Quality control measurements" />
+				<Output name="Validated changes" />
+				<Output name="Verified deliverables" />
+				<Output name="Work performance information" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project document updates" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
 		</Process>
-		<Process name="Control procurements" knowledgeAreaId="ProcM" />
+		<Process name="Control Risks"
+			informalName="Perfom risk reassessments and audits, Manage reserves"
+			knowledgeAreaId="RiskM">
+			<ProcessParameters>
+				<Input name="Project management plan" />
+				<Input name="Risk register" />
+				<Input name="Work performance data" />
+				<Input name="Work performance reports" />
+				<ToolOrTechnique name="Risk reassessment" />
+				<ToolOrTechnique name="Risk audits" />
+				<ToolOrTechnique name="Variance and trend analysis" />
+				<ToolOrTechnique name="Technical performance measurement" />
+				<ToolOrTechnique name="Reserve analysis" />
+				<ToolOrTechnique name="Meetings" />
+				<Output name="Work performance information" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project document updates" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
+		</Process>
+		<Process name="Control Procurements" knowledgeAreaId="ProcM">
+			<ProcessParameters>
+				<Input name="Project management plan" />
+				<Input name="Project documents" />
+				<Input name="Agreements" />
+				<Input name="Approved change requests" />
+				<Input name="Work performance reports" />
+				<Input name="Work performance data" />
+				<ToolOrTechnique name="Control change control system" />
+				<ToolOrTechnique name="Procurement performance reviews" />
+				<ToolOrTechnique name="Inspections and audits" />
+				<ToolOrTechnique name="Performance reporting" />
+				<ToolOrTechnique name="Payment systems" />
+				<ToolOrTechnique name="Claims administration" />
+				<ToolOrTechnique name="Records management system" />
+				<Output name="Work performance information" />
+				<Output name="Change requests" />
+				<Output name="Project management plan updates" />
+				<Output name="Project document updates" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
+		</Process>
 	</ProcessGroup>
 	<ProcessGroup name="Closing">
 		<Process name="Confirm work is done to requirements"
 			knowledgeAreaId="IM,ProcM" />
-		<Process name="Complete procurement closure" knowledgeAreaId="ProcM" />
+		<Process name="Close Procurements" knowledgeAreaId="ProcM"
+			informalName="Complete procurement closure">
+			<ProcessParameters>
+				<Input name="Project management plan" />
+				<Input name="Procurement documents" />
+				<ToolOrTechnique name="Procurement audits" />
+				<ToolOrTechnique name="Procurement negotiations" />
+				<ToolOrTechnique name="Records management systems" />
+				<Output name="Closed procurements" />
+				<Output name="Organizational process assets updates" />
+			</ProcessParameters>
+		</Process>
 		<Process name="Gain final acceptance of the product"
 			knowledgeAreaId="IM" />
 		<Process name="Complete financial closure" knowledgeAreaId="IM" />
