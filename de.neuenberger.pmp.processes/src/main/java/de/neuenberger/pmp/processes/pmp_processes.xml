@@ -309,7 +309,32 @@
 	</ProcessGroup>
 	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
-			knowledgeAreaId="IM,ScopM,TimM,CostM">
+			knowledgeAreaId="IM,ScopM,TimM">
+			<SubProcess name="Plan Schedule Management"
+				knowledgeAreaId="TimM">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Project charter" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Analytical techniques" />
+					<ToolOrTechnique name="Meetings" />
+					<Output name="Schedule management plan" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Plan Cost Management" knowledgeAreaId="CostM">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Project charter" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Analytical techniques" />
+					<ToolOrTechnique name="Meetings" />
+					<Output name="Cost management plan" />
+				</ProcessParameters>
+			</SubProcess>
 			<SubProcess name="Plan Stakeholder Management">
 				<ProcessParameters knowledgeAreaId="StakM">
 					<Input name="Project management plan" />
@@ -425,14 +450,161 @@
 			knowledgeAreaId="ProcM" />
 		<Process name="Determine planning team" knowledgeAreaId="IM,HRM" />
 		<Process name="Create WBS and WBS dictionary" knowledgeAreaId="ScopM" />
-		<Process name="Create Activity List" knowledgeAreaId="TimM" />
-		<Process name="Create Network Diagram" knowledgeAreaId="TimM" />
-		<Process name="Estimate resource requirements"
-			knowledgeAreaId="TimM" />
-		<Process name="Estimate time and cost" knowledgeAreaId="TimM,CostM" />
+		<Process name="Define Activities" knowledgeAreaId="TimM"
+			informalName="Create Activity List">
+			<ProcessParameters>
+				<Input name="Schedule management plan" />
+				<Input name="Scope baseline" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Decomposition" />
+				<ToolOrTechnique name="Rolling wave planning" />
+				<ToolOrTechnique name="Expert judgment" />
+				<Output name="Activity list" />
+				<Output name="Activity attributes" />
+				<Output name="Milestone list" />
+			</ProcessParameters>
+		</Process>
+		<Process name="Sequence Activities" knowledgeAreaId="TimM"
+			informalName="Create Network Diagram">
+			<ProcessParameters>
+				<Input name="Schedule management plan" />
+				<Input name="Activity list" />
+				<Input name="Activity attributes" />
+				<Input name="Milestone list" />
+				<Input name="Project scope statement" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Precedence diagramming method (PDM)" />
+				<ToolOrTechnique name="Dependency determination" />
+				<ToolOrTechnique name="Leads and lags" />
+				<Output name="Project schedule network diagrams" />
+				<Output name="Project document updates" />
+			</ProcessParameters>
+		</Process>
+		<Process name="Estimate Activity Resources" knowledgeAreaId="TimM"
+			informalName="Estimate resource requirements">
+			<ProcessParameters>
+				<Input name="Schedule management plan" />
+				<Input name="Activity list" />
+				<Input name="Activity attributes" />
+				<Input name="Resource calendars" />
+				<Input name="Risk register" />
+				<Input name="Activity cost estimates" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Expert judgment" />
+				<ToolOrTechnique name="Alternative analysis" />
+				<ToolOrTechnique name="Published estimating data" />
+				<ToolOrTechnique name="Bottom-up estimating" />
+				<ToolOrTechnique name="Project management software" />
+				<Output name="Activity resource requirements" />
+				<Output name="Resource breakdown structure" />
+				<Output name="Project documents updates" />
+			</ProcessParameters>
+		</Process>
+		<Process name="Estimate time and cost" knowledgeAreaId="TimM,CostM">
+			<SubProcess name="Estimate Activity Durations">
+				<ProcessParameters>
+					<Input name="Schedule management plan" />
+					<Input name="Activity list" />
+					<Input name="Activity attributes" />
+					<Input name="Activity resource requirements" />
+					<Input name="Resource calendars" />
+					<Input name="Project scope statement" />
+					<Input name="Risk register" />
+					<Input name="Resource breakdown structure" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Analogous estimating" />
+					<ToolOrTechnique name="Parametric estimating" />
+					<ToolOrTechnique name="Three-point estimating" />
+					<ToolOrTechnique name="Group decision-making techniques" />
+					<ToolOrTechnique name="Reserve analysis" />
+					<Output name="Activity duration estimates" />
+					<Output name="Project document updates" />
+				</ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Estimate costs" knowledgeAreaId="CostM">
+				<ProcessParameters>
+					<Input name="Cost management plan" />
+					<Input name="Human resource management plan" />
+					<Input name="Scope baseline" />
+					<Input name="Project schedule" />
+					<Input name="Risk register" />
+					<Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment" />
+					<ToolOrTechnique name="Analogous estimating" />
+					<ToolOrTechnique name="Parametric estimating" />
+					<ToolOrTechnique name="Bottom-up estimating" />
+					<ToolOrTechnique name="Three-point estimating" />
+					<ToolOrTechnique name="Reserve analysis" />
+					<ToolOrTechnique name="Cost of quality" />
+					<ToolOrTechnique name="Project management software" />
+					<ToolOrTechnique name="Vecndor bid analysis" />
+					<ToolOrTechnique name="Group decision-making techniques" />
+					<Output name="Activity cost estimates" />
+					<Output name="Basis of estimates" />
+					<Output name="Project document updates" />
+				</ProcessParameters>
+			</SubProcess>
+		</Process>
 		<Process name="Determine critical path" knowledgeAreaId="TimM" />
-		<Process name="Develop schedule" knowledgeAreaId="TimM" />
-		<Process name="Develop budget" knowledgeAreaId="CostM" />
+		<Process name="Develop Schedule" knowledgeAreaId="TimM">
+			<ProcessParameters>
+				<Input name="Schedule management plan" />
+				<Input name="Activity list" />
+				<Input name="Activity attributes" />
+				<Input name="Project schedule network diagrams"/>
+				<Input name="Activity resource requirements" />
+				<Input name="Resource calendars" />
+				<Input name="Activity duration estimates"/>
+				<Input name="Project scope statement" />
+				<Input name="Risk register" />
+				<Input name="Project staff assignments"/>
+				<Input name="Resource breakdown structure" />
+				<Input name="Enterprise environmental factors" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Schedule network analysis" />
+				<ToolOrTechnique name="Critical path method" />
+				<ToolOrTechnique name="Critical chain method" />
+				<ToolOrTechnique name="Resource optimization techniques" />
+				<ToolOrTechnique name="Modeling techniques" />
+				<ToolOrTechnique name="Leads and lags" />
+				<ToolOrTechnique name="Schedule compression" />
+				<ToolOrTechnique name="Scheduling tool" />
+				<Output name="Schedule baseline"/>
+				<Output name="Project schedule"/>
+				<Output name="Schedule data"/>
+				<Output name="Project calendars"/>
+				<Output name="Project management plan updates"/>
+				<Output name="Project documents updates"/>
+			</ProcessParameters>
+		</Process>
+		<Process name="Determine Budget" knowledgeAreaId="CostM"
+			informalName="Develop budget">
+			<ProcessParameters>
+				<Input name="Cost management plan" />
+				<Input name="Scope baseline" />
+				<Input name="Activity cost estimates" />
+				<Input name="Basis of estimates" />
+				<Input name="Project schedule" />
+				<Input name="Resource calendars" />
+				<Input name="Risk register" />
+				<Input name="Agreements" />
+				<Input name="Organizational process assets" />
+				<ToolOrTechnique name="Cost aggregation" />
+				<ToolOrTechnique name="Reserve analysis" />
+				<ToolOrTechnique name="Expert judgment" />
+				<ToolOrTechnique name="Historical relationships" />
+				<ToolOrTechnique name="Funding limit reconciliation" />
+				<Output name="Cost baseline" />
+				<Output name="Project funding requirements" />
+				<Output name="Project document updates" />
+			</ProcessParameters>
+		</Process>
 		<Process name="Determine quality standards, processes, and metrics"
 			knowledgeAreaId="QM" />
 		<Process name="Create process improvement plan"
@@ -690,6 +862,49 @@
 	<ProcessGroup name="Monitoring and Controlling">
 		<Process name="Take action to control the project"
 			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,StakM,ProcM">
+			<SubProcess name="Control Schedule" knowledgeAreaId="TimM">
+			    <ProcessParameters>
+			        <Input name="Project management plan"/>
+			        <Input name="Project schedule"/>
+			        <Input name="Work performance data"/>
+			        <Input name="Project calendars"/>
+			        <Input name="Schedule data"/>
+			        <Input name="Organizational process assets"/>
+			        <ToolOrTechnique name="Performance reviews"/>
+			        <ToolOrTechnique name="Project management software"/>
+			        <ToolOrTechnique name="Resource optimization techniques"/>
+			        <ToolOrTechnique name="Modeling techniques"/>
+			        <ToolOrTechnique name="leads and lags"/>
+			        <ToolOrTechnique name="Schedule compression"/>
+			        <ToolOrTechnique name="Scheduling tool"/>
+			        <Output name="Work performance information"/>
+			        <Output name="Schedule forecasts"/>
+			        <Output name="Change requests"/>
+			        <Output name="Project management plan updates"/>
+			        <Output name="Project documents updates"/>
+			        <Output name="Organizational process assets updates"/>
+			    </ProcessParameters>
+			</SubProcess>
+			<SubProcess name="Control Costs" knowledgeAreaId="CostM">
+				<ProcessParameters>
+					<Input name="Project management plan" />
+					<Input name="Project funding requirements" />
+					<Input name="Work performance data" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Earned value management" />
+					<ToolOrTechnique name="Forecasting" />
+					<ToolOrTechnique name="To-complete performance index" />
+					<ToolOrTechnique name="Performance reviews" />
+					<ToolOrTechnique name="Project management software" />
+					<ToolOrTechnique name="Reserve analysis" />
+					<Output name="Work performance information" />
+					<Output name="Cost forecasts" />
+					<Output name="Change requests" />
+					<Output name="Project management plan updates" />
+					<Output name="Project documents updates" />
+					<Output name="Organizational process assets updates" />
+				</ProcessParameters>
+			</SubProcess>
 			<SubProcess name="Control Communications">
 				<ProcessParameters>
 					<Input name="Project management plan" />
