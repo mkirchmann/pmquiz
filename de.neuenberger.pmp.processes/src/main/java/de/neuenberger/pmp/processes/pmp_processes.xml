@@ -310,6 +310,17 @@
 	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
 			knowledgeAreaId="IM">
+			<SubProcess name="Develop Project Management Plan" knowledgeAreaId="IM">
+			    <ProcessParameters>
+			        <Input name="Project charter"/>
+			        <Input name="Outputs from other processes"/>
+			        <Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment"/>
+			        <ToolOrTechnique name="Facilitation techniques"/>
+			        <Output name="Project management plan"/>
+			    </ProcessParameters>
+			</SubProcess>
 			<SubProcess name="Plan Scope Management" knowledgeAreaId="ScopM">
 			    <ProcessParameters>
 			        <Input name="Project management plan"/>
@@ -778,8 +789,23 @@
 		<Process name="Hold Kickoff meeting" knowledgeAreaId="IM" />
 	</ProcessGroup>
 	<ProcessGroup name="Executing">
-		<Process name="Execute the work according to the PM plan"
-			knowledgeAreaId="IM" />
+		<Process name="Direct and Manage Project Work"
+			knowledgeAreaId="IM" informalName="Execute the work according to the PM plan">
+			<ProcessParameters>
+			    <Input name="Project management plan"/>
+			    <Input name="Approved change requests"/>
+			    <Input name="Enterprise environmental factors"/>
+			    <Input name="Organizational process assets"/>
+			    <ToolOrTechnique name="Expert judgment"/>
+			    <ToolOrTechnique name="Project management information system"/>
+			    <ToolOrTechnique name="Meetings"/>
+			    <Output name="Deliverables"/>
+			    <Output name="Work performance data"/>
+			    <Output name="Change requests"/>
+			    <Output name="Project management plan updates"/>
+			    <Output name="Project document updates"/>
+			</ProcessParameters>
+		</Process>
 		<Process name="Produce product deliverables (product scope)"
 			knowledgeAreaId="IM" />
 		<Process name="Gather work performance data" knowledgeAreaId="IM" />
@@ -920,6 +946,25 @@
 	<ProcessGroup name="Monitoring and Controlling">
 		<Process name="Take action to control the project"
 			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,StakM,ProcM">
+			<SubProcess name="Monitor and Control Project Work" knowledgeAreaId="IM">
+			    <ProcessParameters>
+			        <Input name="Project management plan"/>
+			        <Input name="Schedule forecasts"/>
+			        <Input name="Cost forecasts"/>
+			        <Input name="Validated changes"/>
+			        <Input name="Work performance information"/>
+			        <Input name="Enterprise environmental factors"/>
+			        <Input name="Organizational process assets"/>
+			        <ToolOrTechnique name="Expert judgment"/>
+			        <ToolOrTechnique name="Analytical techniques"/>
+			        <ToolOrTechnique name="Project management information system"/>
+			        <ToolOrTechnique name="Meetings"/>
+			        <Output name="Change requests"/>
+			        <Output name="Work performance reports"/>
+			        <Output name="Project management plan updates"/>
+			        <Output name="Project documents updates"/>
+			    </ProcessParameters>
+			</SubProcess>
 			<SubProcess name="Control Scope" knowledgeAreaId="ScopM">
 			    <ProcessParameters>
 			        <Input name="Project management plan"/>
@@ -1151,8 +1196,19 @@
 				<Output name="Organizational process assets updates" />
 			</ProcessParameters>
 		</Process>
-		<Process name="Gain final acceptance of the product"
-			knowledgeAreaId="IM" />
+		<Process name="Close Project or Phase"
+			knowledgeAreaId="IM" informalName="Gain final acceptance of the product">
+		    <ProcessParameters>
+		        <Input name="Project management plan"/>
+		        <Input name="Accepted deliverables"/>
+		        <Input name="Organizational process assets"/>
+		        <ToolOrTechnique name="Expert judgment"/>
+		        <ToolOrTechnique name="Analytical techniques"/>
+		        <ToolOrTechnique name="Meetings"/>
+		        <Output name="Final product, service or result transition"/>
+		        <Output name="Organizational process assets updates"/>
+		    </ProcessParameters>
+		</Process>
 		<Process name="Complete financial closure" knowledgeAreaId="IM" />
 		<Process name="Hand off completed product" knowledgeAreaId="IM" />
 		<Process name="Solicit feedback from the customer about the project"
