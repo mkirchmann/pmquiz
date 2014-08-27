@@ -309,7 +309,19 @@
 	</ProcessGroup>
 	<ProcessGroup name="Planning" sequential="true">
 		<Process name="Determine how you will plan for each knowledge area"
-			knowledgeAreaId="IM,ScopM,TimM">
+			knowledgeAreaId="IM">
+			<SubProcess name="Plan Scope Management" knowledgeAreaId="ScopM">
+			    <ProcessParameters>
+			        <Input name="Project management plan"/>
+			        <Input name="Project charter"/>
+			        <Input name="Enterprise environmental factors" />
+					<Input name="Organizational process assets" />
+					<ToolOrTechnique name="Expert judgment"/>
+			        <ToolOrTechnique name="Meetings"/>
+			        <Output name="Scope management plan"/>
+			        <Output name="Requirements management plan"/>
+			    </ProcessParameters>
+			</SubProcess>
 			<SubProcess name="Plan Schedule Management"
 				knowledgeAreaId="TimM">
 				<ProcessParameters>
@@ -442,14 +454,60 @@
 				</ProcessParameters>
 			</SubProcess>
 		</Process>
-		<Process name="Determine detailed requirements"
-			knowledgeAreaId="ScopM" />
-		<Process name="Create Project scope statement"
-			knowledgeAreaId="ScopM" />
+		<Process name="Collect Requirements"
+			knowledgeAreaId="ScopM" informalName="Determine detailed requirements">
+		    <ProcessParameters>
+		        <Input name="Scope management plan"/>
+		        <Input name="Requirements management plan"/>
+		        <Input name="Stakeholder management plan"/>
+		        <Input name="Project charter"/>
+		        <Input name="Stakeholder register"/>
+		        <ToolOrTechnique name="Interviews"/>
+		        <ToolOrTechnique name="Focus groups"/>
+		        <ToolOrTechnique name="Facilitated workshops"/>
+		        <ToolOrTechnique name="Group creativity techniques"/>
+		        <ToolOrTechnique name="Group decision-making techniques"/>
+		        <ToolOrTechnique name="Questionaires and surveys"/>
+		        <ToolOrTechnique name="Observations"/>
+		        <ToolOrTechnique name="Prototypes"/>
+		        <ToolOrTechnique name="Benchmarking"/>
+		        <ToolOrTechnique name="Context diagrams"/>
+		        <ToolOrTechnique name="Document analysis"/>
+		        <Output name="Requirements documentation"/>
+		        <Output name="Requirements traceability matrix"/>
+		    </ProcessParameters>
+		</Process>
+		<Process name="Define Scope"
+			knowledgeAreaId="ScopM" informalName="Create Project scope statement">
+		    <ProcessParameters>
+		        <Input name="Scope management plan"/>
+		        <Input name="Project charter"/>
+		        <Input name="Requirements documentation"/>
+		        <Input name="Organizational process assets"/>
+		        <ToolOrTechnique name="Expert judgment"/>
+		        <ToolOrTechnique name="Product analysis"/>
+		        <ToolOrTechnique name="Alternatives generation"/>
+		        <ToolOrTechnique name="Facilitated workshops"/>
+		        <Output name="Project scope statement"/>
+		        <Output name="Project documents updates"/>
+		    </ProcessParameters>
+		</Process>
 		<Process name="Assess what to purchase and create procurement documents"
 			knowledgeAreaId="ProcM" />
 		<Process name="Determine planning team" knowledgeAreaId="IM,HRM" />
-		<Process name="Create WBS and WBS dictionary" knowledgeAreaId="ScopM" />
+		<Process name="Create WBS" knowledgeAreaId="ScopM" informalName="Create WBS and WBS dictionary">
+		    <ProcessParameters>
+		        <Input name="Scope management plan"/>
+		        <Input name="Project scope statement"/>
+		        <Input name="Requirements documentation"/>
+		        <Input name="Enterprise environmental factors"/>
+		        <Input name="Organizational process assets"/>
+		        <ToolOrTechnique name="Decomposition"/>
+		        <ToolOrTechnique name="Expert judgment"/>
+		        <Output name="Scope baseline"/>
+		        <Output name="Project documents updates"/>
+		    </ProcessParameters>
+		</Process>
 		<Process name="Define Activities" knowledgeAreaId="TimM"
 			informalName="Create Activity List">
 			<ProcessParameters>
@@ -862,6 +920,21 @@
 	<ProcessGroup name="Monitoring and Controlling">
 		<Process name="Take action to control the project"
 			knowledgeAreaId="IM,ScopM,TimM,CostM,QM,ComM,RiskM,StakM,ProcM">
+			<SubProcess name="Control Scope" knowledgeAreaId="ScopM">
+			    <ProcessParameters>
+			        <Input name="Project management plan"/>
+			        <Input name="Requirements documentation"/>
+			        <Input name="Requirements tracability matrix"/>
+			        <Input name="Work performance data"/>
+			        <Input name="Organizational process assets"/>
+			        <ToolOrTechnique name="Variance analysis"/>
+			        <Output name="Work performance information"/>
+			        <Output name="Change requests"/>
+			        <Output name="Project management plan updates"/>
+			        <Output name="Project documents updates"/>
+			        <Output name="Organizational process assets updates"/>
+			    </ProcessParameters>
+			</SubProcess>
 			<SubProcess name="Control Schedule" knowledgeAreaId="TimM">
 			    <ProcessParameters>
 			        <Input name="Project management plan"/>
@@ -978,8 +1051,22 @@
 		</Process>
 		<Process name="Manage configuration" knowledgeAreaId="IM" />
 		<Process name="Create forecasts" knowledgeAreaId="TimM,CostM" />
-		<Process name="Gain acceptance of interim deliverables from the customer"
-			knowledgeAreaId="ScopM" />
+		<Process name="Validate Scope"
+			knowledgeAreaId="ScopM" informalName="Gain acceptance of interim deliverables from the customer">
+		    <ProcessParameters>
+		        <Input name="Project management plan"/>
+		        <Input name="Requirements documentation"/>
+		        <Input name="Requirements traceability matrix"/>
+		        <Input name="Verified deliverables"/>
+		        <Input name="Work performance data"/>
+		        <ToolOrTechnique name="Inspection"/>
+		        <ToolOrTechnique name="Group decision-making techniques"/>
+		        <Output name="Accepted deliverables"/>
+		        <Output name="Change requests"/>
+		        <Output name="Work performance information"/>
+		        <Output name="Project documents updates"/>
+		    </ProcessParameters>
+		</Process>
 		<Process name="Control Quality " knowledgeAreaId="QM"
 			informalName="Perform quality control">
 			<ProcessParameters>
