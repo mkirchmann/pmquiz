@@ -63,7 +63,33 @@
 		</Addition>
 	</KnowledgeArea>
 	<KnowledgeArea id="CostM" name="Cost Management" />
-	<KnowledgeArea id="QM" name="Quality Management" />
+	<KnowledgeArea id="QM" name="Quality Management">
+		<Addition>
+			<Group name="Quality Management Terminology">
+				<Definition name="Quality Audits" description="Check if a project conforms to company standard methodologies or if project processes can be adopted for the company processes."/>
+				<Definition name="Control Chart" description="This has a Mean, specification limits and control limits to determine if the process results are within limits that are acceptable."/>
+				<Definition name="Rule of seven" description="A rule or heuristic that states if seven consecutive nonrandom data points are on one side of the mean the process is out of control. There is a cause for this which should be investigated."/>
+				<Definition name="Out of control" description="The process is not under statistical control if a data point is outside the upper or lower control limit or if there are nonrandom data points within the upper and lower limits in a specific pattern indicating the process is out of bounds."/>
+				<Definition name="Scatter diagram" description="This diagram tracks to variables to determine their relationship, i.e. the two variables correlate or not."/>
+				<Definition name="Benchmarking" description="Looking at other projects for inspiration how to improve on the current project and providing a basis for measurement of quality performance"/>
+				<Definition name="Design of Experiments (DOE)" description="Systematically try to figure out, which variable improve quality."/>
+				<Definition name="Statistical Sampling" description="Check results randomly if inspecting all results takes too long, is too costly or is too destructive."/>
+				<Definition name="Nominal Group Technique (NDT)" description="It can be used with people who want to make a quick decision by taking everyones oppinion and then voting."/>
+				<Definition name="Force Field Analysis" description="Look at influencing factors of a situation. These either drive or block movement to a goal."/>
+				<Definition name="1 Sigma" description="Includes 68.27% of all samples"/>
+				<Definition name="3 Sigma" description="Includes 99.73% of all samples"/>
+				<Definition name="6 Sigma" description="Includes 99.9999998% of all samples"/>
+				<Definition name="Gold Plating" description="Giving the customer extras."/>
+				<Definition name="Prevention over inspection" description="Prevent quality issues from happening by proper planning quality."/>
+				<Definition name="Marginal analysis" description="Looking for the point where the benefits or revenue to be received from improving quality equals the incremental cost to achieve that quality."/>
+				<Definition name="Kaizen" description="Continuous Improvement"/>
+				<Definition name="Continuous Improvement" description="Looking for small enhancements in quality at every opportunity."/>
+				<Definition name="Just in Time (JIT)" description="Decreasing inventory to nearly zero."/>
+				<Definition name="TQM" description="Total Quality Management"/>
+				<Definition name="Total Quality Management" description="A philosophy which encourages companies and all their employees to focus on finding and implementing enhancements in the quality of their products and processes."/>
+			</Group>
+		</Addition>
+	</KnowledgeArea>
 	<KnowledgeArea id="HRM" name="Human Resource Management">
 		<Addition>
 			<Group name="Leading Style">
@@ -181,6 +207,12 @@
 					description="Influencing the triggers of an opportunity such that chances are higher that it happens." />
 				<Definition name="Accept"
 					description="If it does not make sense to exploit, enhance or share the opportunity." />
+			</Group>
+			<Group name="Risk Management Terminology">
+				<Definition name="Workaround" description="Unplanned responses to deal with the occurrence of unanticipated events or problems on a project."/>
+				<Definition name="Risk audits" description="Assess the overall process of risk management on the project"/>
+				<Definition name="Reserve analysis" description="See how much reserve remains and how much might be needed."/>
+				<Definition name="Closing of risks" description="When an identified risk can logically not occur any longer it should be closed and the dedicated reserve should be returned to the company."/>
 			</Group>
 		</Addition>
 	</KnowledgeArea>
