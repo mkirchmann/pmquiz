@@ -10,6 +10,7 @@ import generated.CplxKnowledgeArea;
 import generated.CplxProcessGroups;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +23,7 @@ import java.nio.charset.Charset;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+import javax.swing.UIManager;
 import javax.xml.bind.JAXB;
 
 import de.neuenberger.pmp.processes.generator.OverallQuestionDrawer;
@@ -60,22 +62,18 @@ public class MainWindow extends JFrame {
 
 	public static void main(final String[] argv) throws IOException {
 		String filename;
-		boolean process;
 		if (argv.length==1 && "hsk".equalsIgnoreCase(argv[0])) {
 			filename = "hsk_questions.xml";
-			process=false;
+			UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.PLAIN, 25));
 		} else {
 			filename = "pmp_processes.xml";
-			process=true;
 		}
 		final InputStream stream = MainWindow.class.getResource(
 				filename).openStream();
 		final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream,
 				CplxProcessGroups.class);
 		final QuestionStatistics questionStatistics = new QuestionStatistics();
-		if (process) {
-			new KnowledgeAreaFactory().process(cplxProcessGroups);
-		}
+		new KnowledgeAreaFactory().process(cplxProcessGroups);
 		// enrichWithHSK(cplxProcessGroups);
 		
 		

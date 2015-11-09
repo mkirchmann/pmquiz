@@ -42,7 +42,7 @@ public class QuestionSelectedWithKeyListener implements KeyListener {
 			default:
 				answer=null;
 		}
-		if (keyChar==' ' && !questionController.isQuestionOpen()) {
+		if (keyChar=='\r' || keyChar=='\n' || keyChar==' ' && !questionController.isQuestionOpen()) {
 			questionController.drawNextQuestion();
 		} else if (answer!=null) {
 			questionController.selectedAnswer(answer);
