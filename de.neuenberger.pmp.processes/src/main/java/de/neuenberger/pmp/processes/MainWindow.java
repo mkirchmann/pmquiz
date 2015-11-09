@@ -10,6 +10,7 @@ import generated.CplxKnowledgeArea;
 import generated.CplxProcessGroups;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -33,6 +34,7 @@ import de.neuenberger.pmp.processes.ui.QuestionStatisticsComposite;
 import de.neuenberger.pmp.processes.ui.QuestionStatisticsController;
 import de.neuenberger.pmp.processes.ui.SelectQuestionContainerComposite;
 import de.neuenberger.pmp.processes.ui.SelectQuestionContainerController;
+import de.neuenberger.pmp.processes.ui.listener.QuestionSelectedWithKeyListener;
 
 /**
  * @author Michael Kirchmann
@@ -40,10 +42,16 @@ import de.neuenberger.pmp.processes.ui.SelectQuestionContainerController;
  */
 public class MainWindow extends JFrame {
 
+	private final JTabbedPane tabPane;
+
+	public JTabbedPane getTabPane() {
+		return tabPane;
+	}
+
 	MainWindow(final Controller<?, ?>... controllers) {
 		setTitle("PMP Quiz");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		final JTabbedPane tabPane = new JTabbedPane();
+		tabPane = new JTabbedPane();
 		for (final Controller<?, ?> controller : controllers) {
 			tabPane.addTab(controller.toString(), controller.getComponent());
 		}
@@ -84,8 +92,15 @@ public class MainWindow extends JFrame {
 
 		final MainWindow mainWindow = new MainWindow(controller, controller2,
 				controller3);
+		mainWindow.addKeyListener(new QuestionSelectedWithKeyListener(controller));
 		mainWindow.setSize(400, 300);
 		mainWindow.setVisible(true);
+	}
+	
+	@Override
+	public synchronized void addKeyListener(KeyListener l) {
+		tabPane.addKeyListener(l);
+		super.addKeyListener(l);
 	}
 
 	private static void enrichWithHSK(CplxProcessGroups cplxProcessGroups) throws IOException {

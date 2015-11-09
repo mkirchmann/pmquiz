@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import de.neuenberger.pmp.processes.generator.QuestionDrawer;
 import de.neuenberger.pmp.processes.model.Question;
 import de.neuenberger.pmp.processes.model.QuestionStatistics;
+import de.neuenberger.pmp.processes.ui.listener.QuestionSelectedListener;
+import de.neuenberger.pmp.processes.ui.listener.QuestionSelectedWithKeyListener;
 
 /**
  * @author Michael Kirchmann
@@ -132,31 +134,6 @@ public class QuestionController implements
 		setQuestion(generator.drawQuestion());
 	}
 
-	public static class QuestionSelectedListener implements ActionListener {
-		private final int index;
-		private final QuestionController questionController;
-
-		QuestionSelectedListener(final QuestionController questionController,
-				final int index) {
-			this.questionController = questionController;
-			this.index = index;
-
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see
-		 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent
-		 * )
-		 */
-		@Override
-		public void actionPerformed(final ActionEvent arg0) {
-			questionController.selectedAnswer(index);
-		}
-
-	}
-
 	public static class NextQuestionActionListener implements ActionListener {
 
 		private final QuestionController questionController;
@@ -208,6 +185,14 @@ public class QuestionController implements
 	@Override
 	public String toString() {
 		return "Quiz";
+	}
+	
+	/**
+	 * 
+	 * @return Returns whether there is a question open for answering.
+	 */
+	public boolean isQuestionOpen() {
+		return getQuestion()!=null;
 	}
 
 }
