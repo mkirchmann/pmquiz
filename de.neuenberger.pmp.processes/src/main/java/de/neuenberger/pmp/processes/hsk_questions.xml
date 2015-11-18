@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <cplxProcessGroups>
-    <KnowledgeArea id="HSK1" name="HSK1">
+	<KnowledgeArea id="HSK1" name="HSK1 simple">
         <Addition>
-            <Group name="HSK1 Questions Group 1">
+        	<Group name="HSK1 Questions Group 1">
                 <Definition description="indicates possession, like adding 's to a noun" name="﻿的 de"/>
                 <Definition description="I; me" name="我 wǒ"/>
                 <Definition description="you (singular)" name="你 nǐ"/>
@@ -154,6 +154,10 @@
                 <Definition description="Beijing" name="北京 Běijīng"/>
                 <Definition description="Chinese language" name="汉语 Hànyǔ"/>
             </Group>
+        </Addition>
+	</KnowledgeArea>
+    <KnowledgeArea id="HSK1" name="HSK1">
+        <Addition>
             <Group name="HSK1 Questions Group 2">
                 <Definition description="indicates possession, like adding 's to a noun" name="﻿的"/>
                 <Definition description="I; me" name="我"/>
@@ -460,9 +464,9 @@
             </Group>
         </Addition>
     </KnowledgeArea>
-    <KnowledgeArea id="HSK2" name="HSK2">
+    <KnowledgeArea id="HSK2" name="HSK2 simple">
         <Addition>
-            <Group name="HSK2 Questions Group 1">
+        	<Group name="HSK2 Questions Group 1">
                 <Definition description="then; at once; just; only; with regard to" name="﻿就 jiù"/>
                 <Definition description="to want; to need; will/shall; important | demand; request" name="要 yào, yāo"/>
                 <Definition description="know; be aware of" name="知道 zhīdao"/>
@@ -615,6 +619,10 @@
                 <Definition description="mutton; lamb" name="羊肉 yángròu"/>
                 <Definition description="clear; fine (as of weather)" name="晴 qíng"/>
             </Group>
+        </Addition>
+    </KnowledgeArea>
+    <KnowledgeArea id="HSK2" name="HSK2">
+        <Addition>
             <Group name="HSK2 Questions Group 2">
                 <Definition description="then; at once; just; only; with regard to" name="﻿就"/>
                 <Definition description="to want; to need; will/shall; important | demand; request" name="要"/>
@@ -923,9 +931,9 @@
             </Group>
         </Addition>
     </KnowledgeArea>
-    <KnowledgeArea id="HSK3" name="HSK3">
+    <KnowledgeArea id="HSK3" name="HSK3 simple">
         <Addition>
-            <Group name="HSK3 Questions Group 1">
+        	<Group name="HSK3 Questions Group 1">
                 <Definition description="ah; (particle showing elation, doubt, puzzled surprise, or approval)" name="﻿啊 ā, á, ǎ, à, a"/>
                 <Definition description="still; yet; in addition; even | repay; to return" name="还 hái, huán"/>
                 <Definition description="(mw for things with handles); (pretransitive particle); to hold | a grip; a handle; stem (of plants)" name="把 bǎ, bà"/>
@@ -1227,6 +1235,10 @@
                 <Definition description="windy; to blow (wind)" name="刮风 guāfēng"/>
                 <Definition description="Yellow River" name="黄河 huánghé"/>
             </Group>
+        </Addition>
+    </KnowledgeArea>
+    <KnowledgeArea id="HSK3" name="HSK3">
+        <Addition>
             <Group name="HSK3 Questions Group 2">
                 <Definition description="ah; (particle showing elation, doubt, puzzled surprise, or approval)" name="﻿啊"/>
                 <Definition description="still; yet; in addition; even | repay; to return" name="还"/>
@@ -1833,9 +1845,9 @@
             </Group>
         </Addition>
     </KnowledgeArea>
-    <KnowledgeArea id="HSK4" name="HSK4">
+    <KnowledgeArea id="HSK4" name="HSK4 simple">
         <Addition>
-            <Group name="HSK4 Questions Group 1">
+        	<Group name="HSK4 Questions Group 1">
                 <Definition description="obtain | must | (complement particle)" name="﻿得 dé, děi, de"/>
                 <Definition description="to die; dead; fixed; impassible; extremely" name="死 sǐ"/>
                 <Definition description="to work; do; manage; tree trunk | to concern; shield; dry; clean (Kangxi radical 51)" name="干 gàn, gān"/>
@@ -2437,6 +2449,10 @@
                 <Definition description="fill in the blanks; fill a vacancy" name="填空 tiánkòng"/>
                 <Definition description="Beijing Opera" name="京剧 jīngjù"/>
             </Group>
+        </Addition>
+    </KnowledgeArea>
+    <KnowledgeArea id="HSK4" name="HSK4">
+        <Addition>
             <Group name="HSK4 Questions Group 2">
                 <Definition description="obtain | must | (complement particle)" name="﻿得"/>
                 <Definition description="to die; dead; fixed; impassible; extremely" name="死"/>
@@ -3643,9 +3659,9 @@
             </Group>
         </Addition>
     </KnowledgeArea>
-    <KnowledgeArea id="HSK5" name="HSK5">
+    <KnowledgeArea id="HSK5" name="HSK5 simple">
         <Addition>
-            <Group name="HSK5 Questions Group 1">
+        	<Group name="HSK5 Questions Group 1">
                 <Definition description="groaning sound | (interjection expressing what?, huh? hmm? why? ok, etc.)" name="﻿嗯 ēn, én, ěn, èn, en"/>
                 <Definition description="to kill; to murder" name="杀 shā"/>
                 <Definition description="place; that which; (mw for houses, buildings)" name="所 suǒ"/>
@@ -4947,6 +4963,10 @@
                 <Definition description="famous scenic spots and ancient historic sites" name="名胜古迹 míngshènggǔjì"/>
                 <Definition description="promptly; at once" name="连忙 liánmáng"/>
             </Group>
+        </Addition>
+    </KnowledgeArea>
+    <KnowledgeArea id="HSK5" name="HSK5">
+        <Addition>
             <Group name="HSK5 Questions Group 2">
                 <Definition description="groaning sound | (interjection expressing what?, huh? hmm? why? ok, etc.)" name="﻿嗯"/>
                 <Definition description="to kill; to murder" name="杀"/>
@@ -7553,9 +7573,9 @@
             </Group>
         </Addition>
     </KnowledgeArea>
-    <KnowledgeArea id="HSK6" name="HSK6">
+    <KnowledgeArea id="HSK6" name="HSK6 simple">
         <Addition>
-            <Group name="HSK6 Questions Group 1">
+        	<Group name="HSK6 Questions Group 1">
                 <Definition description="oh (indicates understanding) | oh (indicates doubt) | to chant" name="﻿哦 ò, ó, é"/>
                 <Definition description="hey; interjection for calling attention" name="嘿 hēi"/>
                 <Definition description="hey/hi (loanword); oh; alas;" name="嗨 hāi"/>
@@ -10057,6 +10077,10 @@
                 <Definition description="rhyming couplet; vertical written couplet usually placed along either side of a doorway" name="对联 duìlián"/>
                 <Definition description="overseas Chinese" name="华侨 huáqiáo"/>
             </Group>
+        </Addition>
+    </KnowledgeArea>
+    <KnowledgeArea id="HSK6" name="HSK6">
+        <Addition>
             <Group name="HSK6 Questions Group 2">
                 <Definition description="oh (indicates understanding) | oh (indicates doubt) | to chant" name="﻿哦"/>
                 <Definition description="hey; interjection for calling attention" name="嘿"/>
