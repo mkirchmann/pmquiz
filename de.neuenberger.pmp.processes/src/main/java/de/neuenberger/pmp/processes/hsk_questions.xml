@@ -1,5 +1,202 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <cplxProcessGroups>
+	<KnowledgeArea id="kxr" name="炕席 Kangxi Radicals">
+		<Addition>
+			<Group name="Strokes: 1">
+				<Definition description="yī" name="一"/>
+				<Definition description="yīshù" name="丨"/>
+				<Definition description="yīpiě" name="丿"/>
+				<Definition description="yīdiǎn" name="丶"/>
+				<Definition description="yǐ" name="乙"/>
+				<Definition description="yǐ" name="乚"/>
+				<Definition description="yǐ" name="乛"/>
+			</Group>
+			<Group name="Strokes: 2">
+<!-- 二
+Two
+èr
+2
+十
+Ten
+shí
+厂
+Cliff
+hǎn
+匚
+Basket
+fāng/xǐ
+刂
+Knife
+dāo -->
+
+				<Definition description="èr" name="二"/>
+				<Definition description="shí" name="十"/>
+				<Definition description="hǎn" name="厂"/>
+				<Definition description="fāng/xǐ" name="匚"/>
+				<Definition description="dāo" name="刂"/>
+<!-- 
+刀
+⺈
+Knife
+dāo
+卜
+Divination
+bǔ
+冂
+Borders
+jiōng
+亻
+人
+Person
+rén
+-->
+				<Definition description="dāo" name="刀"/>
+				<Definition description="dāo" name="⺈"/>
+				<Definition description="bǔ" name="卜"/>
+				<Definition description="jiōng" name="冂"/>
+				<Definition description="rén" name="亻"/>
+				<Definition description="rén" name="人"/>
+<!-- 
+丷
+八
+Eight
+bā
+儿
+Legs
+ér
+几
+Table
+jī
+匕
+Spoon
+bǐ
+勹
+Wrap
+bāo
+亠
+Lid
+tóu
+ -->
+ 				<Definition description="bā" name="丷"/>
+				<Definition description="bā" name="八"/>
+				<Definition description="ér" name="儿"/>
+				<Definition description="jī" name="几"/>
+				<Definition description="bǐ" name="匕"/>
+				<Definition description="bāo" name="勹"/>
+				<Definition description="tóu" name="亠"/>
+<!-- 
+冫
+Ice
+bīng
+冖
+Cover
+mì
+讠
+言
+Speech
+yán
+ -->			
+				<Definition description="bīng" name="冫"/>
+				<Definition description="mì" name="冖"/>
+				<Definition description="yán" name="讠"/>
+				<Definition description="yán" name="言"/>
+
+<!--
+凵
+Container
+kǎn
+卩
+㔾
+Seal
+jié
+
+阝(左边)
+Mound
+fù
+
+阝(右边)
+Town
+yì
+
+力
+Power
+lì
+又
+Right-hand
+yòu
+ㄙ
+Privacy
+sī
+廴
+Stride
+yǐn
+ -->
+
+				<Definition description="kǎn" name="凵"/>
+				<Definition description="jié" name="卩"/>
+				<Definition description="jié" name="㔾"/>
+				<Definition description="fù" name="阝(左边)"/>
+				<Definition description="yì" name="阝(右边)"/>
+				<Definition description="lì" name="力"/>
+				<Definition description="yòu" name="又"/>
+				<Definition description="sī" name="ㄙ"/>
+				<Definition description="yǐn" name="廴"/>
+			</Group>
+			<Group name="Strokes: 1+2 en">
+				<Definition description="One" name="一"/>
+				<Definition description="Two" name="二"/>
+				<Definition description="Ten" name="十"/>
+				<Definition description="Cliff, factory" name="厂"/>
+				<Definition description="Basket" name="匚"/>
+				<Definition description="Knife" name="刂"/>
+				<Definition description="Knife" name="刀"/>
+				<Definition description="Knife" name="⺈"/>
+				<Definition description="Divination" name="卜"/>
+				<Definition description="Borders" name="冂"/>
+				<Definition description="Mensch" name="亻"/>
+				<Definition description="Mensch" name="人"/>
+				<Definition description="Eight" name="丷"/>
+				<Definition description="Eight" name="八"/>
+				<Definition description="Legs" name="儿"/>
+				<Definition description="Little Table, how many, some" name="几"/>
+				<Definition description="Spoon" name="匕"/>
+				<Definition description="Wrap" name="勹"/>
+				<Definition description="Lid" name="亠"/>
+				
+				<Definition description="Ice" name="冫"/>
+				<Definition description="Cover" name="冖"/>
+				<Definition description="Speech" name="讠"/>
+				<Definition description="Speech" name="言"/>
+				
+				<Definition description="Container" name="凵"/>
+				<Definition description="Seal" name="卩"/>
+				<Definition description="Seal" name="㔾"/>
+				<Definition description="Mound" name="阝(左边)"/>
+				<Definition description="Town" name="阝(右边)"/>
+				<Definition description="Power" name="力"/>
+				<Definition description="Right-hand, besides, again" name="又"/>
+				<Definition description="Privacy" name="ㄙ"/>
+				<Definition description="Stride" name="廴"/>
+				
+			</Group>
+			<!-- Group name="Strokes: 3"
+			</Group>
+			<Group name="Strokes: 4">
+			</Group>
+			<Group name="Strokes: 5">
+			</Group>
+			<Group name="Strokes: 6">
+			</Group>
+			<Group name="Strokes: 7">
+			</Group>
+			<Group name="Strokes: 8">
+			</Group>
+			<Group name="Strokes: 9">
+			</Group>
+			<Group name="Strokes: 10+">
+			</Group-->
+		</Addition>
+	</KnowledgeArea>
 	<KnowledgeArea id="HSK1" name="HSK1 simple">
         <Addition>
         	<Group name="HSK1 Questions Group 1">
