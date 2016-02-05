@@ -179,9 +179,291 @@ yǐn
 				<Definition description="Stride" name="廴"/>
 				
 			</Group>
-			<!-- Group name="Strokes: 3"
+			<Group name="Strokes: 3">
+<!-- 
+干
+Shield
+gān
+土
+Earth
+tǔ
+士
+Scholar
+shì
+工
+Work
+gōng
+-->
+				<Definition description="gān" name="干"/>
+				<Definition description="tǔ" name="土"/>
+				<Definition description="shì" name="士"/>
+				<Definition description="gōng" name="工"/>
+<!--
+扌
+手  
+龵
+Hand
+shǒu
+艹
+Grass
+cǎo
+寸
+Thumb/Inch
+破
+cùn
+廾
+Two-hands
+gǒng
+大
+Big
+dà
+尢
+Lame
+wāng
+弋
+Shoot
+yì
+-->
+
+				<Definition description="shǒu" name="扌"/>
+				<Definition description="shǒu" name="手"/>
+				<Definition description="shǒu" name="龵"/>
+				<Definition description="cǎo" name="艹"/>
+				<Definition description="cùn" name="寸"/>
+				<Definition description="gǒng" name="廾"/>
+				<Definition description="dà" name="大"/>
+				<Definition description="wāng" name="尢"/>
+				<Definition description="yì" name="弋"/>
+<!--
+小
+⺌⺍
+Small
+xiǎo
+口
+Mouth
+kǒu
+囗
+Enclosure
+wéi
+山
+Mountain
+shān 
+ -->
+ 				<Definition description="xiǎo" name="小"/>
+ 				<Definition description="xiǎo" name="⺌"/>
+ 				<Definition description="xiǎo" name="⺍"/>
+ 				<Definition description="kǒu" name="口"/>
+ 				<Definition description="wéi" name="囗"/>
+				<Definition description="shān" name="山"/>
+<!--
+巾
+Scarf
+jīn
+川
+巛
+River
+chuān
+彳
+Step
+chì
+彡
+Bristle
+shān
+犭
+犬
+Dog
+quǎn
+夂
+Go
+zhǐ 
+ -->
+				<Definition description="jīn" name="巾"/>
+				<Definition description="chuān" name="川"/>
+				<Definition description="chuān" name="巛"/>
+				<Definition description="chì" name="彳"/>
+				<Definition description="shān" name="彡"/>
+				<Definition description="quǎn" name="犭"/>
+				<Definition description="quǎn" name="犬"/>
+				<Definition description="zhǐ" name="夂"/>
+<!--				
+夕
+Evening
+xī
+饣
+食
+Food
+shí 
+丬
+Splinter
+qiáng
+广
+Shelter
+yǎn
+门
+Gate
+mén
+氵
+水  
+氺
+Water
+shuǐ
+ -->
+				<Definition description="xī" name="夕"/>
+				<Definition description="shí" name="饣"/>
+				<Definition description="shí" name="食"/>
+				<Definition description="qiáng" name="丬"/>
+				<Definition description="yǎn" name="广"/>
+				<Definition description="mén" name="门"/>
+				<Definition description="shuǐ" name="氵"/>
+				<Definition description="shuǐ" name="水 "/>
+				<Definition description="shuǐ" name="氺"/>
+
+<!-- 
+忄
+心
+⺗
+Heart
+xīn
+宀
+Roof
+mián
+辶
+Walk
+chuò
+彐
+Snout
+jì
+
+-->
+				<Definition description="xīn" name="忄"/>
+				<Definition description="xīn" name="心"/>
+				<Definition description="xīn" name="⺗"/>
+				<Definition description="mián" name="宀"/>
+				<Definition description="chuò" name="辶"/>
+				<Definition description="jì" name="彐"/>
+<!--
+尸
+Corpse
+shī
+己
+已
+巳
+Self
+jǐ
+弓
+Bow
+gōng
+子
+孑
+Child
+zǐ
+屮
+Sprout
+chè
+女
+Woman
+nǚ
+纟
+糸
+Silk
+sī
+ -->
+				<Definition description="shī" name="尸"/>
+				<Definition description="jǐ" name="己"/>
+				<Definition description="jǐ" name="已"/>
+				<Definition description="jǐ" name="巳"/>
+				<Definition description="gōng" name="弓"/>
+				<Definition description="zǐ" name="子"/>
+				<Definition description="zǐ" name="孑"/>
+				<Definition description="chè" name="屮"/>
+				<Definition description="nǚ" name="女"/>
+				<Definition description="sī" name="纟"/>
+				<Definition description="sī" name="糸"/>
+<!-- 
+马
+Horse
+mǎ
+幺
+Little
+yāo
+ -->
+				<Definition description="mǎ" name="马"/>
+				<Definition description="yāo" name="幺"/>
 			</Group>
-			<Group name="Strokes: 4">
+			<Group name="Strokes: 3 en">
+				<Definition description="Shield, dry" name="干"/>
+				<Definition description="Earth, Soil" name="土"/>
+				<Definition description="Soldier, Scholar" name="士"/>
+				<Definition description="Work" name="工"/>
+				<Definition description="Hand, Method" name="手"/>
+				<Definition description="Grass" name="艹"/>
+				<Definition description="Thumb/Inch" name="寸"/>
+				<Definition description="Two-hands" name="廾"/>
+				<Definition description="Big" name="大"/>
+				<Definition description="Lame" name="尢"/>
+				<Definition description="Shoot" name="弋"/>
+ 				<Definition description="Small" name="小"/>
+ 				<Definition description="Mouth" name="口"/>
+ 				<Definition description="Enclosure" name="囗"/>
+				<Definition description="Mountain" name="山"/>
+				<Definition description="Scarf" name="巾"/>
+				<Definition description="River" name="川"/>
+				<Definition description="Step" name="彳"/>
+				<Definition description="Bristle" name="彡"/>
+				<Definition description="Dog" name="犭"/>
+				<Definition description="Dog" name="犬"/>
+				<Definition description="Go" name="夂"/>
+				<Definition description="Evening" name="夕"/>
+				<Definition description="Food" name="饣"/>
+				<Definition description="Food" name="食"/>
+				<Definition description="Splinter" name="丬"/>
+				<Definition description="Shelter, broad" name="广"/>
+				<Definition description="Gate" name="门"/>
+				<Definition description="Water" name="氵"/>
+				<Definition description="Water" name="水 "/>
+				<Definition description="Water" name="氺"/>
+				<Definition description="Heart" name="忄"/>
+				<Definition description="Heart" name="心"/>
+				<Definition description="Heart" name="⺗"/>
+				<Definition description="Roof" name="宀"/>
+				<Definition description="Walk" name="辶"/>
+				<Definition description="Snout" name="彐"/>
+				<Definition description="Corpse" name="尸"/>
+				<Definition description="Self" name="己"/>
+				<Definition description="Self" name="已"/>
+				<Definition description="Self" name="巳"/>
+				<Definition description="Bow" name="弓"/>
+				<Definition description="Child" name="子"/>
+				<Definition description="Child" name="孑"/>
+				<Definition description="Sprout" name="屮"/>
+				<Definition description="Woman" name="女"/>
+				<Definition description="Silk" name="纟"/>
+				<Definition description="Silk" name="糸"/>
+				<Definition description="Horse" name="马"/>
+				<Definition description="Little" name="幺"/>
+			</Group>
+			<!--Group name="Strokes: 4">
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>
+				<Definition description="" name=""/>	
 			</Group>
 			<Group name="Strokes: 5">
 			</Group>
