@@ -21,7 +21,7 @@
 		<xs:complexContent>
 			<xs:extension base="cplxNamed">
 				<xs:sequence>
-					<xs:element name="Process" maxOccurs="unbounded" type="cplxProcess"/>
+					<xs:element name="Process" maxOccurs="unbounded" type="cplxProcess" />
 				</xs:sequence>
 				<xs:attribute name="sequential" type="xs:boolean"></xs:attribute>
 			</xs:extension>
@@ -31,21 +31,21 @@
 		<xs:complexContent>
 			<xs:extension base="cplxNamed">
 				<xs:choice>
-					<xs:element name="ProcessParameters"
-						type="cplxProcessParameters" maxOccurs="1" minOccurs="0">
+					<xs:element name="ProcessParameters" type="cplxProcessParameters"
+						maxOccurs="1" minOccurs="0">
 					</xs:element>
 					<xs:element name="SubProcess" type="cplxProcess"
 						maxOccurs="unbounded" minOccurs="0">
 					</xs:element>
 				</xs:choice>
-				<xs:attribute name="knowledgeAreaId" type="xs:string"></xs:attribute>
+				<xs:attribute name="knowledgeAreaId" type="xs:string"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="cplxNamed">
 		<xs:attribute name="name" type="xs:string" />
-        <xs:attribute name="informalName" type="xs:string"></xs:attribute>
-    </xs:complexType>
+		<xs:attribute name="informalName" type="xs:string"></xs:attribute>
+	</xs:complexType>
 	<xs:complexType name="cplxKnowledgeArea">
 		<xs:complexContent>
 			<xs:extension base="cplxNamed">
@@ -71,7 +71,11 @@
 			<xs:extension base="cplxNamed">
 				<xs:sequence>
 					<xs:element name="Definition" type="cplxDefinition"
-						maxOccurs="unbounded" minOccurs="4"></xs:element>
+						maxOccurs="unbounded" minOccurs="0">
+					</xs:element>
+					<xs:element name="LevelledDefinition" type="cplxDefinitionWithLevels"
+						maxOccurs="unbounded" minOccurs="0">
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -91,20 +95,37 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-    <xs:complexType name="cplxToolOrTechnique">
-    	<xs:complexContent>
+	<xs:complexType name="cplxToolOrTechnique">
+		<xs:complexContent>
 			<xs:extension base="cplxNamed"></xs:extension>
 		</xs:complexContent>
-    </xs:complexType>
+	</xs:complexType>
 
-    <xs:complexType name="cplxProcessParameters">
-    	<xs:sequence>
-            <xs:element name="Input" type="cplxProcessResult" maxOccurs="unbounded" minOccurs="0">
-					</xs:element>
-            <xs:element name="Output" type="cplxProcessResult" maxOccurs="unbounded" minOccurs="0">
-					</xs:element>
-            <xs:element name="ToolOrTechnique" type="cplxToolOrTechnique" maxOccurs="unbounded" minOccurs="0">
-					</xs:element>
-        </xs:sequence>
-    </xs:complexType>
+	<xs:complexType name="cplxProcessParameters">
+		<xs:sequence>
+			<xs:element name="Input" type="cplxProcessResult"
+				maxOccurs="unbounded" minOccurs="0">
+			</xs:element>
+			<xs:element name="Output" type="cplxProcessResult"
+				maxOccurs="unbounded" minOccurs="0">
+			</xs:element>
+			<xs:element name="ToolOrTechnique" type="cplxToolOrTechnique"
+				maxOccurs="unbounded" minOccurs="0">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cplxLevelledDefinition">
+		<xs:complexContent>
+			<xs:extension base="cplxDefinition">
+				<xs:attribute name="level" type="xs:int"></xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="cplxDefinitionWithLevels">
+		<xs:sequence>
+			<xs:element name="LevelledDefinition" type="cplxLevelledDefinition"
+				maxOccurs="unbounded" minOccurs="2"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

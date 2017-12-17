@@ -17,16 +17,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für cplxAddition complex type.
+ * <p>Java-Klasse für cplxDefinitionWithLevels complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="cplxAddition"&gt;
+ * &lt;complexType name="cplxDefinitionWithLevels"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Group" type="{}cplxGroup" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="LevelledDefinition" type="{}cplxLevelledDefinition" maxOccurs="unbounded" minOccurs="2"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,41 +36,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "cplxAddition", propOrder = {
-    "group"
+@XmlType(name = "cplxDefinitionWithLevels", propOrder = {
+    "levelledDefinition"
 })
-public class CplxAddition {
+public class CplxDefinitionWithLevels {
 
-    @XmlElement(name = "Group", required = true)
-    protected List<CplxGroup> group;
+    @XmlElement(name = "LevelledDefinition", required = true)
+    protected List<CplxLevelledDefinition> levelledDefinition;
 
     /**
-     * Gets the value of the group property.
+     * Gets the value of the levelledDefinition property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the group property.
+     * This is why there is not a <CODE>set</CODE> method for the levelledDefinition property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getGroup().add(newItem);
+     *    getLevelledDefinition().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CplxGroup }
+     * {@link CplxLevelledDefinition }
      * 
      * 
      */
-    public List<CplxGroup> getGroup() {
-        if (group == null) {
-            group = new ArrayList<CplxGroup>();
+    public List<CplxLevelledDefinition> getLevelledDefinition() {
+        if (levelledDefinition == null) {
+            levelledDefinition = new ArrayList<CplxLevelledDefinition>();
         }
-        return this.group;
+        return this.levelledDefinition;
     }
 
 }

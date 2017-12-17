@@ -14,7 +14,6 @@ import java.awt.Font;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -27,6 +26,8 @@ import javax.swing.UIManager;
 import javax.xml.bind.JAXB;
 
 import de.neuenberger.pmp.processes.generator.OverallQuestionDrawer;
+import de.neuenberger.pmp.processes.generator.QuestionDrawer;
+import de.neuenberger.pmp.processes.generator.QuestionDrawerFactory;
 import de.neuenberger.pmp.processes.model.KnowledgeAreaFactory;
 import de.neuenberger.pmp.processes.model.QuestionStatistics;
 import de.neuenberger.pmp.processes.ui.Controller;
@@ -44,116 +45,119 @@ import de.neuenberger.pmp.processes.ui.listener.QuestionSelectedWithKeyListener;
  */
 public class MainWindow extends JFrame {
 
-	private final JTabbedPane tabPane;
+    private final JTabbedPane tabPane;
 
-	public JTabbedPane getTabPane() {
-		return tabPane;
-	}
+    public JTabbedPane getTabPane() {
+        return tabPane;
+    }
 
-	MainWindow(final Controller<?, ?>... controllers) {
-		setTitle("PMP Quiz");
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		tabPane = new JTabbedPane();
-		for (final Controller<?, ?> controller : controllers) {
-			tabPane.addTab(controller.toString(), controller.getComponent());
-		}
-		this.add(tabPane, BorderLayout.CENTER);
-	}
+    MainWindow(final Controller<?, ?>... controllers) {
+        setTitle("PMP Quiz");
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tabPane = new JTabbedPane();
+        for (final Controller<?, ?> controller : controllers) {
+            tabPane.addTab(controller.toString(), controller.getComponent());
+        }
+        this.add(tabPane, BorderLayout.CENTER);
+    }
 
-	public static void main(final String[] argv) throws IOException {
-		String filename;
-		if (argv.length==1 && "hsk".equalsIgnoreCase(argv[0])) {
-			filename = "hsk_questions.xml";
-			UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.PLAIN, 25));
-		} else {
-			filename = "pmp_processes.xml";
-		}
-		final InputStream stream = MainWindow.class.getResource(
-				filename).openStream();
-		final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream,
-				CplxProcessGroups.class);
-		final QuestionStatistics questionStatistics = new QuestionStatistics();
-		new KnowledgeAreaFactory().process(cplxProcessGroups);
-		// enrichWithHSK(cplxProcessGroups);
-		
-		
-		final QuestionComposite questionComposite = new QuestionComposite();
-		final OverallQuestionDrawer questionDrawer = new OverallQuestionDrawer(
-				cplxProcessGroups);
-		final QuestionController controller = new QuestionController(
-				questionDrawer, questionStatistics, questionComposite);
-		final SelectQuestionContainerController controller2 = new SelectQuestionContainerController(
-				new SelectQuestionContainerComposite(), questionDrawer);
+    public static void main(final String[] argv) throws IOException {
+        String filename;
+        final QuestionDrawer questionDrawer;
+        QuestionDrawerFactory questionDrawerFactory;
 
-		final QuestionStatisticsController controller3 = new QuestionStatisticsController(
-				new QuestionStatisticsComposite(), questionStatistics);
+        if (argv.length == 1 && "hsk".equalsIgnoreCase(argv[0])) {
+            filename = "hsk_questions.xml";
+            UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.PLAIN, 25));
+            questionDrawerFactory = new QuestionDrawerFactory.HskQuestionDrawer();
+        } else if (argv.length == 1 && "hskl".equalsIgnoreCase(argv[0])) {
+            filename = "hsk_questions_levelled.xml";
+            UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.PLAIN, 25));
+            questionDrawerFactory = new QuestionDrawerFactory.HskQuestionDrawerLevelled();
 
-		final MainWindow mainWindow = new MainWindow(controller, controller2,
-				controller3);
-		mainWindow.addKeyListener(new QuestionSelectedWithKeyListener(controller));
-		mainWindow.setSize(400, 300);
-		mainWindow.setVisible(true);
-	}
-	
-	@Override
-	public synchronized void addKeyListener(KeyListener l) {
-		tabPane.addKeyListener(l);
-		super.addKeyListener(l);
-	}
+        } else {
+            filename = "pmp_processes.xml";
+            questionDrawerFactory = new QuestionDrawerFactory.PmpQuestionDrawer();
+        }
+        final InputStream stream = MainWindow.class.getResource(filename).openStream();
+        final CplxProcessGroups cplxProcessGroups = JAXB.unmarshal(stream, CplxProcessGroups.class);
+        final QuestionStatistics questionStatistics = new QuestionStatistics();
+        new KnowledgeAreaFactory().process(cplxProcessGroups);
 
-	private static void enrichWithHSK(CplxProcessGroups cplxProcessGroups) throws IOException {
-		Charset forName = Charset.forName("UTF-8");
-		for (int i=1; i<=6; i++) {
-			String hsk="HSK"+i;
-			String filename = "HSK Official With Definitions 2012 L"+i+" freqorder.csv";
-			try (
-			InputStream resourceAsStream = MainWindow.class.getResourceAsStream(filename);
-			Reader isr = new InputStreamReader(resourceAsStream, forName);
-			BufferedReader bufferedReader = new BufferedReader(isr);)
-			{
-				CplxKnowledgeArea knowledgeArea = createKnowledgeArea(hsk);
-				cplxProcessGroups.getKnowledgeArea().add(knowledgeArea);
-				CplxGroup cplxGroup1 = createGroup(hsk, knowledgeArea, "1");
-				CplxGroup cplxGroup2 = createGroup(hsk, knowledgeArea, "2");
-				CplxGroup cplxGroup3 = createGroup(hsk, knowledgeArea, "3");
-				
-				String readLine=null;
-				do {
-					readLine = bufferedReader.readLine();
-					if (readLine!=null && !readLine.isEmpty()) {
-						HskLine hskLine = new HskLine(readLine);
-						
-						CplxDefinition definition1 = hskLine.createDefinition1();
-						cplxGroup1.getDefinition().add(definition1);
-						CplxDefinition definition2 = hskLine.createDefinition2();
-						cplxGroup2.getDefinition().add(definition2);
-						CplxDefinition definition3 = hskLine.createDefinition3();
-						cplxGroup3.getDefinition().add(definition3);
-					}
-				} while (readLine!=null);
-				
-			} finally {
-			}
-		}
-		JAXB.marshal(cplxProcessGroups, new File("hsk_questions.xml"));
-	}
+        final QuestionComposite questionComposite = new QuestionComposite();
+        questionDrawer = questionDrawerFactory.createQuestionDrawer(cplxProcessGroups);
+        final QuestionController controller = new QuestionController(questionDrawer, questionStatistics,
+                questionComposite);
+        final SelectQuestionContainerController controller2 = new SelectQuestionContainerController(
+                new SelectQuestionContainerComposite(), questionDrawer);
 
-	private static CplxGroup createGroup(String hsk, CplxKnowledgeArea knowledgeArea, String id) {
-		CplxGroup cplxGroup1 = new CplxGroup();
-		cplxGroup1.setName(hsk+" Questions Group "+id);
-		CplxAddition cplxAddition = knowledgeArea.getAddition();
-		if (cplxAddition==null) {
-			cplxAddition = new CplxAddition();
-			knowledgeArea.setAddition(cplxAddition);
-		}
-		cplxAddition.getGroup().add(cplxGroup1);
-		return cplxGroup1;
-	}
+        final QuestionStatisticsController controller3 = new QuestionStatisticsController(
+                new QuestionStatisticsComposite(), questionStatistics);
 
-	private static CplxKnowledgeArea createKnowledgeArea(String hsk) {
-		CplxKnowledgeArea knowledgeArea1=new CplxKnowledgeArea();
-		knowledgeArea1.setId(hsk);
-		knowledgeArea1.setName(hsk);
-		return knowledgeArea1;
-	}
+        final MainWindow mainWindow = new MainWindow(controller, controller2, controller3);
+        mainWindow.addKeyListener(new QuestionSelectedWithKeyListener(controller));
+        mainWindow.setSize(400, 300);
+        mainWindow.setVisible(true);
+    }
+
+    @Override
+    public synchronized void addKeyListener(KeyListener l) {
+        tabPane.addKeyListener(l);
+        super.addKeyListener(l);
+    }
+
+    public static void enrichWithHSK() throws IOException {
+        CplxProcessGroups cplxProcessGroups = new CplxProcessGroups();
+        Charset forName = Charset.forName("UTF-8");
+        for (int i = 1; i <= 6; i++) {
+            String hsk = "HSK" + i;
+            String filename = "HSK Official With Definitions 2012 L" + i + " freqorder.csv";
+            try (InputStream resourceAsStream = MainWindow.class.getResourceAsStream(filename);
+                    Reader isr = new InputStreamReader(resourceAsStream, forName);
+                    BufferedReader bufferedReader = new BufferedReader(isr);) {
+                CplxKnowledgeArea knowledgeArea = createKnowledgeArea(hsk);
+                CplxKnowledgeArea knowledgeAreaKangxi = createKnowledgeArea(hsk+" Kangxi");
+                cplxProcessGroups.getKnowledgeArea().add(knowledgeArea);
+                cplxProcessGroups.getKnowledgeArea().add(knowledgeAreaKangxi);
+                CplxGroup cplxGroup4 = createGroup(hsk, knowledgeArea, "4");
+                CplxGroup cplxGroup5 = createGroup(hsk, knowledgeAreaKangxi, "");
+
+                String readLine = null;
+                do {
+                    readLine = bufferedReader.readLine();
+                    if (readLine != null && !readLine.isEmpty()) {
+                        HskLine hskLine = new HskLine(readLine);
+
+                        cplxGroup4.getLevelledDefinition().add(hskLine.createLevelledDefinition());
+                        
+                        if (hskLine.isKangxi()) {
+                            cplxGroup5.getLevelledDefinition().add(hskLine.createLevelledDefinition());
+                        }
+                    }
+                } while (readLine != null);
+
+            } finally {
+            }
+        }
+        JAXB.marshal(cplxProcessGroups, new File("hsk_questions-new.xml"));
+    }
+
+    private static CplxGroup createGroup(String hsk, CplxKnowledgeArea knowledgeArea, String id) {
+        CplxGroup cplxGroup1 = new CplxGroup();
+        cplxGroup1.setName(hsk + " Questions Group " + id);
+        CplxAddition cplxAddition = knowledgeArea.getAddition();
+        if (cplxAddition == null) {
+            cplxAddition = new CplxAddition();
+            knowledgeArea.setAddition(cplxAddition);
+        }
+        cplxAddition.getGroup().add(cplxGroup1);
+        return cplxGroup1;
+    }
+
+    private static CplxKnowledgeArea createKnowledgeArea(String hsk) {
+        CplxKnowledgeArea knowledgeArea1 = new CplxKnowledgeArea();
+        knowledgeArea1.setId(hsk);
+        knowledgeArea1.setName(hsk);
+        return knowledgeArea1;
+    }
 }

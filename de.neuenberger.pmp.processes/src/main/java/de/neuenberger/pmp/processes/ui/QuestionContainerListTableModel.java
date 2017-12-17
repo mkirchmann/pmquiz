@@ -6,10 +6,16 @@ import javax.swing.table.AbstractTableModel;
 
 import de.neuenberger.pmp.processes.generator.QuestionContainer;
 
-public class QuestionContainerListTableModel extends AbstractTableModel {
-	private final List<QuestionContainer> questionContainerList;
+/**
+ * 
+ * @author Michael Kirchmann
+ *
+ * @param <Q> Type of the question.
+ */
+public class QuestionContainerListTableModel<Q> extends AbstractTableModel {
+	private final List<QuestionContainer<Q>> questionContainerList;
 	
-	QuestionContainerListTableModel(List<QuestionContainer> questionContainerList) {
+	QuestionContainerListTableModel(List<QuestionContainer<Q>> questionContainerList) {
 		this.questionContainerList = questionContainerList;
 	}
 	

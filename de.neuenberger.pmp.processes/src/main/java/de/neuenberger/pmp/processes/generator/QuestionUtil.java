@@ -3,9 +3,12 @@
  */
 package de.neuenberger.pmp.processes.generator;
 
+import generated.CplxDefinition;
+import generated.CplxLevelledDefinition;
 import generated.CplxNamed;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -50,28 +53,73 @@ public class QuestionUtil {
 	}
 
 	public static <E extends CplxNamed> Question createQuestion(
+            final DefaultQuestionGroup group, final String qString,
+            final E correctAnswer, final List<E> possibleAnswers) {
+        return createQuestion(group, qString, correctAnswer, null, possibleAnswers, CplxNamedLabelProvider.<E>getInstance());
+    }
+	
+	public static <E extends CplxNamed> Question createQuestion(
 			final DefaultQuestionGroup group, final String qString,
-			final E correctAnswer, final List<E> possibleAnswers) {
-		return createQuestion(group, qString, correctAnswer, possibleAnswers, CplxNamedLabelProvider.<E>getInstance());
+			final E correctAnswer, final List<E> possibleAnswers, String solution) {
+		return createQuestion(group, qString, correctAnswer, solution, possibleAnswers, CplxNamedLabelProvider.<E>getInstance());
 	}
 	
 	/**
+	 * 
+	 * @param group
 	 * @param qString
 	 * @param correctAnswer
 	 * @param possibleAnswers
+	 * @param labelProvider
+	 * @return
+	 */
+	public static <E> Question createQuestion(
+            final DefaultQuestionGroup group, final String qString,
+            final E correctAnswer, final List<E> possibleAnswers, LabelProvider<E> labelProvider) {
+	    return createQuestion(group, qString, correctAnswer, null, possibleAnswers, labelProvider);
+	}
+	
+	/**
+	 * 
+	 * @param group
+	 * @param qString
+	 * @param correctAnswer
+	 * @param solution
+	 * @param possibleAnswers
+	 * @param labelProvider
 	 * @return
 	 */
 	public static <E> Question createQuestion(
 			final DefaultQuestionGroup group, final String qString,
-			final E correctAnswer, final List<E> possibleAnswers, LabelProvider<E> labelProvider) {
+			final E correctAnswer, String solution, final List<E> possibleAnswers, LabelProvider<E> labelProvider) {
 		final List<E> drawRandom = QuestionUtil.create4Answers(possibleAnswers,
 				correctAnswer);
 		final List<String> allOptionsAsString = QuestionUtil.convertAnswersToString(drawRandom, labelProvider);
 		final String correctAnswerString = labelProvider.getLabel(correctAnswer);
+		List<String> solutionOptions = calculateSolutionOptions(solution, allOptionsAsString, correctAnswerString);
 		final Question question = new Question(group, qString,
-				allOptionsAsString, correctAnswerString);
+				allOptionsAsString, correctAnswerString, solutionOptions);
 		return question;
 	}
+
+    private static List<String> calculateSolutionOptions(String solution, final List<String> allOptionsAsString,
+            final String correctAnswerString) {
+        List<String> solutionsOptions;
+		if (solution!=null) {
+            solutionsOptions = new ArrayList<String>(allOptionsAsString);
+    		int indexOf = solutionsOptions.indexOf(correctAnswerString);
+    		solutionsOptions.set(indexOf, solution);
+		} else {
+		    solutionsOptions = Collections.emptyList();
+		}
+		return solutionsOptions;
+    }
+	
+	public static <E> Question createQuestion(DefaultQuestionGroup questionGroup, String qString,
+            E correctAnswer, List<E> possibleAnswers, String solution,
+            LabelProvider<E> labelProvider) {
+        return createQuestion(questionGroup, qString, correctAnswer, solution, possibleAnswers, labelProvider);
+    }
 	
 	public interface LabelProvider<E> {
 		String getLabel(E e);
@@ -91,4 +139,5 @@ public class QuestionUtil {
 			return instance;
 		}
 	}
+
 }

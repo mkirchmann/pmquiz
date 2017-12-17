@@ -1,6 +1,9 @@
 package de.neuenberger.pmp.processes;
 
 import generated.CplxDefinition;
+import generated.CplxDefinitionWithLevels;
+import generated.CplxGroup;
+import generated.CplxLevelledDefinition;
 
 public class HskLine {
 	private static final int IDX_CN_SIMPLIFIED;
@@ -47,25 +50,56 @@ public class HskLine {
 	public String getDefinition() {
 		return split[IDX_DEFINITION];
 	}
+	
+	/**
+	 * Creates a definition with one level 1 and two level 2.
+	 * @return {@link CplxDefinitionWithLevels}.
+	 */
+	public CplxDefinitionWithLevels createLevelledDefinition() {
+	    CplxDefinitionWithLevels lDefinition = new CplxDefinitionWithLevels();
+	    lDefinition.getLevelledDefinition().add(createDefinition1());
+	    lDefinition.getLevelledDefinition().add(createDefinition2());
+	    lDefinition.getLevelledDefinition().add(createDefinition3());
+	    return lDefinition;
+	}
 
-	public CplxDefinition createDefinition1() {
-		CplxDefinition definition = new CplxDefinition();
+	/**
+	 * Creates a simple definition, Chinese+Pinyin ./. English.
+	 * @return Returns a simple definition, level 1.
+	 */
+	public CplxLevelledDefinition createDefinition1() {
+		CplxLevelledDefinition definition = new CplxLevelledDefinition();
 		definition.setName(getCnSimplified()+" "+getCnPny2());
 		definition.setDescription(getDefinition());
+		definition.setLevel(1);
 		return definition;
 	}
 	
-	public CplxDefinition createDefinition2() {
-		CplxDefinition definition = new CplxDefinition();
+	/**
+     * Creates a definition chinese ./. English.
+     * @return Returns a simple definition, level 3.
+     */
+	public CplxLevelledDefinition createDefinition2() {
+	    CplxLevelledDefinition definition = new CplxLevelledDefinition();
 		definition.setName(getCnSimplified());
 		definition.setDescription(getDefinition());
+		definition.setLevel(2);
 		return definition;
 	}
 	
-	public CplxDefinition createDefinition3() {
-		CplxDefinition definition = new CplxDefinition();
+	/**
+     * Creates a definition Chinese ./. Pinyin.
+     * @return Returns a simple definition, level 2.
+     */
+	public CplxLevelledDefinition createDefinition3() {
+	    CplxLevelledDefinition definition = new CplxLevelledDefinition();
 		definition.setName(getCnSimplified());
 		definition.setDescription(getCnPny2());
+		definition.setLevel(3);
 		return definition;
 	}
+
+    public boolean isKangxi() {
+        return getDefinition().toLowerCase().contains("(kangxi radical");
+    }
 }

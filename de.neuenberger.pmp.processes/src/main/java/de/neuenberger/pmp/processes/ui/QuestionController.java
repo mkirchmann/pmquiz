@@ -67,14 +67,14 @@ public class QuestionController implements
 		this.question = question;
 
 		clearAnswers();
-		final List<String> options = question.getOptions();
-		for (int i = 0; i < 4; i++) {
-			final String value = options.get(i);
-			questionComposite.getOptionLabels().get(i).setText(value);
-		}
+		fillTextForOptionLabels(question.getOptions());
 		questionComposite.getQuestion().setText(question.getQuestion());
 		questionComposite.setEnabledNextButton(false);
 	}
+
+    private void fillTextForOptionLabels(final List<String> options) {
+    	questionComposite.setOptionLabelsText(options);
+    }
 
 	public void selectedAnswer(final int idx) {
 		if (question != null) {
@@ -87,13 +87,16 @@ public class QuestionController implements
 				idxWrong = null;
 				idxCorrect = idx;
 				answeredCorrect = true;
+				generator.answeredCorrect(question);
 			} else {
 				// incorrect
 				idxCorrect = question.getOptions().indexOf(
 						question.getCorrectAnswer());
 				idxWrong = idx;
 				answeredCorrect = false;
+				generator.answeredWrong(question);
 			}
+			fillTextForOptionLabels(question.getSolutionOptions());
 			markAnswer(idxCorrect, idxWrong);
 
 			questionComposite.setEnabledNextButton(true);

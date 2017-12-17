@@ -116,6 +116,16 @@ public class QuestionComposite extends JPanel {
 	public List<JTextArea> getOptionLabels() {
 		return Collections.unmodifiableList(optionLabels);
 	}
+	
+	public void setOptionLabelsText(List<String> options) {
+    	if (options!=null && options.size()==4) {
+            for (int i = 0; i < 4; i++) {
+                final String value = options.get(i);
+                optionLabels.get(i).setText(value);
+            }
+            doLayout();
+        }
+	}
 
 	public void setEnabledNextButton(boolean b) {
 		for (int i = 0; i < 4; i++) {

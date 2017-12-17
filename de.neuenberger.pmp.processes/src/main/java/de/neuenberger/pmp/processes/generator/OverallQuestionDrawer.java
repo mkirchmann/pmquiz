@@ -3,9 +3,6 @@
  */
 package de.neuenberger.pmp.processes.generator;
 
-import generated.CplxKnowledgeArea;
-import generated.CplxProcess;
-import generated.CplxProcessGroup;
 import generated.CplxProcessGroups;
 
 import java.util.ArrayList;
@@ -18,92 +15,32 @@ import de.neuenberger.pmp.processes.model.Question;
 /**
  * @author Michael Kirchmann
  * 
+ * Type of the question.
  */
-public class OverallQuestionDrawer implements QuestionDrawer {
+public abstract class OverallQuestionDrawer<Q> implements QuestionDrawer<Q> {
 	private final CplxProcessGroups processGroups;
-	private final List<QuestionContainer> generators = new ArrayList<>();
+	private final List<QuestionContainer<Q>> generators;
 
-	private List<QuestionContainer> selectedContainers;
-	private List<Question> selectedQuestions;
+	private List<QuestionContainer<Q>> selectedContainers;
+	private List<Q> selectedQuestions;
 
-	public OverallQuestionDrawer(final CplxProcessGroups processGroups) {
+	public OverallQuestionDrawer(final CplxProcessGroups processGroups, List<QuestionContainer<Q>> theGenerators) {
 		this.processGroups = processGroups;
-
-		final List<CplxProcessGroup> processGroup = processGroups
-				.getProcessGroup();
-		for (final CplxProcessGroup cplxProcessGroup : processGroup) {
-			final List<CplxProcess> allProcesses = cplxProcessGroup
-					.getProcess();
-
-			final QuestionFactory<CplxProcess> factory3 = new ProcessRelatedQuestionGenerator.GuessProcessGroupQuestionFactory(
-					cplxProcessGroup, processGroup);
-			final QuestionFactory<CplxProcess> factory4 = new ProcessRelatedQuestionGenerator.GuessProcessOfProcessGroup(
-					cplxProcessGroup, processGroup);
-
-			final QuestionFactory<CplxProcess> factory5 = new ProcessRelatedQuestionGenerator.GuessProcessNotInThisProcessGroup(
-					cplxProcessGroup, processGroup);
-			final QuestionFactory<CplxProcess> factory6 = new ProcessRelatedQuestionGenerator.GuessInputOutputOfProcess(
-					cplxProcessGroup, processGroup);
-
-			if (Boolean.TRUE.equals(cplxProcessGroup.isSequential())) {
-				final QuestionFactory<CplxProcess> factory1 = new ProcessRelatedQuestionGenerator.GuessNextProcessQuestionFactory(
-						allProcesses);
-				final QuestionFactory<CplxProcess> factory2 = new ProcessRelatedQuestionGenerator.GuessPreviousProcessQuestionFactory(
-						allProcesses);
-
-				generators.add(new ProcessRelatedQuestionGenerator(
-						cplxProcessGroup, factory1));
-				generators.add(new ProcessRelatedQuestionGenerator(
-						cplxProcessGroup, factory2));
-			}
-
-			generators.add(new ProcessRelatedQuestionGenerator(
-					cplxProcessGroup, factory3));
-			generators.add(new ProcessRelatedQuestionGenerator(
-					cplxProcessGroup, factory4));
-			generators.add(new ProcessRelatedQuestionGenerator(
-					cplxProcessGroup, factory5));
-			generators.add(new ProcessRelatedQuestionGenerator(
-					cplxProcessGroup, factory6));
-
-			selectedContainers = generators;
-		}
-
-		final List<CplxKnowledgeArea> knowledgeAreas = processGroups
-				.getKnowledgeArea();
-		for (final CplxKnowledgeArea cplxKnowledgeArea : knowledgeAreas) {
-			final QuestionFactory<CplxProcess> questionFactory = new KnowledgeAreaRelatedQuestionGenerator.GuessKnowledgeArea(
-					cplxKnowledgeArea, knowledgeAreas);
-			generators.add(new KnowledgeAreaRelatedQuestionGenerator(
-					cplxKnowledgeArea, questionFactory));
-			generators
-					.add(new KnowledgeAreaReleatedAdditionalQuestionsGenerator(
-							cplxKnowledgeArea));
-		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.neuenberger.pmp.processes.generator.QuestionDrawer#generateQuestion ()
-	 */
-	@Override
-	public Question drawQuestion() {
-		return RandomDrawer.drawRandomSingle(getSelectedQuestions());
+		this.generators = new ArrayList<>(theGenerators);
+		this.selectedContainers=theGenerators;
 	}
 
 	/**
 	 * @return the generators
 	 */
-	public List<QuestionContainer> getGenerators() {
+	public List<QuestionContainer<Q>> getGenerators() {
 		return Collections.unmodifiableList(generators);
 	}
 
 	/**
 	 * @return the selectedContainers
 	 */
-	public List<QuestionContainer> getSelectedContainers() {
+	public List<QuestionContainer<Q>> getSelectedContainers() {
 		return selectedContainers;
 	}
 
@@ -112,7 +49,7 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 	 *            the selectedContainers to set
 	 */
 	public void setSelectedContainers(
-			final List<QuestionContainer> selectedContainers) {
+			final List<QuestionContainer<Q>> selectedContainers) {
 		this.selectedContainers = selectedContainers;
 		selectedQuestions = null;
 	}
@@ -120,11 +57,11 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 	/**
 	 * @return the selectedQuestions
 	 */
-	public List<Question> getSelectedQuestions() {
+	public List<Q> getSelectedQuestions() {
 		if (selectedQuestions == null) {
 			if (selectedContainers != null) {
 				selectedQuestions = new LinkedList<>();
-				for (final QuestionContainer container : selectedContainers) {
+				for (final QuestionContainer<Q> container : selectedContainers) {
 					selectedQuestions.addAll(container.getAllQuestions());
 				}
 			} else {
@@ -133,5 +70,14 @@ public class OverallQuestionDrawer implements QuestionDrawer {
 		}
 		return selectedQuestions;
 	}
-
+	
+	@Override
+	public void answeredCorrect(Question question) {
+	    // do nothing
+	}
+	
+	@Override
+    public void answeredWrong(Question question) {
+        // do nothing
+    }
 }

@@ -57,6 +57,8 @@ public class KnowledgeAreaReleatedAdditionalQuestionsGenerator extends
 						cplxDefinition, definition, provider));
 			}
 		}
+		
+		
 
 		return result;
 	}
